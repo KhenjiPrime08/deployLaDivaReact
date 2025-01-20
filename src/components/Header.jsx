@@ -5,7 +5,7 @@ import luna from "../assets/images/iconos/luna.webp";
 import esp from "../assets/images/iconos/banderaEsp.webp";
 import eng from "../assets/images/iconos/reino-unido.webp";
 import de from "../assets/images/iconos/aleman.webp";
-import "../styles/Header.css";
+import "../styles/Css/Header.css";
 
 function Header() {
     const [logged, setLogged] = useState(false); // Solo como ejemplo

@@ -1,0 +1,140 @@
+/* Variables (si las deseas usar para colores, tamaños, etc.) */
+$header-bg-color: lightblue;
+$font-family-navbar: "Angel wish", serif;
+$navbar-font-size: 23px;
+$flag-img-height: 30px;
+$logo-height-large: 110px;
+$logo-height-small: 60px;
+
+/* Estilos generales del header */
+header {
+    background-color: $header-bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 50%;
+
+    /* Respuesta móvil */
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+/* Logo */
+.logo {
+    height: $logo-height-large;
+    cursor: pointer;
+
+    /* Respuesta móvil */
+    @media screen and (max-width: 768px) {
+        height: $logo-height-small;
+    }
+}
+
+/* Navegación */
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+
+    /* Respuesta móvil */
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* Elementos de la navbar */
+.navbar {
+    font-family: $font-family-navbar;
+    font-size: $navbar-font-size;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+
+    &:hover {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        transition: text-shadow 0.3s ease;
+    }
+}
+
+/* Iconos e imágenes pequeñas */
+.navbar img {
+    height: 24px;
+    width: auto;
+}
+
+/* Bandera de idioma */
+.languages {
+    position: relative;
+
+    img {
+        height: $flag-img-height;
+        width: auto;
+        transition: filter 0.1s ease;
+
+        &:hover {
+            filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+        }
+    }
+
+    /* Menú desplegable de idiomas al hacer hover */
+    &:hover .flags-dropdown {
+        display: block;
+    }
+}
+
+/* Menú de banderas */
+.flags-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30px;
+
+    li {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+
+        img {
+            height: $flag-img-height;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .flags-dropdown {
+        position: static;
+        width: 100%;
+        text-align: center;
+        box-shadow: none;
+    }
+}

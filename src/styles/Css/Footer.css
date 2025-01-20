@@ -1,0 +1,39 @@
+.footer {
+  background-color: #1c1c1c;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #aaa;
+  font-size: 14px;
+  border-top: 1px solid #444;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  font-weight: normal;
+}
+
+.footer-right a {
+  color: #aaa;
+  margin: 0 10px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-right a:hover {
+  color: #fff;
+}
+
+.icon {
+  width: 30px;
+}
+
+/*# sourceMappingURL=Footer.css.map */
