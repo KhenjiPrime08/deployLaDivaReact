@@ -6,20 +6,23 @@ function Footer(){
   return (
     <footer className="footer">
       <section className="footer-content">
+
         <article className="footer-left">
-          <span>&copy; 2024 Company, Inc</span>
+          <span>&copy; 2025 La Diva Tattoo</span>
         </article>
+
         <article className="footer-right">
-          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/profile.php?id=61553597955917" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <img className="icon" src={iconos.facebook} alt="Facebook icon" />
           </a>
-          <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.tiktok.com/@la.diva.tattoo" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
             <img className="icon" src={iconos.tiktok} alt="TikTok icon" />
           </a>
-          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/la_diva_tattoo/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <img className="icon" src={iconos.instagram} alt="Instagram icon" />
           </a>
         </article>
+
       </section>
     </footer>
   );

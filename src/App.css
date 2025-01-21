@@ -1,0 +1,14 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header {
+    background-color: lightblue;
+}
+
+body.dark-mode header {
+    background-color: #333;
+}
+
+/* Puedes añadir más estilos globales para botones, enlaces, etc. */

@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import logo from "../assets/images/otros/logo_Diva.webp";
-import sol from "../assets/images/iconos/sol.webp";
-import luna from "../assets/images/iconos/luna.webp";
+import sun from "../assets/images/iconos/sol.webp";
+import moon from "../assets/images/iconos/luna.webp";
 import esp from "../assets/images/iconos/banderaEsp.webp";
 import eng from "../assets/images/iconos/reino-unido.webp";
 import de from "../assets/images/iconos/aleman.webp";
 import "../styles/Css/Header.css";
 
-function Header() {
+function Header({darkmode, toggleTheme}) {
+
     const [logged, setLogged] = useState(false); // Solo como ejemplo
 
     return (
         <header>
-            <div className="logo-container">
+            <article className="logo-container">
                 <img src={logo} alt="Logo de la diva" className="logo" />
-            </div>
+            </article>
             <nav>
                 <ul>
-                    <li className='navbar'><img src={luna} alt="modo oscuro" /></li>
+                    <li className='navbar'><img src={darkmode ? sun : moon } alt={ darkmode ? "Modo claro" : "Modo oscuro"} onClick={toggleTheme} /></li>
                     <li className='navbar'>Inicio</li>
                     <li className='navbar'>Sobre Nosotros</li>
                     <li className='navbar'>Pedir cita piercing</li>

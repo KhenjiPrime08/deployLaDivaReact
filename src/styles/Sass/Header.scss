@@ -1,5 +1,4 @@
 /* Variables (si las deseas usar para colores, tamaños, etc.) */
-$header-bg-color: lightblue;
 $font-family-navbar: "Angel wish", serif;
 $navbar-font-size: 23px;
 $flag-img-height: 30px;
@@ -8,7 +7,7 @@ $logo-height-small: 60px;
 
 /* Estilos generales del header */
 header {
-    background-color: $header-bg-color;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,6 +15,8 @@ header {
     top: 0;
     z-index: 1000;
     width: 50%;
+    margin: 0 auto;  // Centrar el header horizontalmente
+    max-width: 1000px; 
 
     /* Respuesta móvil */
     @media screen and (max-width: 768px) {
@@ -55,7 +56,8 @@ nav ul {
     @media screen and (max-width: 768px) {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 5px;
+        font-size: 20px;
     }
 }
 
