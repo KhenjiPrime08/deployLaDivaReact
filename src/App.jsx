@@ -24,7 +24,7 @@ function App() {
   return (
 
 
-    <div className={`App ${darkMode ? 'dark' : ''}`}>
+    <section className={`App ${darkMode ? 'dark' : ''}`}>
       <Header darkmode={darkMode} toggleTheme={toggleTheme} />
       <main>
           <Routes>
@@ -32,7 +32,7 @@ function App() {
           </Routes>
       </main>
       <Footer />
-    </div>
+    </section>
     
   )
 }
