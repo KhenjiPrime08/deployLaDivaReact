@@ -81,7 +81,7 @@ function Home() {
       </section>
 
       <section className='reseñas'>
-        <h1>Reseñas</h1>
+        <h1>Reseñass</h1>
       </section>
 
 
