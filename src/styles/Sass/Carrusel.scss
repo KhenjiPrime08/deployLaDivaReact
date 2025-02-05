@@ -1,0 +1,99 @@
+/*
+  SASS CARRUSEL - RESPONSIVE
+*/
+
+// Variables para colores y tamaños
+$btn-bg: rgba(0, 0, 0, 0.5);
+$btn-hover-bg: rgba(0, 0, 0, 0.8);
+$btn-color: white;
+$border-radius: 10px;
+$shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+// Contenedor principal del carrusel
+.carousel-container {
+  position: relative;
+  width: 600px;
+  height: 550px;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+
+  @media screen and (max-width: 1024px) {
+    width: 80%; // Reduce el ancho en tablets
+    height: 450px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    height: 350px;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+// Contenedor de imágenes
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+
+  
+}
+
+
+// Botones de navegación
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $btn-bg;
+  color: $btn-color;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 10;
+  user-select: none;
+  font-size: 18px; // Tamaño del icono/flecha
+
+  &:hover {
+    background-color: $btn-hover-bg;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  &.prev {
+    left: 10px;
+
+    @media screen and (max-width: 480px) {
+      left: 5px;
+    }
+  }
+
+  &.next {
+    right: 10px;
+
+    @media screen and (max-width: 480px) {
+      right: 5px;
+    }
+  }
+}

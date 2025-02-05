@@ -1,84 +1,116 @@
 // Estilos generales de la sección de información
 .info {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-  }
-  
-  // Video
-  .video {
-    height: 300px;
-    margin: 10px;
-  }
-  
-  // Título y texto
-  .titulo {
-    font-family: "Roboto", sans-serif;
-    font-size: 25px;
-  }
-  
-  .texto {
-    margin-top: 20px;
-  }
-  
-  .parrafo {
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-  }
-  
-  /* ---------------- SEPARACIÓN ---------------- */
-  .separacion {
-    margin-top: 25px;
-    position: relative;
-    height: 120px;
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column; // En pantallas pequeñas, cambia a columna
     align-items: center;
-    justify-content: center;
+  }
+}
+
+// Video
+.video {
+  height: 300px;
+  margin: 10px;
+
+  @media screen and (max-width: 768px) {
+    height: 200px; // Reduce el tamaño del video en móviles
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 150px; // Aún más pequeño en dispositivos pequeños
+  }
+}
+
+// Título y texto
+.titulo {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px; // Reduce el tamaño del texto en móviles
+    text-align: center;
+  }
+}
+
+.texto {
+  margin-top: 20px;
+  text-align: justify;
+
+  @media screen and (max-width: 768px) {
+    text-align: center; // Alineación centrada en móviles
+  }
+}
+
+.parrafo {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+
+// Muestras
+.muestras {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column; // Pone los elementos en columna en móviles
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+// Abajo
+.abajo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750px;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%; // Reduce el ancho en tablets
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%; // Usa todo el ancho en móviles
+  }
+
+  h1 {
     font-family: "Angel Wish", sans-serif;
     font-size: 40px;
-  
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
-      z-index: 1;
+    font-weight: normal;
+
+    @media screen and (max-width: 768px) {
+      font-size: 30px; // Reduce el tamaño del título en móviles
     }
-  
-    h2 {
-      position: relative;
-      z-index: 2;
-      font-weight: normal;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: 480px) {
+      font-size: 24px;
     }
   }
-  
-  // Muestras
-  .muestras {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  // Abajo
-  .abajo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 750px;
-  
-    h1 {
-      font-family: "Angel Wish", sans-serif;
-      font-size: 40px;
-      font-weight: normal;
+
+  p {
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
     }
-  
-    p {
-      font-size: 20px;
-      font-family: "Roboto", sans-serif;
-      text-align: center;
+
+    @media screen and (max-width: 480px) {
+      font-size: 16px;
     }
   }
-  
-  
+}

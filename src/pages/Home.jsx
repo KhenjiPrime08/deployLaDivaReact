@@ -6,6 +6,7 @@ import yani from '../assets/images/tattos_Yani/yani.js';
 import piercing from '../assets/images/piercings/piercings.js'
 import alex from '../assets/images/tattoos_Alex/alex.js'
 import { Link } from 'react-router-dom';
+import Separador from '../components/Separador.jsx';
 
 
 
@@ -51,12 +52,7 @@ function Home() {
       </section>
 
 
-      <section className="separacion">
-        <h2>Servicios</h2>
-      </section>
-
-
-
+      <Separador text={"Servicios"}/>
 
 
       <section className='muestras' >

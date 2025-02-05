@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* ---------------- SEPARACIÓN ---------------- */
+.separacion {
+  margin-top: 25px;
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Angel Wish", sans-serif;
+  font-size: 40px;
+}
+.separacion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
+  z-index: 1;
+}
+.separacion h2 {
+  position: relative;
+  z-index: 2;
+  font-weight: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/*# sourceMappingURL=Separador.css.map */
