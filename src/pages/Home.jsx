@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 import Separador from '../components/Separador.jsx';
 
 
-
-
 function Home() {
 
   const tattooImages = [
@@ -29,7 +27,7 @@ function Home() {
     <section>
 
       <section className='info'>
-        <article className='video'>
+        <article>
           <video src={otros.video}  muted loop className='video' />
         </article>
 

@@ -14,6 +14,8 @@
 .video {
   height: 300px;
   margin: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+  
 
   @media screen and (max-width: 768px) {
     height: 200px; // Reduce el tamaño del video en móviles
@@ -36,6 +38,8 @@
 }
 
 .texto {
+  margin-left: 25px;
+  width: 60%;
   margin-top: 20px;
   text-align: justify;
 

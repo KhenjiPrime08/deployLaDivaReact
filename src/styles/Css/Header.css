@@ -8,15 +8,26 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   max-width: 1000px;
   /* Respuesta móvil */
 }
 @media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
+  header nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 10px; /* Espaciado entre elementos */
+    text-align: center;
+    width: 100%;
+  }
+  header .navbar {
+    width: 100%; /* Asegura que cada elemento ocupe bien su espacio */
+  }
+  header .languages {
+    grid-column: span 2; /* Ocupará toda la fila */
+    display: flex;
+    justify-content: center;
   }
 }
 
