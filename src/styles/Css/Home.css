@@ -17,23 +17,12 @@
 }
 @media screen and (max-width: 768px) {
   .video {
-    height: 200px;
+    height: 270px;
   }
 }
 @media screen and (max-width: 480px) {
   .video {
-    height: 150px;
-  }
-}
-
-.titulo {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-}
-@media screen and (max-width: 768px) {
-  .titulo {
-    font-size: 20px;
-    text-align: center;
+    height: 200px;
   }
 }
 
@@ -45,6 +34,29 @@
 }
 @media screen and (max-width: 768px) {
   .texto {
+    width: 70%;
+    text-align: justify;
+  }
+}
+@media screen and (max-width: 480px) {
+  .texto {
+    width: 80%;
+  }
+}
+
+.titulo {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+}
+@media screen and (max-width: 768px) {
+  .titulo {
+    font-size: 25px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .titulo {
+    font-size: 20px;
     text-align: center;
   }
 }
@@ -84,14 +96,14 @@
   align-items: center;
   width: 750px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .abajo {
     width: 90%;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .abajo {
-    width: 100%;
+    width: 90%;
   }
 }
 .abajo h1 {
@@ -101,12 +113,12 @@
 }
 @media screen and (max-width: 768px) {
   .abajo h1 {
-    font-size: 30px;
+    font-size: 35px;
   }
 }
 @media screen and (max-width: 480px) {
   .abajo h1 {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 .abajo p {

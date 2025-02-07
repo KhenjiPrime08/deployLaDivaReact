@@ -18,22 +18,11 @@
   
 
   @media screen and (max-width: 768px) {
-    height: 200px; // Reduce el tamaño del video en móviles
+    height: 270px; // Reduce el tamaño del video en móviles
   }
 
   @media screen and (max-width: 480px) {
-    height: 150px; // Aún más pequeño en dispositivos pequeños
-  }
-}
-
-// Título y texto
-.titulo {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-
-  @media screen and (max-width: 768px) {
-    font-size: 20px; // Reduce el tamaño del texto en móviles
-    text-align: center;
+    height: 200px; // Aún más pequeño en dispositivos pequeños
   }
 }
 
@@ -44,9 +33,34 @@
   text-align: justify;
 
   @media screen and (max-width: 768px) {
-    text-align: center; // Alineación centrada en móviles
+    width: 70%;
+    text-align: justify; // Alineación centrada en móviles
   }
+
+  @media screen and (max-width: 480px) {
+    width: 80%;
+  }
+  
 }
+
+// Título y texto
+.titulo {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 25px; // Reduce el tamaño del texto en móviles
+    text-align: center;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 20px; // Reduce el tamaño del texto en móviles
+    text-align: center;
+  }
+
+}
+
+
 
 .parrafo {
   font-family: "Roboto", sans-serif;
@@ -82,12 +96,12 @@
   align-items: center;
   width: 750px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     width: 90%; // Reduce el ancho en tablets
   }
 
-  @media screen and (max-width: 768px) {
-    width: 100%; // Usa todo el ancho en móviles
+  @media screen and (max-width: 480px) {
+    width: 90%; // Usa todo el ancho en móviles
   }
 
   h1 {
@@ -96,11 +110,11 @@
     font-weight: normal;
 
     @media screen and (max-width: 768px) {
-      font-size: 30px; // Reduce el tamaño del título en móviles
+      font-size: 35px; // Reduce el tamaño del título en móviles
     }
 
     @media screen and (max-width: 480px) {
-      font-size: 24px;
+      font-size: 30px;
     }
   }
 
