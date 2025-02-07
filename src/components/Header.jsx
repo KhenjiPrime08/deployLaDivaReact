@@ -14,7 +14,6 @@ function Header({darkmode, toggleTheme}) {
             <nav>
                 <ul>
                     <li className='navbar'><img src={darkmode ? iconos.sun : iconos.moon } alt={ darkmode ? "Modo claro" : "Modo oscuro"} onClick={toggleTheme} /></li>
-                    <li className='navbar'>Inicio</li>
                     <li className='navbar'>Sobre Nosotros</li>
                     <li className='navbar'>Pedir cita piercing</li>
                     <li className='navbar'>Pedir cita Tatoo</li>

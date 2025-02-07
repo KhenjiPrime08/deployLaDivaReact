@@ -1,8 +1,16 @@
 /* Variables (si las deseas usar para colores, tamaños, etc.) */
 $font-family-navbar: "Angel wish", serif;
+
 $navbar-font-size: 23px;
+$navbar-font-size-medium: 20px;
+$navbar-font-size-small: 15px;
+
 $flag-img-height: 30px;
+$flag-img-height-medium: 20px;
+$flag-img-height-small: 15px;
+
 $logo-height-large: 110px;
+$logo-height-medium: 80px;
 $logo-height-small: 60px;
 
 /* Estilos generales del header */
@@ -14,31 +22,45 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%; // He cambiado de 50% a 100%
-    margin: 0 auto;  // Centrar el header horizontalmente
+    width: 100%; 
+    margin: 0 auto;  
     max-width: 1000px; 
 
-    /* Respuesta móvil */
+    /* Respuesta móvil grande */
     @media screen and (max-width: 768px) {
         nav ul {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-            gap: 10px; /* Espaciado entre elementos */
+            display: flex;
+            flex-direction: row;
             text-align: center;
             width: 100%;
-        }
-    
-        .navbar {
-            width: 100%; /* Asegura que cada elemento ocupe bien su espacio */
+            gap: 15px;
         }
     
         .languages {
-            grid-column: span 2; /* Ocupará toda la fila */
             display: flex;
             justify-content: center;
         }
         
     }
+
+    /* Respuesta móvil pequeño */
+    @media screen and (max-width: 480px) {
+        nav ul {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            width: 100%;
+            gap: 10px;
+        }
+    
+        .languages {
+            display: flex;
+            justify-content: center;
+        }
+        
+    }
+
+    
 }
 
 /* Contenedor del logo */
@@ -53,8 +75,18 @@ header {
     height: $logo-height-large;
     cursor: pointer;
 
+    &:hover {
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));
+        transition: filter 0.3s ease;
+    }
+
     /* Respuesta móvil */
     @media screen and (max-width: 768px) {
+        height: $logo-height-medium;
+    }
+
+    /* Respuesta móvil */
+    @media screen and (max-width: 480px) {
         height: $logo-height-small;
     }
 }
@@ -67,14 +99,6 @@ nav ul {
     gap: 20px;
     padding: 0;
     margin: 0;
-
-    /* Respuesta móvil */
-    @media screen and (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        font-size: 20px;
-    }
 }
 
 /* Elementos de la navbar */
@@ -83,19 +107,41 @@ nav ul {
     font-size: $navbar-font-size;
     text-decoration: none;
     cursor: pointer;
-    transition: color 0.3s ease-in-out;
     position: relative;
 
     &:hover {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         transition: text-shadow 0.3s ease;
     }
+
+    @media screen and (max-width: 768px) {
+        font-size: $navbar-font-size-medium;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: $navbar-font-size-small;
+    }
 }
 
-/* Iconos e imágenes pequeñas */
+/* Iconos e imágenes pequeñas (luna) */
 .navbar img {
     height: 24px;
     width: auto;
+
+    &:hover {
+        filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 1));
+        transition: filter 0.3s ease;
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 20px;
+        width: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+        height: 15px;
+        width: auto;
+    }
 }
 
 /* Bandera de idioma */
@@ -116,6 +162,20 @@ nav ul {
     &:hover .flags-dropdown {
         display: block;
     }
+
+    @media screen and (max-width: 768px) {
+        img{
+            height: $flag-img-height-medium;
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        img{
+            height: $flag-img-height-small;
+            width: auto;
+        }
+    }
 }
 
 /* Menú de banderas */
@@ -123,7 +183,7 @@ nav ul {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     background-color: white;
     border: 1px solid #ccc;
     padding: 5px;
@@ -145,14 +205,48 @@ nav ul {
             cursor: pointer;
         }
     }
-}
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .flags-dropdown {
-        position: static;
-        width: 100%;
-        text-align: center;
-        box-shadow: none;
+    /* Responsive  le cambio el tamaño al desplegable */
+    @media screen and (max-width: 768px) {
+        
+        width: 20px;
+            
+        
+        
+        li {
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: $flag-img-height-medium; //Le cambio el tamaño a las otras banderas
+            }
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        
+        width: 10px;
+            
+        
+        li {
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: $flag-img-height-small; //Le cambio el tamaño a las otras banderas
+            }
+            
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
+
+

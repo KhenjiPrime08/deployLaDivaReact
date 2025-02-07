@@ -11,21 +11,31 @@ header {
   width: 100%;
   margin: 0 auto;
   max-width: 1000px;
-  /* Respuesta móvil */
+  /* Respuesta móvil grande */
+  /* Respuesta móvil pequeño */
 }
 @media screen and (max-width: 768px) {
   header nav ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 10px; /* Espaciado entre elementos */
+    display: flex;
+    flex-direction: row;
     text-align: center;
     width: 100%;
-  }
-  header .navbar {
-    width: 100%; /* Asegura que cada elemento ocupe bien su espacio */
+    gap: 15px;
   }
   header .languages {
-    grid-column: span 2; /* Ocupará toda la fila */
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  header nav ul {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    gap: 10px;
+  }
+  header .languages {
     display: flex;
     justify-content: center;
   }
@@ -43,8 +53,18 @@ header {
   height: 110px;
   cursor: pointer;
   /* Respuesta móvil */
+  /* Respuesta móvil */
+}
+.logo:hover {
+  filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));
+  transition: filter 0.3s ease;
 }
 @media screen and (max-width: 768px) {
+  .logo {
+    height: 80px;
+  }
+}
+@media screen and (max-width: 480px) {
   .logo {
     height: 60px;
   }
@@ -58,15 +78,6 @@ nav ul {
   gap: 20px;
   padding: 0;
   margin: 0;
-  /* Respuesta móvil */
-}
-@media screen and (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    font-size: 20px;
-  }
 }
 
 /* Elementos de la navbar */
@@ -75,18 +86,43 @@ nav ul {
   font-size: 23px;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
   position: relative;
 }
 .navbar:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   transition: text-shadow 0.3s ease;
 }
+@media screen and (max-width: 768px) {
+  .navbar {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .navbar {
+    font-size: 15px;
+  }
+}
 
-/* Iconos e imágenes pequeñas */
+/* Iconos e imágenes pequeñas (luna) */
 .navbar img {
   height: 24px;
   width: auto;
+}
+.navbar img:hover {
+  filter: drop-shadow(2px 2px 5px rgb(0, 0, 0));
+  transition: filter 0.3s ease;
+}
+@media screen and (max-width: 768px) {
+  .navbar img {
+    height: 20px;
+    width: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  .navbar img {
+    height: 15px;
+    width: auto;
+  }
 }
 
 /* Bandera de idioma */
@@ -105,13 +141,25 @@ nav ul {
 .languages:hover .flags-dropdown {
   display: block;
 }
+@media screen and (max-width: 768px) {
+  .languages img {
+    height: 20px;
+    width: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  .languages img {
+    height: 15px;
+    width: auto;
+  }
+}
 
 /* Menú de banderas */
 .flags-dropdown {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   background-color: white;
   border: 1px solid #ccc;
   padding: 5px;
@@ -119,6 +167,7 @@ nav ul {
   margin: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 30px;
+  /* Responsive  le cambio el tamaño al desplegable */
 }
 .flags-dropdown li {
   padding: 5px;
@@ -131,14 +180,36 @@ nav ul {
 .flags-dropdown li:hover {
   cursor: pointer;
 }
-
-/* Responsive */
 @media screen and (max-width: 768px) {
   .flags-dropdown {
-    position: static;
-    width: 100%;
-    text-align: center;
-    box-shadow: none;
+    width: 20px;
+  }
+  .flags-dropdown li {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+  }
+  .flags-dropdown li img {
+    height: 20px;
+  }
+  .flags-dropdown li:hover {
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 480px) {
+  .flags-dropdown {
+    width: 10px;
+  }
+  .flags-dropdown li {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+  }
+  .flags-dropdown li img {
+    height: 15px;
+  }
+  .flags-dropdown li:hover {
+    cursor: pointer;
   }
 }
 
