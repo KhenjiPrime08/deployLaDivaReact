@@ -29,7 +29,7 @@ function App() {
       <Header darkmode={darkMode} toggleTheme={toggleTheme} />
       <main>
           <Routes>
-              <Route path='/' element={<Home />} />
+              <Route path='/' element={<Home darkMode={darkMode} />} />
               <Route path='/citaTattoo' element={<CitaTattoo />} />
           </Routes>
       </main>

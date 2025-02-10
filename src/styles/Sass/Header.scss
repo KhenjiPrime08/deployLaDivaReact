@@ -250,3 +250,12 @@ nav ul {
 }
 
 
+
+//MODO OSCURO
+
+.navbar.dark{
+    &:hover {
+        text-shadow: 2px 2px 5px rgba(255, 253, 253, 0.5);
+        transition: text-shadow 0.3s ease;
+    }
+}

@@ -12,9 +12,9 @@ import Separador from '../components/Separador.jsx';
 function Home() {
 
   const tattooImages = [
-    yani.cara_mano,
-    yani.elefante,
-    alex.runa
+    yani.batman,
+    alex.runa,
+    alex.memento
   ];
   
   const piercingImagesList = [
