@@ -1,9 +1,10 @@
 import React from 'react'
 import '../styles/Css/Separador.css'
 
-function Separador({ text }) {
+function Separador({ text, darkmode }) {
+  
   return (
-    <section className="separacion">
+    <section className={`separacion ${darkmode ? "dark" : ""}`}>
         <h2>{text}</h2>
     </section>
   )

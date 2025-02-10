@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Separador from '../components/Separador.jsx';
 
 
-function Home() {
+function Home({darkMode}) {
 
   const tattooImages = [
     yani.batman,
@@ -50,7 +50,7 @@ function Home() {
       </section>
 
 
-      <Separador text={"Servicios"}/>
+      <Separador text={"Servicios"} darkmode={darkMode}/>
 
 
       <section className='muestras' >
