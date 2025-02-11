@@ -8,10 +8,12 @@ import { useEffect, useState } from 'react'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import CitaPiercing from './pages/CitaPiercing.jsx'
+import SobreNosotros from './pages/SobreNosotros.jsx'
+import Perfil from './pages/Perfil.jsx'
 
 function App() {
 
-  const [logged, setLogged] = useState(true); 
+  const [logged, setLogged] = useState(false); 
 
 
   const [darkMode, setDarkMode] = useState(() => {
@@ -40,6 +42,8 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/citaPiercing' element={<CitaPiercing />} />
+              <Route path='/sobreNosotros' element={<SobreNosotros />} />
+              <Route path='/perfil' element={<Perfil />} />
           </Routes>
       </main>
       <Footer />

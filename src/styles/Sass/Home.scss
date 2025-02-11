@@ -9,7 +9,7 @@
     align-items: center;
   }
 
-  @media screen and (max-height: 500px) and (orientation: landscape){
+  @media screen and (max-height: 768px) and (orientation: landscape){
     flex-direction: column;
     align-items: center;
   }
@@ -18,7 +18,7 @@
 // Video
 .video {
   height: 300px;
-  margin: 10px;
+  margin: 10px ;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
 
   @media screen and (max-width: 768px) {
@@ -29,7 +29,8 @@
     height: 200px; // Aún más pequeño en dispositivos pequeños
   }
 
-  @media screen and (max-height: 500px) and (orientation: landscape){
+  @media screen and (max-height: 768px) and (orientation: landscape){
+    flex-direction: column;
     width: 80%; 
     max-width: 600px;
     height: auto; 
@@ -139,9 +140,11 @@
   }
 
   p {
+    width: 600px;
     font-size: 20px;
     font-family: "Roboto", sans-serif;
     text-align: center;
+    min-height: 70px ;
 
     @media screen and (max-width: 768px) {
       font-size: 18px;

@@ -17,10 +17,10 @@ function Header({darkmode, toggleTheme, logged}) {
             <nav>
                 <ul>
                     <li className={`navbar icono ${darkmode ? "dark" : ""}`}><img src={darkmode ? iconos.sun : iconos.moon } alt={ darkmode ? "Modo claro" : "Modo oscuro"} onClick={toggleTheme} /></li>
-                    <li className={`navbar ${darkmode ? "dark" : ""}`}>Sobre Nosotros</li>
-                    <li className={`navbar ${darkmode ? "dark" : ""}`}>Pedir cita piercing</li>
-                    <li className={`navbar ${darkmode ? "dark" : ""}`}>Pedir cita Tatoo</li>
-                    <li className={`navbar ${darkmode ? "dark" : ""}`}>{logged ? "Perfil" : "Iniciar sesión"}</li>
+                    <li className={`navbar ${darkmode ? "dark" : ""}`}><Link to="/sobreNosotros">Sobre Nosotros </Link></li>
+                    <li className={`navbar ${darkmode ? "dark" : ""}`}> <Link to={logged ? "/citaTattoo" : "/login"}>Pedir cita Tattoo</Link></li>
+                    <li className={`navbar ${darkmode ? "dark" : ""}`}> <Link to={logged ? "/citaPiercing" : "/login"}> Pedir cita Piercing </Link></li>
+                    <li className={`navbar ${darkmode ? "dark" : ""}`}><Link to={logged ? "/perfil" : "/login"}> {logged ? "Perfil" : "Iniciar sesión"} </Link> </li>
                     <li className={`navbar languages ${darkmode ? "dark" : ""}`}>
                         <img src={iconos.esp} alt="Spain flag" />
                         <ul className={`flags-dropdown ${darkmode ? "dark" : ""}`}>
