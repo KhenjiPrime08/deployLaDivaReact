@@ -8,6 +8,11 @@
     flex-direction: column; // En pantallas pequeñas, cambia a columna
     align-items: center;
   }
+
+  @media screen and (max-height: 500px) and (orientation: landscape){
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 // Video
@@ -15,7 +20,6 @@
   height: 300px;
   margin: 10px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
-  
 
   @media screen and (max-width: 768px) {
     height: 270px; // Reduce el tamaño del video en móviles
@@ -24,12 +28,21 @@
   @media screen and (max-width: 480px) {
     height: 200px; // Aún más pequeño en dispositivos pequeños
   }
+
+  @media screen and (max-height: 500px) and (orientation: landscape){
+    width: 80%; 
+    max-width: 600px;
+    height: auto; 
+    margin: 10px auto; 
+    display: block;
+    
+  }
 }
 
 .texto {
   margin-left: 25px;
   width: 60%;
-  margin-top: 20px;
+  margin: 20px auto;
   text-align: justify;
 
   @media screen and (max-width: 768px) {
@@ -37,7 +50,7 @@
     text-align: justify; // Alineación centrada en móviles
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px)  {
     width: 80%;
   }
   
@@ -86,6 +99,13 @@
     flex-direction: column; // Pone los elementos en columna en móviles
     align-items: center;
     gap: 10px;
+  }
+
+  //Las que tengan menos de 800 px de alto se verán asi
+  @media screen and (max-height:800px) and (orientation: landscape){
+    flex-direction: column;
+    align-items: center;
+   
   }
 }
 

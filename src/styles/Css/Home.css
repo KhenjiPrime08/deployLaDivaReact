@@ -9,6 +9,12 @@
     align-items: center;
   }
 }
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .video {
   height: 300px;
@@ -25,11 +31,20 @@
     height: 200px;
   }
 }
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .video {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+  }
+}
 
 .texto {
   margin-left: 25px;
   width: 60%;
-  margin-top: 20px;
+  margin: 20px auto;
   text-align: justify;
 }
 @media screen and (max-width: 768px) {
@@ -87,6 +102,12 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+}
+@media screen and (max-height: 800px) and (orientation: landscape) {
+  .muestras {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

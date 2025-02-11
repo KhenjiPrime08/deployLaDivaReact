@@ -68,7 +68,7 @@ function Home({darkMode, logged}) {
           <h1>Piercings</h1>
           <Carrusel images={piercingImagesList} />
           <p>Un piercing es más que un accesorio, es una declaración de estilo y actitud. Esta es tu oportunidad de brillar con algo único y auténtico. ¡Hazlo tuyo!</p>
-          <Link to={logged ? '/citaTattoo' : '/login' } className='btn'>Pedir cita tatuajes</Link>
+          <Link to={logged ? '/citaPiercing' : '/login' } className='btn'>Pedir cita piercing</Link>
         </article>
         
         

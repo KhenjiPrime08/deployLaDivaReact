@@ -2,7 +2,7 @@ import React from 'react'
 
 function CitaTattoo() {
   return (
-    <div>Cita-Tattoo</div>
+    <div>CitaTattoo</div>
   )
 }
 

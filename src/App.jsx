@@ -3,10 +3,11 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.jsx'
-import CitaTattoo from './pages/Cita-Tattoo.jsx'
+import CitaTattoo from './pages/CitaTattoo.jsx'
 import { useEffect, useState } from 'react'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
+import CitaPiercing from './pages/CitaPiercing.jsx'
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
               <Route path='/citaTattoo' element={<CitaTattoo />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
+              <Route path='/citaPiercing' element={<CitaPiercing />} />
           </Routes>
       </main>
       <Footer />
