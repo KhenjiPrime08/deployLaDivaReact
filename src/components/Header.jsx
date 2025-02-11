@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import iconos from '../assets/images/iconos/Iconos.js'
 import "../styles/Css/Header.css";
+import { Link } from 'react-router-dom';
 
-function Header({darkmode, toggleTheme}) {
+function Header({darkmode, toggleTheme, logged}) {
 
-    const [logged, setLogged] = useState(false); // Solo como ejemplo
+   
 
     return (
         <header className={darkmode ? "dark" : ""}>
             <article className="logo-container">
-                <img src={darkmode ? iconos.logo : iconos.logo_oscuro} alt="Logo de la diva" className={`logo ${darkmode ? "dark" : ""}`} />
+                <Link to='/'>
+                    <img src={darkmode ? iconos.logo : iconos.logo_oscuro} alt="Logo de la diva" className={`logo ${darkmode ? "dark" : ""}`} />
+                </Link>
             </article>
             <nav>
                 <ul>
