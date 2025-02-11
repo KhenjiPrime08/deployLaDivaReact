@@ -24,12 +24,12 @@ function SobreNosotros() {
         <article className='lorena'>
           <img src={otros.lorena} alt="Foto Lorenaur encargada de gemas dentales" />
 
-          <h2>@Lorenaur</h2>
+          <h2>@@I_iris_gems</h2>
 
           <p>
               Responsable de coordinar al equipo y gestionar las citas,
              asegurando un proceso fluido y personalizado desde el inicio hasta la finalización.
-             Además de ser la responsable en ayudarte y asesorarte en tu elección y colocación de joyas dentales 
+             Además de ser la responsable en ayudarte y asesorarte en tu elección y aplicación de joyas dentales 
           </p>
         </article>
 
