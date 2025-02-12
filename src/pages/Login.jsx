@@ -24,8 +24,9 @@ function Login() {
       setFormData={setFormData}
       onSubmit={handleSubmit}
       buttonText="Iniciar sesión"
+      mensaje="Ya tienes cuenta? inicia sesion aqui"
       />
-      <p>Ya tienes cuenta? inicia sesion aqui</p>
+      
     </article>
     
   )

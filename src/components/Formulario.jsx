@@ -1,14 +1,15 @@
 import React from 'react'
 import '../styles/Css/Formulario.css'
 
-function Formulario({campos, formData, setFormData, onSubmit, buttonText}) {
+function Formulario({campos, formData, setFormData, onSubmit, buttonText, mensaje}) {
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     };
 
   return (
-    <form className='form-container' onSubmit={onSubmit}>
+    <section>
+      <form className='form-container' onSubmit={onSubmit}>
       <section className='fondo'>
         {campos.map((campo) => (
           
@@ -30,7 +31,11 @@ function Formulario({campos, formData, setFormData, onSubmit, buttonText}) {
         ))}
       </section>
        <button className='form-button' type="submit"> {buttonText} </button>
+       <p>{mensaje}</p>
     </form>
+    
+    </section>
+    
   )
 }
 
