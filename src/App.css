@@ -2,7 +2,7 @@ body {
     background-color: white;
     color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
+}
 
 body.dark-mode {
     background-color: #121212;
@@ -11,5 +11,5 @@ body.dark-mode {
 
 .dark-mode footer {
     background-color: #1f1f1f;
-  }
+}
 /* Puedes añadir más estilos globales para botones, enlaces, etc. */
