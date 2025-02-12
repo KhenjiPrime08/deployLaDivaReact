@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Formulario from '../components/Formulario';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -24,7 +25,7 @@ function Login() {
       setFormData={setFormData}
       onSubmit={handleSubmit}
       buttonText="Iniciar sesión"
-      mensaje="Ya tienes cuenta? inicia sesion aqui"
+      mensaje={<p>¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link></p>}
       />
       
     </article>

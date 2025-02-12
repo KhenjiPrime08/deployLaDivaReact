@@ -8,8 +8,15 @@ function Footer(){
       <section className="footer-content">
 
         <article className="footer-left">
-          <span>&copy; 2025 La Diva Tattoo</span>
+          <span className='infor'>&copy; La Diva Tatoo</span>
+          <span className='infor'><img src={iconos.movil} alt="Icono de un correo" className='icono' /> 660 59 31 54 </span>
+          <span className='infor'><img src={iconos.correo} alt="Icono de un correo" className='icono' /> <a href="mailto:ladivatattoo@gmail.com">Enviar correo</a>
+          </span>
+          <span className='infor'><img src={iconos.ubicacion} alt="Icono de un correo" className='icono' /> C. Palangre 1, 35510 Puerto Del Carmen, Tías</span>
+          
         </article>
+
+        
 
         <article className="footer-right">
           <a href="https://www.facebook.com/profile.php?id=61553597955917" aria-label="Facebook" target="_blank" rel="noopener noreferrer">

@@ -29,9 +29,14 @@ function Formulario({campos, formData, setFormData, onSubmit, buttonText, mensaj
           
             
         ))}
+        <input className='form-button' type="submit" value={buttonText}/>
+        
       </section>
-       <button className='form-button' type="submit"> {buttonText} </button>
-       <p>{mensaje}</p>
+      <article className='mensaje'>
+        {mensaje}
+      </article>
+       
+     
     </form>
     
     </section>

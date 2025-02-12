@@ -8,6 +8,9 @@ import sun from './sol.webp';
 import moon from './luna.webp';
 import logo_oscuro from '../otros/logo_Diva.webp'
 import logo from '../otros/logo_Diva_oscuro.webp'
+import correo from './correo.svg'
+import movil from './movil.svg'
+import ubicacion from './ubicacion.svg'
 
 const iconos = {
   facebook,
@@ -19,7 +22,10 @@ const iconos = {
   sun,
   moon,
   logo,
-  logo_oscuro
+  logo_oscuro,
+  movil,
+  ubicacion,
+  correo
 };
 
 export default iconos;

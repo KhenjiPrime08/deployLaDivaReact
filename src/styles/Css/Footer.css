@@ -17,7 +17,30 @@
 }
 
 .footer-left {
+  display: flex;
+  flex-direction: column;
   font-weight: normal;
+  gap: 10px;
+}
+.footer-left .icono {
+  width: 20px;
+}
+.footer-left .infor {
+  font-size: 20px;
+}
+.footer-left .infor a {
+  text-decoration: none;
+  color: black;
+}
+@media screen and (max-width: 480px) {
+  .footer-left {
+    width: 250px;
+  }
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: row;
 }
 
 .icon {

@@ -1,27 +1,72 @@
 .form-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-self: center;
   width: 50%;
-  min-height: 81.5vh;
+  min-height: 83vh;
   background-color: yellow;
 }
 .form-container .fondo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: red;
-  padding: 40px;
+  background: whitesmoke;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  width: 100%;
   max-width: 400px;
-  margin-bottom: 10px;
+  gap: 15px;
 }
 .form-container .fondo .form-group {
-  width: 300px;
+  width: 400px;
   background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+.form-container .fondo .form-label {
+  font-family: "Roboto" sans-serif;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.form-container .fondo .form-input {
+  font-family: "Roboto" sans-serif;
+  padding: 8px;
+  border: 1px solid #E6E6E6;
+  background-color: #F6F6F6;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+.form-container .fondo .form-button {
+  padding: 12px;
+  border: 1px solid #ABAAAA;
+  background-color: #E4E3E3;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 50%;
+  align-self: center;
+}
+.form-container .fondo .form-button:hover {
+  padding: 12px;
+  border: 1px solid #ABAAAA;
+  background-color: #CAC7C7;
+  transition: background-color 0.3s ease;
+}
+.form-container .fondo .form-button:focus {
+  border: 1px solid #8B8989;
+  background-color: #9C9A9A;
+  transition: background-color 0.3s ease;
+}
+.form-container .mensaje {
+  font-family: "Roboto" sans-serif;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=Formulario.css.map */
