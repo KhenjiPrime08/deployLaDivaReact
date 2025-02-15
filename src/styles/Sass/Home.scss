@@ -1,3 +1,7 @@
+$font-size:40px;
+$font-size-medium: 35px;
+$font-size-small: 30px;
+
 // Estilos generales de la sección de información
 .info {
   display: flex;
@@ -127,15 +131,15 @@
 
   h1 {
     font-family: "Angel Wish", sans-serif;
-    font-size: 40px;
+    font-size: $font-size;
     font-weight: normal;
 
     @media screen and (max-width: 768px) {
-      font-size: 35px; // Reduce el tamaño del título en móviles
+      font-size: $font-size-medium; // Reduce el tamaño del título en móviles
     }
 
     @media screen and (max-width: 480px) {
-      font-size: 30px;
+      font-size: $font-size-small;
     }
   }
 
@@ -177,9 +181,57 @@
   }
 
   &:hover{
+    
     background-color: #e0e0e0; /* Cambio de color al pasar el mouse */
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   }
+
+  &:focus{
+    background-color: #9C9A9A;
+    transition: background-color 0.3s ease;
 }
+}
+
+
+
+.reseñas {
+  padding: 20px;
+
+  h1 {
+    font-family: 'angel wish', sans-serif;
+    font-weight: normal;
+    font-size: $font-size;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .reseña-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px;
+
+    h1 {
+      font-size: $font-size-medium;
+    }
+    
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 10px;
+
+    h1 {
+      font-size: $font-size-small;
+    }
+    
+  }
+
+}
+
 
 

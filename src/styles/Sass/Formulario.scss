@@ -1,86 +1,155 @@
-
-.form-container{
+.form-container {
     display: flex;
     flex-direction: column;
     justify-content: center; // Centra horizontalmente
     align-items: center; // Centra verticalmente
     justify-self: center;
     width: 50%;
-    min-height: 83vh;
-    background-color: yellow;
- 
-    .fondo{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: whitesmoke;
-        padding: 20px;
+    min-height: 80vh; // Asegura que ocupe al menos el 80% de la altura de la ventana
+  
+    @media screen and (max-width: 768px) {
+      min-height: 77.9vh;
+    }
+  
+    .titulo {
+      font-family: "Angel Wish", sans-serif;
+      font-size: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: normal;
+  
+      @media screen and (max-width: 768px) {
+        font-size: 35px;
+      }
+  
+      @media screen and (max-width: 480px) {
+        font-size: 30px;
+      }
+    }
+  
+    .fondo {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); // Define dos columnas
+      gap: 15px;
+      align-items: center;
+      background: whitesmoke;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px; // Aumenta el ancho máximo para acomodar dos columnas
+  
+      .form-group {
+        display: grid;
+        grid-template-columns: 1fr; // Cada form-group tendrá una columna
+        gap: 5px;
+        margin-bottom: 25px;
+  
+        .form-label {
+          font-family: 'Roboto', sans-serif;
+          font-weight: bold;
+          font-size: 20px;
+          display: block;
+          margin-bottom: 5px;
+          text-align: center;
+        }
+  
+        .form-input {
+          font-family: 'Roboto', sans-serif;
+          padding: 8px;
+          height: 25px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+          transition: background-color 0.3s ease;
+          border-radius: 5px;
+        }
+      }
+  
+      .form-button {
+        grid-column: span 2; // Hace que el botón ocupe ambas columnas
+        border: none;
+        padding: 12px;
+        background-color: #E4E3E3;
+        border-radius: 8px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 50%;
+        justify-self: center; // Centra el botón horizontalmente
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  
+        &:hover {
+          background-color: #CAC7C7;
+        }
+  
+        &:focus {
+          background-color: #9C9A9A;
+        }
+      }
+  
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr; // Cambia a una columna en pantallas pequeñas
+        width: 100%;
+        max-width: 100%;
+        gap: 15px;
+        padding: 10px;
+        margin: 0;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-        gap: 15px;
-        
-
-        .form-group{
-            width: 400px;
-            background-color: lightblue;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
-
+        align-items: center;
+  
+        .form-group {
+          width: 100%;
+          margin-bottom: 10px;
+  
+          .form-input {
+              justify-self: center;
+              width: 90%; // Ajusta el ancho de los elementos para que ocupen toda la fila en pantallas pequeñas
+          }
         }
-
-        .form-label{
-            font-family: 'Roboto' sans-serif;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-
+  
+        .form-label {
+          font-size: 16px;
+          margin-bottom: 15px;
         }
-
-        .form-input{
-            font-family: 'Roboto' sans-serif;
-            padding: 8px;
-            border: 1px solid #E6E6E6;
-            background-color: #F6F6F6;
-            transition: background-color 0.3s ease;
-            border-radius: 5px;
-
+  
+        .form-input {
+          padding: 5px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
         }
-
-        .form-button{
-            padding: 12px;
-            border: 1px solid #ABAAAA;
-            background-color: #E4E3E3;
-            border-radius: 8px;
-            font-size: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 50%;
-            align-self: center;
-        
-            &:hover{
-                padding: 12px;
-                border: 1px solid #ABAAAA;
-                background-color: #CAC7C7;
-                transition: background-color 0.3s ease;
-            }
-
-            &:focus{
-                border: 1px solid #8B8989;
-                background-color: #9C9A9A;
-                transition: background-color 0.3s ease;
-            }
+  
+        .form-button {
+          padding: 10px;
+          font-size: 12px;
+          grid-column: span 1; // Asegura que el botón ocupe una columna en pantallas pequeñas
+          justify-self: center; // Centra el botón horizontalmente en pantallas pequeñas
         }
+      }
+  
+      @media screen and (max-width: 1024px) and (min-width: 769px) {
+        .form-group {
+          .form-label, .form-input {
+            width: 90%; // Ajusta el ancho de los elementos para que ocupen menos espacio en pantallas de tablet
+          }
+        }
+      }
     }
-
-    .mensaje{
-        font-family: 'Roboto' sans-serif;
+  
+    .mensaje {
+      font-family: 'Roboto', sans-serif;
+      
+  
+      a {
         text-decoration: none;
+        color: black;
+      }
+  
+      @media screen and (max-width: 768px) {
+        font-size: 15px;
+        margin-bottom: 25px;
+      }
     }
-   
-}
-
-
+  }

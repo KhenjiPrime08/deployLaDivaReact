@@ -10,7 +10,7 @@ import logo_oscuro from '../otros/logo_Diva.webp'
 import logo from '../otros/logo_Diva_oscuro.webp'
 import correo from './correo.svg'
 import movil from './movil.svg'
-import ubicacion from './ubicacion.svg'
+import ubicacion from './ubicacion.png'
 
 const iconos = {
   facebook,

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .info {
   display: flex;
   flex-direction: row;
@@ -186,6 +187,44 @@
 .btn:hover {
   background-color: #e0e0e0; /* Cambio de color al pasar el mouse */
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+.btn:focus {
+  background-color: #9C9A9A;
+  transition: background-color 0.3s ease;
+}
+
+.reseñas {
+  padding: 20px;
+}
+.reseñas h1 {
+  font-family: "angel wish", sans-serif;
+  font-weight: normal;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+.reseñas .reseña-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+@media screen and (max-width: 768px) {
+  .reseñas {
+    padding: 10px;
+  }
+  .reseñas h1 {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .reseñas {
+    padding: 10px;
+  }
+  .reseñas h1 {
+    font-size: 30px;
+  }
 }
 
 /*# sourceMappingURL=Home.css.map */

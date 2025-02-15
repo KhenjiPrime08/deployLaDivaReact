@@ -6,7 +6,7 @@
   width: 100%;
   padding: 10px 5px;
   z-index: 1000;
-  background-color: #f1f1f1;
+  background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
 }
 
 .footer-content {
@@ -36,16 +36,26 @@
   .footer-left {
     width: 250px;
   }
+  .footer-left .icono {
+    width: 15px;
+  }
+  .footer-left .infor {
+    font-size: 15px;
+  }
 }
 
 .footer-right {
   display: flex;
   flex-direction: row;
 }
-
-.icon {
+.footer-right .icon {
   margin: 0 10px;
   width: 30px;
+}
+@media screen and (max-width: 480px) {
+  .footer-right .icon {
+    width: 25px;
+  }
 }
 
 /*# sourceMappingURL=Footer.css.map */

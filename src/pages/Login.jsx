@@ -18,18 +18,15 @@ function Login() {
   }
 
   return (
-    <article>
-      <Formulario
-      campos={fields}
-      formData={formData}
-      setFormData={setFormData}
-      onSubmit={handleSubmit}
-      buttonText="Iniciar sesión"
-      mensaje={<p>¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link></p>}
-      />
-      
-    </article>
-    
+    <Formulario
+    titulo="Iniciar sesión"
+    campos={fields}
+    formData={formData}
+    setFormData={setFormData}
+    onSubmit={handleSubmit}
+    buttonText="Iniciar sesión"
+    mensaje={<p>¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link></p>}
+    /> 
   )
 
 }

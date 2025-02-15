@@ -7,6 +7,7 @@ import piercing from '../assets/images/piercings/piercings.js'
 import alex from '../assets/images/tattoos_Alex/alex.js'
 import { Link } from 'react-router-dom';
 import Separador from '../components/Separador.jsx';
+import Resenia from '../components/Resenia.jsx';
 
 
 function Home({darkMode, logged}) {
@@ -75,7 +76,39 @@ function Home({darkMode, logged}) {
       </section>
 
       <section className='reseñas'>
-        <h1>Reseñass</h1>
+        
+        <h1>Reseñas</h1>
+        
+        <section className='reseña-section'>
+          <Resenia nombre='Lucia Garcia Muñoz' 
+          cuerpo='Me hice un tatuaje lineal el día 6 de septiembre en este elegante y bonito estudio.
+          La experiencia allí fue inigualable ya que el trato y el cuidado fueron espectaculares.
+          Una gran profesional, muy recomendable 😊' />
+
+
+          <Resenia nombre='Lidia Miguez' 
+          cuerpo='El trato fue muy bueno desde que contacté con ellos por redes y por parte de todos.
+          El resultado de los tatuajes es excelente, es fiel al diseño que le pedimos.' />
+
+
+          <Resenia nombre='Hakuna Matata' 
+          cuerpo='Hoy lo conocimos y hoy mismo nos convertimos en clientas.
+          Super recomendable 👌🏻
+          Trato amable, super limpio todo sin duda volveremos.
+          Gracias Diva tatto ❣️' />
+
+          <Resenia nombre='Javier Melian' 
+          cuerpo='Muy recomendado, la chica pelirroja de la entrada un encanto de niña incluso me ayudó a terminar de decidirme,
+          un trato super especial tanto de la tatuadora como de la chica de puerta increíble 
+          y un tatuaje q todos los días seguiré mirando jejejejej muchas gracias de verdad volveré sin lugar a dudas.' />
+
+          <Resenia nombre='Alicia Noda' 
+          cuerpo='Como siempre impecable su servicio.
+          La atención personalizada ,la paciencia y el tiempo que toma con cada uno de sus diseños.
+          Ya he ido varias veces,y sin ninguna duda seguiré.
+          Super recomendado ❤️' />
+        </section>
+        
       </section>
 
 
