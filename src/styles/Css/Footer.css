@@ -58,4 +58,17 @@
   }
 }
 
+.dark-mode .footer {
+  background: linear-gradient(to right, rgba(34, 34, 34, 0.7), rgba(17, 17, 17, 0.6));
+}
+.dark-mode .footer-left .infor {
+  color: white;
+}
+.dark-mode .footer-left .infor a {
+  color: white;
+}
+.dark-mode .footer-right .icon {
+  filter: invert(1);
+}
+
 /*# sourceMappingURL=Footer.css.map */

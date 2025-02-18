@@ -139,5 +139,34 @@
     margin-bottom: 25px;
   }
 }
+.form-container.dark-mode .fondo {
+  background: #333;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+.form-container.dark-mode .fondo .form-label {
+  color: #fff;
+}
+.form-container.dark-mode .fondo .form-input {
+  background-color: #555;
+  border: 1px solid #777;
+  color: #fff;
+}
+.form-container.dark-mode .fondo .form-button {
+  background-color: #777;
+  color: #fff;
+}
+.form-container.dark-mode .fondo .form-button:hover {
+  background-color: #999;
+}
+.form-container.dark-mode .fondo .form-button:focus {
+  background-color: #888;
+}
+.form-container.dark-mode .mensaje {
+  color: #fff;
+}
+.form-container.dark-mode .mensaje a {
+  color: #bbb;
+}
 
 /*# sourceMappingURL=Formulario.css.map */

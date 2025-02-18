@@ -1,48 +1,41 @@
-import React from 'react'
-import '../styles/Css/Formulario.css'
+import React, { useContext } from 'react';
+import { DarkModeContext } from '../context/DarkModeContext';
+import '../styles/Css/Formulario.css'; // Asegúrate de que la ruta sea correcta
 
-function Formulario({campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo}) {
+function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo }) {
+  const { darkMode } = useContext(DarkModeContext);
 
-    const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
-    };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <section>
-      <form className='form-container' onSubmit={onSubmit}>
-      <h1 className='titulo'>{titulo}</h1>
-      <section className='fondo'>
-        {campos.map((campo) => (
-          
+      <form className={`form-container ${darkMode ? 'dark-mode' : ''}`} onSubmit={onSubmit}>
+        <h1 className='titulo'>{titulo}</h1>
+        <section className='fondo'>
+          {campos.map((campo) => (
             <section className="form-group" key={campo.nombre}>
-              <label className='form-label'> {campo.label} </label>
-
-              <input 
-              className='form-input'
-              type={campo.type}
-              name={campo.nombre}
-              value={formData[campo.nombre] || ""}
-              onChange={handleChange}
-              placeholder={campo.placeholder}
-              required={campo.required}
+              <label className='form-label'>{campo.label}</label>
+              <input
+                className='form-input'
+                type={campo.type}
+                name={campo.nombre}
+                value={formData[campo.nombre] || ""}
+                onChange={handleChange}
+                placeholder={campo.placeholder}
+                required={campo.required}
               />
             </section>
-          
-            
-        ))}
-        <input className='form-button' type="submit" value={buttonText}/>
-        
-      </section>
-      <article className='mensaje'>
-        {mensaje}
-      </article>
-       
-     
-    </form>
-    
+          ))}
+          <input className='form-button' type="submit" value={buttonText} />
+        </section>
+        <article className='mensaje'>
+          {mensaje}
+        </article>
+      </form>
     </section>
-    
-  )
+  );
 }
 
-export default Formulario
+export default Formulario;

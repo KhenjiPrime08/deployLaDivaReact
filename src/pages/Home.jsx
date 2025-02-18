@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import otros from '../assets/images/otros/otros.js'
 import '../styles/Css/Home.css'
 import Carrusel from '../components/Carrusel.jsx'

@@ -1,66 +1,86 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    width: 100%;
-    padding: 10px 5px;
-    z-index: 1000;
-    background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px 5px;
+  z-index: 1000;
+  background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
+}
 
 .footer-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-left {
-    display: flex;
-    flex-direction: column;
-    font-weight: normal;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+  gap: 10px;
 
-    .icono{
-        width: 20px;
-        
+  .icono {
+    width: 20px;
+  }
+
+  .infor {
+    font-size: 20px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 250px;
+
+    .icono {
+      width: 15px;
     }
 
-    .infor{
-        font-size: 20px;
-        
-        a{
-            text-decoration: none;
-            color: black;
-        }
+    .infor {
+      font-size: 15px;
     }
+  }
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: row;
+
+  .icon {
+    margin: 0 10px;
+    width: 30px;
 
     @media screen and (max-width: 480px) {
-        width: 250px;
-        
-        .icono{
-            width: 15px;
-        }
-        .infor{
-            font-size: 15px;
-        }
+      width: 25px;
     }
+  }
 }
 
-.footer-right{
-    display: flex;
-    flex-direction: row;
+// Estilos para el modo oscuro
+.dark-mode {
+  .footer {
+    background: linear-gradient(to right, rgba(34, 34, 34, 0.7), rgba(17, 17, 17, 0.6));
+  }
 
+  .footer-left {
+    .infor {
+      color: white;
+
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .footer-right {
     .icon {
-        margin: 0 10px;
-        width: 30px;
-    
-        @media screen and (max-width: 480px){
-            width: 25px;
-        }
+      filter: invert(1);
     }
-    
+  }
 }
-
-

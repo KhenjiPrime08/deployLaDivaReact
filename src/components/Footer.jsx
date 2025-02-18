@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/Css/Footer.css'; // Crea un archivo CSS o SASS
 import iconos from '../assets/images/iconos/Iconos';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 function Footer(){
+
+  const {darkMode} = useContext(DarkModeContext);
   return (
-    <footer className="footer">
+    <footer className={`footer ${darkMode ? 'dark-mode' : ''}`}>
       <section className="footer-content">
 
         <article className="footer-left">

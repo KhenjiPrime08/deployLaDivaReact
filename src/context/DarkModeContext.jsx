@@ -3,21 +3,21 @@ import { createContext, useEffect, useState } from "react";
 export const DarkModeContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
-    const [darkmode, setDarkmode] = useState(() => {
-        return localStorage.getItem("darkmode") === "true";
+    const [darkMode, setDarkMode] = useState(() => {
+        return localStorage.getItem("darkMode") === "true";
     });
 
     useEffect(() => {
-        document.body.classList.toggle("dark-mode", darkmode);
-    }, [darkmode]);
+        document.body.classList.toggle("dark-mode", darkMode);
+    }, [darkMode]);
 
     const toggleTheme = () => {
-        setDarkmode(!darkmode);
-        localStorage.setItem("darkMode", !darkmode);
+        setDarkMode(!darkMode);
+        localStorage.setItem("darkMode", !darkMode);
     };
 
     return (
-        <DarkModeContext.Provider value= {{ darkmode, toggleTheme }}>
+        <DarkModeContext.Provider value={{ darkMode, toggleTheme }}>
             {children}
         </DarkModeContext.Provider>
     );

@@ -152,4 +152,44 @@
         margin-bottom: 25px;
       }
     }
+
+    // Estilos para el modo oscuro
+  &.dark-mode {
+    .fondo {
+      background: #333;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+
+      .form-label {
+        color: #fff;
+      }
+
+      .form-input {
+        background-color: #555;
+        border: 1px solid #777;
+        color: #fff;
+      }
+
+      .form-button {
+        background-color: #777;
+        color: #fff;
+
+        &:hover {
+          background-color: #999;
+        }
+
+        &:focus {
+          background-color: #888;
+        }
+      }
+    }
+
+    .mensaje {
+      color: #fff;
+
+      a {
+        color: #bbb;
+      }
+    }
+  }
   }
