@@ -13,13 +13,13 @@ import { DarkModeContext } from '../context/DarkModeContext.jsx'
 
 
 
-function AppRoutes( logged) {
-   const { darkmode } = useContext(DarkModeContext);
+function AppRoutes(logged) {
+   const { darkMode } = useContext(DarkModeContext);
 
   return (
     
         <Routes>
-            <Route path='/' element={<Home darkMode={darkmode} logged={logged}/>} />
+            <Route path='/' element={<Home darkMode={darkMode} logged={logged}/>} />
             <Route path='/citaTattoo' element={<CitaTattoo />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />

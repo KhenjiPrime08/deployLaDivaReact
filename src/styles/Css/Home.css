@@ -202,7 +202,6 @@
   font-size: 40px;
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
 }
 .reseñas .reseña-section {
   display: flex;
@@ -225,6 +224,17 @@
   .reseñas h1 {
     font-size: 30px;
   }
+}
+.reseñas.dark-mode h1 {
+  color: #fff;
+}
+.reseñas.dark-mode .reseña-section {
+  background: #000;
+  color: #ddd;
+  box-shadow: 2px 4px 10px rgba(255, 255, 255, 0.1);
+}
+.reseñas.dark-mode .reseña-section p {
+  color: #bbb;
 }
 
 /*# sourceMappingURL=Home.css.map */

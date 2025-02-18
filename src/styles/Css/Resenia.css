@@ -18,5 +18,8 @@
   font-size: 16px;
   line-height: 1.4;
 }
+.reseña.dark-mode {
+  background-color: #333;
+}
 
 /*# sourceMappingURL=Resenia.css.map */

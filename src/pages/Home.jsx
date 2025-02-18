@@ -1,6 +1,5 @@
 import React from 'react'
 import otros from '../assets/images/otros/otros.js'
-import '../styles/Css/Home.css'
 import Carrusel from '../components/Carrusel.jsx'
 import yani from '../assets/images/tattos_Yani/yani.js';
 import piercing from '../assets/images/piercings/piercings.js'
@@ -8,6 +7,7 @@ import alex from '../assets/images/tattoos_Alex/alex.js'
 import { Link } from 'react-router-dom';
 import Separador from '../components/Separador.jsx';
 import Resenia from '../components/Resenia.jsx';
+import '../styles/Css/Home.css'
 
 
 function Home({darkMode, logged}) {
@@ -51,7 +51,7 @@ function Home({darkMode, logged}) {
       </section>
 
 
-      <Separador text={"Servicios"} darkmode={darkMode}/>
+      <Separador text={"Servicios"} darkMode={darkMode} />
 
 
       <section className='muestras' >
@@ -80,33 +80,46 @@ function Home({darkMode, logged}) {
         <h1>Reseñas</h1>
         
         <section className='reseña-section'>
-          <Resenia nombre='Lucia Garcia Muñoz' 
+
+          <Resenia 
+          nombre='Lucia Garcia Muñoz' 
           cuerpo='Me hice un tatuaje lineal el día 6 de septiembre en este elegante y bonito estudio.
           La experiencia allí fue inigualable ya que el trato y el cuidado fueron espectaculares.
-          Una gran profesional, muy recomendable 😊' />
+          Una gran profesional, muy recomendable 😊' 
+          />
+          
 
 
-          <Resenia nombre='Lidia Miguez' 
+          <Resenia 
+          nombre='Lidia Miguez' 
           cuerpo='El trato fue muy bueno desde que contacté con ellos por redes y por parte de todos.
-          El resultado de los tatuajes es excelente, es fiel al diseño que le pedimos.' />
+          El resultado de los tatuajes es excelente, es fiel al diseño que le pedimos.' 
+          />
 
 
-          <Resenia nombre='Hakuna Matata' 
+          <Resenia 
+          nombre='Hakuna Matata' 
           cuerpo='Hoy lo conocimos y hoy mismo nos convertimos en clientas.
           Super recomendable 👌🏻
           Trato amable, super limpio todo sin duda volveremos.
-          Gracias Diva tatto ❣️' />
+          Gracias Diva tatto ❣️' 
+          />
 
-          <Resenia nombre='Javier Melian' 
+          <Resenia 
+          nombre='Javier Melian' 
           cuerpo='Muy recomendado, la chica pelirroja de la entrada un encanto de niña incluso me ayudó a terminar de decidirme,
           un trato super especial tanto de la tatuadora como de la chica de puerta increíble 
-          y un tatuaje q todos los días seguiré mirando jejejejej muchas gracias de verdad volveré sin lugar a dudas.' />
+          y un tatuaje q todos los días seguiré mirando jejejejej muchas gracias de verdad volveré sin lugar a dudas.' 
+          />
 
-          <Resenia nombre='Alicia Noda' 
+          <Resenia 
+          nombre='Alicia Noda' 
           cuerpo='Como siempre impecable su servicio.
           La atención personalizada ,la paciencia y el tiempo que toma con cada uno de sus diseños.
           Ya he ido varias veces,y sin ninguna duda seguiré.
-          Super recomendado ❤️' />
+          Super recomendado ❤️' 
+          />
+
         </section>
         
       </section>

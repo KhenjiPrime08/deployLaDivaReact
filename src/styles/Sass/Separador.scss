@@ -23,11 +23,14 @@
       font-weight: normal;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
-  }
 
-  //DARKMODE
-  .separacion.dark{
-    h2{
-      text-shadow: 2px 2px 4px rgba(214, 214, 214, 0.5);
+    &.dark-mode {
+      &::before {
+        background: linear-gradient(to right, rgba(34, 34, 34, 0.7), rgba(17, 17, 17, 0.6));
+      }
+      h2 {
+        text-shadow: 2px 2px 4px rgba(214, 214, 214, 0.5);
+      }
+      
     }
   }
