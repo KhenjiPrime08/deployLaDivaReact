@@ -5,7 +5,7 @@ const LoginContext = createContext();
 export const LoginProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem("token"));
-    const [logged, setLogged] = useState(false); //Primeramente no esta logged
+    const [logged, setLogged] = useState(true); //Primeramente no esta logged
 
     const isLogged = () => {
         return localStorage.getItem("logged") === "true";
@@ -44,12 +44,13 @@ export const LoginProvider = ({ children }) => {
 
     const logout = () => {
         localStorage.removeItem("token");
+        localStorage.setItem("logged", "false"); // Cambiamos a false
         setUser(null);
         setToken(null);
     };
 
     return (
-        <LoginContext.Provider value={{ user, token, login, logout, isLogged}} >
+        <LoginContext.Provider value={{ user, token, login, logout, isLogged, logged}} >
             {children}
         </LoginContext.Provider>
     );

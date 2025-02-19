@@ -1,4 +1,4 @@
-/* Variables (si las deseas usar para colores, tamaños, etc.) */
+/* Variables */
 $font-family-navbar: "Angel wish", serif;
 
 $navbar-font-size: 23px;
@@ -15,50 +15,64 @@ $logo-height-small: 60px;
 
 /* Estilos generales del header */
 header {
-    
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; 
-    max-width: 1000px; 
-    margin: 0 auto;  
-   
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
 
-    /* Respuesta móvil grande */
-    @media screen and (max-width: 768px) {
-        nav ul {
-            display: flex;
-            flex-direction: row;
+    /* Menú hamburguesa (solo en móviles <= 468px) */
+    .menu-toggle {
+        display: none;
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Estilos para móviles (<= 468px) */
+    @media screen and (max-width: 468px) {
+        .menu-toggle {
+            display: block;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        nav {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 60%;
+            background: white;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            padding: 20px;
+            box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%); /* Oculto fuera de la pantalla */
+        }
+
+        nav.open {
+            display: flex;
+            transform: translateX(0); /* Desliza hacia dentro */
+        }
+
+        nav ul {
+            flex-direction: column;
             width: 100%;
             gap: 15px;
         }
-    
+
         .languages {
-            display: flex;
             justify-content: center;
         }
-        
     }
-
-    /* Respuesta móvil pequeño */
-    @media screen and (max-width: 480px) {
-        nav ul {
-            display: flex;
-            flex-direction: row;
-            text-align: center;
-            width: 100%;
-            gap: 10px;
-        }
-    
-        .languages {
-            display: flex;
-            justify-content: center;
-        }
-        
-    }
-
-    
 }
 
 /* Contenedor del logo */
@@ -78,13 +92,11 @@ header {
         transition: filter 0.3s ease;
     }
 
-    /* Respuesta móvil */
     @media screen and (max-width: 768px) {
         height: $logo-height-medium;
     }
 
-    /* Respuesta móvil */
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 468px) {
         height: $logo-height-small;
     }
 }
@@ -107,13 +119,11 @@ nav ul {
     cursor: pointer;
     position: relative;
 
-    a{
+    a {
         text-decoration: none;
         color: inherit;
     }
-    
-    
-    
+
     &:hover {
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         transition: text-shadow 0.3s ease;
@@ -123,12 +133,12 @@ nav ul {
         font-size: $navbar-font-size-medium;
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 468px) {
         font-size: $navbar-font-size-small;
     }
 }
 
-/* Iconos e imágenes pequeñas (luna) */
+/* Iconos e imágenes pequeñas */
 .navbar img {
     height: 24px;
     width: auto;
@@ -140,16 +150,12 @@ nav ul {
 
     @media screen and (max-width: 768px) {
         height: 20px;
-        width: auto;
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 468px) {
         height: 15px;
-        width: auto;
     }
 }
-
-
 
 /* Bandera de idioma */
 .languages {
@@ -157,7 +163,6 @@ nav ul {
 
     img {
         height: $flag-img-height;
-        width: auto;
         transition: filter 0.1s ease;
 
         &:hover {
@@ -165,22 +170,19 @@ nav ul {
         }
     }
 
-    /* Menú desplegable de idiomas al hacer hover */
     &:hover .flags-dropdown {
         display: block;
     }
 
     @media screen and (max-width: 768px) {
-        img{
+        img {
             height: $flag-img-height-medium;
-            width: auto;
         }
     }
 
-    @media screen and (max-width: 480px) {
-        img{
+    @media screen and (max-width: 468px) {
+        img {
             height: $flag-img-height-small;
-            width: auto;
         }
     }
 }
@@ -213,64 +215,32 @@ nav ul {
         }
     }
 
-    /* Responsive  le cambio el tamaño al desplegable */
     @media screen and (max-width: 768px) {
-        
         width: 20px;
 
-        li {
-            padding: 5px;
-            display: flex;
-            justify-content: center;
-
-            img {
-                height: $flag-img-height-medium; //Le cambio el tamaño a las otras banderas
-            }
-            
-            &:hover {
-                cursor: pointer;
-            }
+        li img {
+            height: $flag-img-height-medium;
         }
     }
 
-    @media screen and (max-width: 480px) {
-        
+    @media screen and (max-width: 468px) {
         width: 10px;
-            
-        
-        li {
-            padding: 5px;
-            display: flex;
-            justify-content: center;
 
-            img {
-                height: $flag-img-height-small; //Le cambio el tamaño a las otras banderas
-            }
-            
-            &:hover {
-                cursor: pointer;
-            }
+        li img {
+            height: $flag-img-height-small;
         }
     }
 }
 
-
-
-//MODO OSCURO
-
-.navbar.dark{
+/* MODO OSCURO */
+.navbar.dark {
     &:hover {
         text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
-        transition: text-shadow 0.3s ease;
     }
-    
-    
 }
 
 .navbar.icono.dark img {
-
-    filter: invert(1); 
-    transition: filter 0.3s ease;
+    filter: invert(1);
 
     &:hover {
         filter: invert(1) drop-shadow(2px 2px 5px rgba(255, 255, 255, 1));
@@ -280,17 +250,15 @@ nav ul {
 .logo.dark {
     &:hover {
         filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.8));
-        transition: filter 0.3s ease;
     }
 }
 
-.languages.dark{
+.languages.dark {
     &:hover {
         filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.5));
     }
 }
 
-
-.flags-dropdown.dark{
+.flags-dropdown.dark {
     background-color: rgb(94, 92, 92);
 }

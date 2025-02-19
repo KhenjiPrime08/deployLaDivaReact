@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* Variables (si las deseas usar para colores, tamaños, etc.) */
+/* Variables */
 /* Estilos generales del header */
 header {
   display: flex;
@@ -8,32 +8,50 @@ header {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  /* Respuesta móvil grande */
-  /* Respuesta móvil pequeño */
+  position: relative;
+  /* Menú hamburguesa (solo en móviles <= 468px) */
+  /* Estilos para móviles (<= 468px) */
 }
-@media screen and (max-width: 768px) {
-  header nav ul {
-    display: flex;
-    flex-direction: row;
+header .menu-toggle {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+@media screen and (max-width: 468px) {
+  header .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  header nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 60%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    padding: 20px;
+    box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); /* Oculto fuera de la pantalla */
+  }
+  header nav.open {
+    display: flex;
+    transform: translateX(0); /* Desliza hacia dentro */
+  }
+  header nav ul {
+    flex-direction: column;
     width: 100%;
     gap: 15px;
   }
   header .languages {
-    display: flex;
-    justify-content: center;
-  }
-}
-@media screen and (max-width: 480px) {
-  header nav ul {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    width: 100%;
-    gap: 10px;
-  }
-  header .languages {
-    display: flex;
     justify-content: center;
   }
 }
@@ -49,8 +67,6 @@ header {
 .logo {
   height: 110px;
   cursor: pointer;
-  /* Respuesta móvil */
-  /* Respuesta móvil */
 }
 .logo:hover {
   filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));
@@ -61,7 +77,7 @@ header {
     height: 80px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 468px) {
   .logo {
     height: 60px;
   }
@@ -98,13 +114,13 @@ nav ul {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 468px) {
   .navbar {
     font-size: 15px;
   }
 }
 
-/* Iconos e imágenes pequeñas (luna) */
+/* Iconos e imágenes pequeñas */
 .navbar img {
   height: 24px;
   width: auto;
@@ -116,24 +132,20 @@ nav ul {
 @media screen and (max-width: 768px) {
   .navbar img {
     height: 20px;
-    width: auto;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 468px) {
   .navbar img {
     height: 15px;
-    width: auto;
   }
 }
 
 /* Bandera de idioma */
 .languages {
   position: relative;
-  /* Menú desplegable de idiomas al hacer hover */
 }
 .languages img {
   height: 30px;
-  width: auto;
   transition: filter 0.1s ease;
 }
 .languages img:hover {
@@ -145,13 +157,11 @@ nav ul {
 @media screen and (max-width: 768px) {
   .languages img {
     height: 20px;
-    width: auto;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 468px) {
   .languages img {
     height: 15px;
-    width: auto;
   }
 }
 
@@ -168,7 +178,6 @@ nav ul {
   margin: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 30px;
-  /* Responsive  le cambio el tamaño al desplegable */
 }
 .flags-dropdown li {
   padding: 5px;
@@ -185,43 +194,26 @@ nav ul {
   .flags-dropdown {
     width: 20px;
   }
-  .flags-dropdown li {
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-  }
   .flags-dropdown li img {
     height: 20px;
   }
-  .flags-dropdown li:hover {
-    cursor: pointer;
-  }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 468px) {
   .flags-dropdown {
     width: 10px;
-  }
-  .flags-dropdown li {
-    padding: 5px;
-    display: flex;
-    justify-content: center;
   }
   .flags-dropdown li img {
     height: 15px;
   }
-  .flags-dropdown li:hover {
-    cursor: pointer;
-  }
 }
 
+/* MODO OSCURO */
 .navbar.dark:hover {
   text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
-  transition: text-shadow 0.3s ease;
 }
 
 .navbar.icono.dark img {
   filter: invert(1);
-  transition: filter 0.3s ease;
 }
 .navbar.icono.dark img:hover {
   filter: invert(1) drop-shadow(2px 2px 5px rgb(255, 255, 255));
@@ -229,7 +221,6 @@ nav ul {
 
 .logo.dark:hover {
   filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.8));
-  transition: filter 0.3s ease;
 }
 
 .languages.dark:hover {

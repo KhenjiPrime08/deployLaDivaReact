@@ -38,6 +38,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 600px; // Aumenta el ancho máximo para acomodar dos columnas
+      margin-bottom: 30px;
   
       .form-group {
         display: grid;
@@ -62,6 +63,30 @@
           background-color: white;
           transition: background-color 0.3s ease;
           border-radius: 5px;
+          color: black;
+
+          &::placeholder {
+            color: black; // Color del placeholder en modo claro
+            opacity: 1; // Asegura que se vea bien en algunos navegadores
+          }
+        }
+
+        .select-input {
+          font-family: 'Roboto', sans-serif;
+          padding: 8px;
+          height: 44px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+          transition: background-color 0.3s ease;
+          border-radius: 5px;
+          color: black;
+          appearance: none; // Evita los estilos predeterminados del navegador
+        }
+        
+        // Estilos para las opciones del select
+        .select-input option {
+          background-color: white;
+          color: black;
         }
       }
   
@@ -163,9 +188,25 @@
       .form-input {
         background-color: #555;
         border: 1px solid #777;
-        color:  #777;
+        color:  white;
+
+        &::placeholder {
+          color: white; // Color del placeholder en modo claro
+          opacity: 1; // Asegura que se vea bien en algunos navegadores
+        }
       }
 
+      .select-input{
+        background-color: #555;
+        border: 1px solid #777;
+        color:  white;
+      }
+
+      .select-input option {
+        background-color: #777; // Color de fondo de las opciones
+        color: white; // Color del texto de las opciones
+      }
+      
       .form-button {
         background-color: #777;
         color: #fff;

@@ -14,9 +14,25 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
       <form className={`form-container ${darkMode ? 'dark-mode' : ''}`} onSubmit={onSubmit}>
         <h1 className='titulo'>{titulo}</h1>
         <section className='fondo'>
-          {campos.map((campo) => (
-            <section className="form-group" key={campo.nombre}>
-              <label className='form-label'>{campo.label}</label>
+        {campos.map((campo) => (
+        <section className="form-group" key={campo.nombre}>
+          <label className='form-label'>{campo.label}</label>
+            {campo.type === "select" ? (
+              <select
+                className='select-input'
+                name={campo.nombre}
+                value={formData[campo.nombre] || ""}
+                onChange={handleChange}
+                required={campo.required}
+              >
+                <option value="">Selecciona una opción</option>
+                {campo.options.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            ) : (
               <input
                 className='form-input'
                 type={campo.type}
@@ -26,8 +42,9 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
                 placeholder={campo.placeholder}
                 required={campo.required}
               />
-            </section>
-          ))}
+            )}
+        </section>
+        ))}
           <input className='form-button' type="submit" value={buttonText} />
         </section>
         <article className='mensaje'>
