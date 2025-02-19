@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../context/DarkModeContext';
-import '../styles/Css/Formulario.css'; // Asegúrate de que la ruta sea correcta
+import '../styles/Css/Formulario.css';
 
 function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo }) {
   const { darkMode } = useContext(DarkModeContext);

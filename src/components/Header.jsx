@@ -9,8 +9,6 @@ function Header() {
     const { islogged } = useContext(LoginContext);
     const { darkMode, toggleTheme } = useContext(DarkModeContext);
 
-  console.log(darkMode);
-
     return (
         <header className={darkMode ? "dark" : ""}>
             <article className="logo-container">
