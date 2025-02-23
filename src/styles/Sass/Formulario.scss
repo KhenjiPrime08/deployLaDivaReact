@@ -4,11 +4,13 @@
     justify-content: center; // Centra horizontalmente
     align-items: center; // Centra verticalmente
     justify-self: center;
-    width: 50%;
     min-height: 80vh; // Asegura que ocupe al menos el 80% de la altura de la ventana
+    width: 100%;
+    max-width: 700px; /* Opcional, para no hacerlo demasiado ancho */
   
     @media screen and (max-width: 768px) {
       min-height: 77.9vh;
+      width: 70%;
     }
   
     .titulo {
@@ -24,6 +26,8 @@
   
       @media screen and (max-width: 480px) {
         font-size: 30px;
+        
+        max-width: 400px;
       }
     }
   
@@ -153,6 +157,20 @@
           justify-self: center; // Centra el botón horizontalmente en pantallas pequeñas
         }
       }
+
+      @media screen and (max-width: 480px) {
+
+        grid-template-columns: 1fr; // Cambia a una columna en pantallas pequeñas
+        width: 100%;
+        max-width: 350px;
+        gap: 15px;
+        padding: 10px;
+        margin: 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        
+      }
   
       @media screen and (max-width: 1024px) and (min-width: 769px) {
         .form-group {
@@ -175,6 +193,7 @@
       @media screen and (max-width: 768px) {
         font-size: 15px;
         margin-bottom: 25px;
+
       }
     }
 

@@ -5,7 +5,7 @@
   font-size: 14px;
   width: 100%;
   padding: 10px 5px;
-  z-index: 1000;
+  z-index: 100;
   background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
 }
 

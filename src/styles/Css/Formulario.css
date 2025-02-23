@@ -4,12 +4,14 @@
   justify-content: center;
   align-items: center;
   justify-self: center;
-  width: 50%;
   min-height: 80vh;
+  width: 100%;
+  max-width: 700px; /* Opcional, para no hacerlo demasiado ancho */
 }
 @media screen and (max-width: 768px) {
   .form-container {
     min-height: 77.9vh;
+    width: 70%;
   }
 }
 .form-container .titulo {
@@ -27,6 +29,7 @@
 @media screen and (max-width: 480px) {
   .form-container .titulo {
     font-size: 30px;
+    max-width: 400px;
   }
 }
 .form-container .fondo {
@@ -140,6 +143,19 @@
     font-size: 12px;
     grid-column: span 1;
     justify-self: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .form-container .fondo {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 350px;
+    gap: 15px;
+    padding: 10px;
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
   }
 }
 @media screen and (max-width: 1024px) and (min-width: 769px) {

@@ -5,62 +5,103 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 95%;
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
-  /* Menú hamburguesa (solo en móviles <= 468px) */
-  /* Estilos para móviles (<= 468px) */
+  padding: 10px 20px;
+  /* Contenedor del logo y menú */
+  /* Imagen del menú hamburguesa */
+  /* Navbar en pantallas grandes (posición horizontal) */
+  /* Modo responsive (≤468px) */
 }
-header .menu-toggle {
+header .logo-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+header .menu {
   display: none;
-  font-size: 30px;
-  background: none;
-  border: none;
+  width: 35px;
+  height: auto;
   cursor: pointer;
-  padding: 10px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1100;
+}
+header nav {
+  display: flex;
+  align-items: center;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
 }
 @media screen and (max-width: 468px) {
-  header .menu-toggle {
+  header {
+    /* Lista de navegación centrada */
+  }
+  header .menu {
     display: block;
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    margin-right: 50px;
+  }
+  header .menu.dark {
+    filter: invert(1);
   }
   header nav {
     display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 60%;
-    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 20px;
-    box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    transform: translateX(100%); /* Oculto fuera de la pantalla */
   }
   header nav.open {
     display: flex;
-    transform: translateX(0); /* Desliza hacia dentro */
+    transform: translateX(0);
   }
   header nav ul {
     flex-direction: column;
     width: 100%;
-    gap: 15px;
+    gap: 20px;
   }
   header .languages {
     justify-content: center;
   }
-}
-
-/* Contenedor del logo */
-.logo-container {
-  display: flex;
-  justify-content: flex-start;
-  flex: 1;
+  header .flags-dropdown {
+    width: auto;
+  }
+  header .flags-dropdown li img {
+    width: 20px;
+    height: 20px;
+  }
+  header .navbar {
+    font-size: 25px;
+  }
+  header .navbar img {
+    width: 20px;
+    height: 20px;
+  }
+  header.dark nav {
+    background: rgba(17, 17, 17, 0.95);
+  }
+  header.dark nav .navbar {
+    color: white;
+  }
 }
 
 /* Logo */

@@ -11,6 +11,7 @@ import logo from '../otros/logo_Diva_oscuro.webp'
 import correo from './correo.svg'
 import movil from './movil.svg'
 import ubicacion from './ubicacion.png'
+import menu from './menu.webp'
 
 const iconos = {
   facebook,
@@ -25,7 +26,8 @@ const iconos = {
   logo_oscuro,
   movil,
   ubicacion,
-  correo
+  correo,
+  menu
 };
 
 export default iconos;

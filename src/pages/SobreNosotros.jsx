@@ -81,9 +81,7 @@ function SobreNosotros() {
 
             <p>
               Anilladora que cuenta con más de 7 años de experiencia en el arte de la perforación corporal.
-            </p>
-
-            <p>
+            <br />
               Especialista en el uso de técnicas precisas como el <b>Perforado con Aguja Americana</b>,
               trabaja exclusivamente con joyería de titanio, asegurando calidad, estilo y cuidado para tu piel.
             </p>

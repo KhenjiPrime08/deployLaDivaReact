@@ -10,6 +10,7 @@ import Perfil from '../pages/Perfil.jsx'
 import Admin from '../pages/Admin.jsx'
 import PrivateRoute from './PrivateRoute.jsx'
 import { DarkModeContext } from '../context/DarkModeContext.jsx'
+import CitaGema from '../pages/CitaGema.jsx'
 
 
 
@@ -24,6 +25,7 @@ function AppRoutes(logged) {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/citaPiercing' element={<CitaPiercing />} />
+            <Route path='/citaGema' element={<CitaGema />} />
             <Route path='/sobreNosotros' element={<SobreNosotros />} />
             <Route path='/perfil' element={<Perfil />} />
 

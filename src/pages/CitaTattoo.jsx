@@ -6,10 +6,10 @@ function CitaTattoo() {
   const [formData, setFormData] = useState({ nombre: "", email: "", telefono: "", tatuador:"", fecha: "", hora: "", idea: "", notas:"", tamaño: "", archivo:null });  
   
   const fields = [
-    { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true },
+    { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true, maxLength: 50 },
     { nombre: "email", label: "Tu Email", type: "email", placeholder: "Correo electrónico", required: true },
-    { nombre: "contacto", label: "Número de contacto", type: "tel", placeholder: "Teléfono", required: true },
-    { nombre: "fecha", label: "Fecha", type: "date", placeholder: "Selecciona una fecha", required: true },
+    { nombre: "contacto", label: "Número de contacto", type: "tel", placeholder: "Teléfono", required: true, pattern: "^[0-9]{9}$" },
+    { nombre: "fecha", label: "Fecha", type: "date", placeholder: "Selecciona una fecha", required: true, min: new Date().toISOString().split("T")[0] }, //Bloquea fechas pasadas
     { nombre: "tatuador", label: "Tatuador", type: "select", options: [{value: "InkYaque", label: "InkYaque"},{value: "Toto_Tattoo",label:"Toto_tattoo"}], required: true },
     { nombre: "hora", label: "Horas Disponibles", type: "time", placeholder: "--:--", required: true },
     { nombre: "diseno", label: "¿Qué te quieres tatuar?", type: "textarea", placeholder: "Describe tu diseño", required: true },

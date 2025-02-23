@@ -10,6 +10,10 @@ function Header() {
     const { darkMode, toggleTheme } = useContext(DarkModeContext);
     const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    }
+
     return (
         <header className={darkMode ? "dark" : ""}>
             <article className="logo-container">
@@ -17,21 +21,24 @@ function Header() {
                     <img src={darkMode ? iconos.logo : iconos.logo_oscuro} alt="Logo de la diva" className={`logo ${darkMode ? "dark" : ""}`} />
                 </Link>
                 {/* Botón de menú hamburguesa */}
-                <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-                    ☰
-                </button>
+                
+                <img src={iconos.menu} alt="menu hamburguesa" className={`menu ${darkMode ? "dark" : ""}`} onClick={() => setMenuOpen(!menuOpen)} />
+                
             </article>
             
             {/* Menú de navegación */}
             <nav className={menuOpen ? "open" : ""}>
+             
                 <ul>
                     <li className={`navbar icono ${darkMode ? "dark" : ""}`} onClick={toggleTheme}>
                         <img src={darkMode ? iconos.sun : iconos.moon} alt={darkMode ? "Modo claro" : "Modo oscuro"} />
                     </li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to="/sobreNosotros">Sobre Nosotros </Link></li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaTattoo" : "/login"}>Pedir cita Tattoo</Link></li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaPiercing" : "/login"}> Pedir cita Piercing </Link></li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to={logged ? "/perfil" : "/login"}> {logged ? "Perfil" : "Iniciar sesión"} </Link></li>
+                    {menuOpen && <li className="navbar"><Link to="/" onClick={closeMenu}>Inicio</Link></li>} {/* Solo se muestra con el menú abierto*/}
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to="/sobreNosotros" onClick={closeMenu}>Sobre Nosotros </Link></li>
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaTattoo" : "/login"} onClick={closeMenu}> Cita Tattoo</Link></li>
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaPiercing" : "/login"} onClick={closeMenu}> Cita Piercing </Link></li>
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaGema" : "/login"} onClick={closeMenu}> Cita Gemas Dentales </Link></li>
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to={logged ? "/perfil" : "/login"} onClick={closeMenu}> {logged ? "Perfil" : "Iniciar sesión"} </Link></li>
                     <li className={`navbar languages ${darkMode ? "dark" : ""}`}>
                         <img src={iconos.esp} alt="Spain flag" />
                         <ul className={`flags-dropdown ${darkMode ? "dark" : ""}`}>

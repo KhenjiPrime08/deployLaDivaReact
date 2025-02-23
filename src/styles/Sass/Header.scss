@@ -18,68 +18,125 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 95%;
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
+    padding: 10px 20px;
 
-    /* Menú hamburguesa (solo en móviles <= 468px) */
-    .menu-toggle {
-        display: none;
-        font-size: 30px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
+    /* Contenedor del logo y menú */
+    .logo-container {
+        display: flex;
+        align-items: center;
+        flex: 1; // Para que el logo no quede pegado al menú
     }
 
-    /* Estilos para móviles (<= 468px) */
+    /* Imagen del menú hamburguesa */
+    .menu {
+        display: none; // Oculto por defecto
+        width: 35px;
+        height: auto;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1100;
+    }
+
+    /* Navbar en pantallas grandes (posición horizontal) */
+    nav {
+        display: flex;
+        align-items: center;
+        
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    /* Modo responsive (≤468px) */
     @media screen and (max-width: 468px) {
-        .menu-toggle {
-            display: block;
-            position: absolute;
-            top: 15px;
-            right: 15px;
+        .menu {
+            display: block; // Aparece el botón hamburguesa
+            margin-right: 50px;
+
+           &.dark{
+                filter: invert(1);
+            }
         }
 
+
         nav {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            width: 60%;
-            background: white;
+            display: none; // Ocultar navbar en móvil
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 20px;
-            box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
-            transform: translateX(100%); /* Oculto fuera de la pantalla */
         }
 
         nav.open {
             display: flex;
-            transform: translateX(0); /* Desliza hacia dentro */
+            transform: translateX(0);
         }
 
+        /* Lista de navegación centrada */
         nav ul {
             flex-direction: column;
             width: 100%;
-            gap: 15px;
+            gap: 20px;
         }
 
         .languages {
             justify-content: center;
-        }
-    }
-}
 
-/* Contenedor del logo */
-.logo-container {
-    display: flex;
-    justify-content: flex-start;
-    flex: 1;
+            
+            
+        }
+
+        .flags-dropdown{
+            width: auto;
+            li img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .navbar {
+            font-size: 25px;
+        }
+
+        .navbar img{
+            
+            width: 20px;
+            height: 20px;
+            
+        }
+
+        &.dark nav {
+            background: rgba(17, 17, 17, 0.95);
+
+            .navbar {
+                color: white;
+            }
+
+
+        }
+
+    }
 }
 
 /* Logo */
