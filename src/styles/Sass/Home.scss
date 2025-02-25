@@ -2,18 +2,21 @@ $font-size:40px;
 $font-size-medium: 35px;
 $font-size-small: 30px;
 
+$tablet: 768px;
+$mobile: 480px;
+
 // Estilos generales de la sección de información
 .info {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     flex-direction: column; // En pantallas pequeñas, cambia a columna
     align-items: center;
   }
 
-  @media screen and (max-height: 768px) and (orientation: landscape){
+  @media screen and (max-height: $tablet) and (orientation: landscape){
     flex-direction: column;
     align-items: center;
   }
@@ -25,15 +28,15 @@ $font-size-small: 30px;
   margin: 10px ;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     height: 270px; // Reduce el tamaño del video en móviles
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     height: 200px; // Aún más pequeño en dispositivos pequeños
   }
 
-  @media screen and (max-height: 768px) and (orientation: landscape){
+  @media screen and (max-height: $tablet) and (orientation: landscape){
     flex-direction: column;
     width: 80%; 
     max-width: 600px;
@@ -50,12 +53,12 @@ $font-size-small: 30px;
   margin: 20px auto;
   text-align: justify;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     width: 70%;
     text-align: justify; // Alineación centrada en móviles
   }
 
-  @media screen and (max-width: 480px)  {
+  @media screen and (max-width: $mobile)  {
     width: 80%;
   }
   
@@ -66,12 +69,12 @@ $font-size-small: 30px;
   font-family: "Roboto", sans-serif;
   font-size: 25px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     font-size: 25px; // Reduce el tamaño del texto en móviles
     text-align: center;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     font-size: 20px; // Reduce el tamaño del texto en móviles
     text-align: center;
   }
@@ -84,11 +87,11 @@ $font-size-small: 30px;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     font-size: 18px;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     font-size: 16px;
   }
 }
@@ -100,7 +103,7 @@ $font-size-small: 30px;
   justify-content: center;
   gap: 15px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     flex-direction: column; // Pone los elementos en columna en móviles
     align-items: center;
     gap: 10px;
@@ -121,11 +124,11 @@ $font-size-small: 30px;
   align-items: center;
   width: 750px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     width: 90%; // Reduce el ancho en tablets
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     width: 90%; // Usa todo el ancho en móviles
   }
 
@@ -134,11 +137,11 @@ $font-size-small: 30px;
     font-size: $font-size;
     font-weight: normal;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
       font-size: $font-size-medium; // Reduce el tamaño del título en móviles
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $mobile) {
       font-size: $font-size-small;
     }
   }
@@ -150,11 +153,11 @@ $font-size-small: 30px;
     text-align: center;
     min-height: 70px ;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
       font-size: 18px;
     }
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $mobile) {
       font-size: 16px;
     }
   }
@@ -172,11 +175,11 @@ $font-size-small: 30px;
   text-decoration: none;
   font-size: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     font-size: 18px;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     font-size: 16px;
   }
 
@@ -212,7 +215,7 @@ $font-size-small: 30px;
     gap: 20px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $tablet) {
     padding: 10px;
 
     h1 {
@@ -221,7 +224,7 @@ $font-size-small: 30px;
     
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: $mobile) {
     padding: 10px;
 
     h1 {

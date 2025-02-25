@@ -4,6 +4,9 @@ $font-size: 23px;
 $font-size-medium: 20px;
 $font-size-small: 15px;
 
+$tablet: 768px;
+$mobile: 480px;
+
 .sobre-nosotros {
     display: flex;
     flex-direction: column;
@@ -104,13 +107,13 @@ $font-size-small: 15px;
           border: 0;
         }
       
-        @media (max-width: 768px) {
+        @media (max-width: $tablet) {
           iframe {
             height: 300px; // Reduce la altura en tabletas
           }
         }
       
-        @media (max-width: 480px) {
+        @media (max-width: $mobile) {
             
             h1{
                 font-size: 30px;
@@ -125,7 +128,7 @@ $font-size-small: 15px;
         }
       }
   
-    @media (max-width: 768px) {
+    @media (max-width: $tablet) {
         .profesionales {
             display: grid;
             grid-template-columns: 1fr;
@@ -142,7 +145,7 @@ $font-size-small: 15px;
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: $mobile) {
         padding: 10px;
 
         .intro {

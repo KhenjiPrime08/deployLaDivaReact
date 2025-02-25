@@ -42,7 +42,7 @@ header nav ul {
   padding: 0;
   margin: 0;
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 480px) {
   header {
     /* Lista de navegación centrada */
   }
@@ -118,7 +118,7 @@ header nav ul {
     height: 80px;
   }
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 480px) {
   .logo {
     height: 60px;
   }
@@ -155,7 +155,7 @@ nav ul {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 480px) {
   .navbar {
     font-size: 15px;
   }
@@ -175,7 +175,7 @@ nav ul {
     height: 20px;
   }
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 480px) {
   .navbar img {
     height: 15px;
   }
@@ -200,7 +200,7 @@ nav ul {
     height: 20px;
   }
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 480px) {
   .languages img {
     height: 15px;
   }
@@ -239,7 +239,7 @@ nav ul {
     height: 20px;
   }
 }
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 480px) {
   .flags-dropdown {
     width: 10px;
   }

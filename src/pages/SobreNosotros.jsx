@@ -45,7 +45,7 @@ function SobreNosotros() {
 
 
         <article>
-          <Link to="/">
+          <Link to="/inkYaque">
             <img src={otros.yani} alt="Foto InkYaque tatuadora y dueña del estudio" />
 
             <h2>@InkYaque</h2>
@@ -60,7 +60,7 @@ function SobreNosotros() {
 
         <article className='alex'>
 
-          <Link to="/">
+          <Link to="/totoTattoo">
             <img src={otros.alex} alt="Foto Toto_Tattoo artista residente del estudio" />
 
             <h2>@Toto_Tattoo</h2>

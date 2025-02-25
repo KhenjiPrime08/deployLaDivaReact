@@ -29,7 +29,7 @@ function Home({darkMode, logged}) {
 
       <section className='info'>
         <article>
-          <video src={otros.video}  muted loop className='video' />
+          <video src={otros.video}  autoPlay muted loop className='video' />
         </article>
 
         <article className='texto'>
@@ -51,7 +51,7 @@ function Home({darkMode, logged}) {
       </section>
 
 
-      <Separador text={"Servicios"} darkMode={darkMode} />
+      <Separador text={"Servicios"} />
 
 
       <section className='muestras' >

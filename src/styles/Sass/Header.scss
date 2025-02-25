@@ -13,6 +13,9 @@ $logo-height-large: 110px;
 $logo-height-medium: 80px;
 $logo-height-small: 60px;
 
+$tablet: 768px;
+$mobile: 480px;
+
 /* Estilos generales del header */
 header {
     display: flex;
@@ -59,7 +62,7 @@ header {
     }
 
     /* Modo responsive (≤468px) */
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: $mobile) {
         .menu {
             display: block; // Aparece el botón hamburguesa
             margin-right: 50px;
@@ -149,11 +152,11 @@ header {
         transition: filter 0.3s ease;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
         height: $logo-height-medium;
     }
 
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: $mobile) {
         height: $logo-height-small;
     }
 }
@@ -186,11 +189,11 @@ nav ul {
         transition: text-shadow 0.3s ease;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
         font-size: $navbar-font-size-medium;
     }
 
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: $mobile) {
         font-size: $navbar-font-size-small;
     }
 }
@@ -205,11 +208,11 @@ nav ul {
         transition: filter 0.3s ease;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
         height: 20px;
     }
 
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: $mobile) {
         height: 15px;
     }
 }
@@ -231,13 +234,13 @@ nav ul {
         display: block;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
         img {
             height: $flag-img-height-medium;
         }
     }
 
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: $mobile) {
         img {
             height: $flag-img-height-small;
         }
@@ -272,7 +275,7 @@ nav ul {
         }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $tablet) {
         width: 20px;
 
         li img {
@@ -280,7 +283,7 @@ nav ul {
         }
     }
 
-    @media screen and (max-width: 468px) {
+    @media screen and (max-width: $mobile) {
         width: 10px;
 
         li img {

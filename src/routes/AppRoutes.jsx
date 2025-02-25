@@ -11,6 +11,8 @@ import Admin from '../pages/Admin.jsx'
 import PrivateRoute from './PrivateRoute.jsx'
 import { DarkModeContext } from '../context/DarkModeContext.jsx'
 import CitaGema from '../pages/CitaGema.jsx'
+import InkYaque from '../pages/InkYaque.jsx'
+import TotoTattoo from '../pages/TotoTattoo.jsx'
 
 
 
@@ -28,6 +30,8 @@ function AppRoutes(logged) {
             <Route path='/citaGema' element={<CitaGema />} />
             <Route path='/sobreNosotros' element={<SobreNosotros />} />
             <Route path='/perfil' element={<Perfil />} />
+            <Route path='/inkYaque' element={<InkYaque />} />
+            <Route path='/totoTattoo' element={<TotoTattoo />} />
 
             {/*Ruta protegida */}
             <Route path='/admin' element={<PrivateRoute> <Admin /> </PrivateRoute>} />
