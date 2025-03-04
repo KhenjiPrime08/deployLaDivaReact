@@ -1,33 +1,20 @@
-@charset "UTF-8";
-/* ---------------- SEPARACIÓN ---------------- */
-.separacion {
-  margin-top: 25px;
-  position: relative;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Angel Wish", sans-serif;
-  font-size: 40px;
-}
-.separacion::before {
-  content: "";
+.custom-shape-divider-top-1741116033 {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(221, 219, 219, 0.7), rgba(175, 173, 173, 0.6));
-  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
-.separacion h2 {
+
+.custom-shape-divider-top-1741116033 svg {
   position: relative;
-  z-index: 2;
-  font-weight: normal;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+  transform: rotateY(180deg);
 }
-.separacion.dark-mode::before {
-  background: linear-gradient(to right, rgba(34, 34, 34, 0.7), rgba(17, 17, 17, 0.6));
-}
-.separacion.dark-mode h2 {
-  text-shadow: 2px 2px 4px rgba(214, 214, 214, 0.5);
+
+.custom-shape-divider-top-1741116033 .shape-fill {
+  fill: rgba(207, 52, 52, 0.7019607843);
 }
 
 /*# sourceMappingURL=Separador.css.map */

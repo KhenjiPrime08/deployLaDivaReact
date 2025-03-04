@@ -5,11 +5,15 @@ $font-size-small: 30px;
 $tablet: 768px;
 $mobile: 480px;
 
+$fuente: "Roboto", sans-serif;
+$fuenteAngel: "Angel Wish", sans-serif;
+
 // Estilos generales de la sección de información
 .info {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  gap: 25px;
 
   @media screen and (max-width: $tablet) {
     flex-direction: column; // En pantallas pequeñas, cambia a columna
@@ -20,53 +24,57 @@ $mobile: 480px;
     flex-direction: column;
     align-items: center;
   }
-}
 
-// Video
-.video {
-  height: 300px;
-  margin: 10px ;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+  // Video
+  .video {
+    height: 300px;
+    margin-left: 30px ;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+    border-radius: 10px; /* Bordes redondeados */
 
-  @media screen and (max-width: $tablet) {
-    height: 270px; // Reduce el tamaño del video en móviles
+    @media screen and (max-width: $tablet) {
+      height: 270px; // Reduce el tamaño del video en móviles
+    }
+
+    @media screen and (max-width: $mobile) {
+      height: 200px; // Aún más pequeño en dispositivos pequeños
+    }
+
+    @media screen and (max-height: $tablet) and (orientation: landscape){
+      flex-direction: column;
+      width: 80%; 
+      max-width: 600px;
+      height: auto; 
+      margin: 10px auto; 
+      display: block;
+      
+    }
   }
 
-  @media screen and (max-width: $mobile) {
-    height: 200px; // Aún más pequeño en dispositivos pequeños
-  }
-
-  @media screen and (max-height: $tablet) and (orientation: landscape){
-    flex-direction: column;
-    width: 80%; 
-    max-width: 600px;
-    height: auto; 
-    margin: 10px auto; 
-    display: block;
+  .texto {
+    margin-left: 25px;
+    width: 60%;
+    text-align: justify;
+  
+    @media screen and (max-width: $tablet) {
+      width: 70%;
+      text-align: justify; // Alineación centrada en móviles
+    }
+  
+    @media screen and (max-width: $mobile)  {
+      width: 80%;
+    }
     
   }
 }
 
-.texto {
-  margin-left: 25px;
-  width: 60%;
-  margin: 20px auto;
-  text-align: justify;
 
-  @media screen and (max-width: $tablet) {
-    width: 70%;
-    text-align: justify; // Alineación centrada en móviles
-  }
 
-  @media screen and (max-width: $mobile)  {
-    width: 80%;
-  }
-  
-}
+
 
 // Título y texto
 .titulo {
-  font-family: "Roboto", sans-serif;
+  font-family: $fuente;
   font-size: 25px;
 
   @media screen and (max-width: $tablet) {
@@ -84,7 +92,7 @@ $mobile: 480px;
 
 
 .parrafo {
-  font-family: "Roboto", sans-serif;
+  font-family: $fuente;
   font-size: 20px;
 
   @media screen and (max-width: $tablet) {
@@ -133,7 +141,7 @@ $mobile: 480px;
   }
 
   h1 {
-    font-family: "Angel Wish", sans-serif;
+    font-family: $fuenteAngel;
     font-size: $font-size;
     font-weight: normal;
 
@@ -149,7 +157,7 @@ $mobile: 480px;
   p {
     width: 600px;
     font-size: 20px;
-    font-family: "Roboto", sans-serif;
+    font-family: $fuente;
     text-align: center;
     min-height: 70px ;
 
@@ -201,7 +209,7 @@ $mobile: 480px;
   padding: 20px;
 
   h1 {
-    font-family: 'angel wish', sans-serif;
+    font-family: $fuenteAngel;
     font-weight: normal;
     font-size: $font-size;
     text-align: center;

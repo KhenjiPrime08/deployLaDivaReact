@@ -1,0 +1,57 @@
+$fuente: "Roboto", sans-serif;
+
+.profile-container {
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: $fuente;
+    color: white;
+  
+    .loading {
+      text-align: center;
+      font-size: 18px;
+    }
+  
+    .profile-card {
+      background: #333;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  
+      .edit-btn {
+        background: #ff5733;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+  
+        &:hover {
+          background: #e74c3c;
+        }
+      }
+    }
+  
+    .appointments {
+      background: #222;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          background: #444;
+          margin: 5px 0;
+          padding: 8px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  

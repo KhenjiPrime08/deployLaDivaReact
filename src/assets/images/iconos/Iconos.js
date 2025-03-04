@@ -1,5 +1,4 @@
 import facebook from './facebook.webp';
-import tiktok from './tiktok.webp';
 import instagram from './instagram.webp';
 import esp from './banderaEsp.webp';
 import eng from './aleman.webp';
@@ -12,6 +11,7 @@ import correo from './correo.svg'
 import movil from './movil.svg'
 import ubicacion from './ubicacion.png'
 import menu from './menu.webp'
+import tiktok from './tik-tok.svg'
 
 const iconos = {
   facebook,
@@ -27,7 +27,8 @@ const iconos = {
   movil,
   ubicacion,
   correo,
-  menu
+  menu,
+  tiktok
 };
 
 export default iconos;

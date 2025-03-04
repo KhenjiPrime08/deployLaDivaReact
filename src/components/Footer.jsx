@@ -1,41 +1,46 @@
 import React, { useContext } from 'react';
-import '../styles/Css/Footer.css'; // Crea un archivo CSS o SASS
+import '../styles/Css/Footer.css';
+import { Link } from 'react-router-dom';
 import iconos from '../assets/images/iconos/Iconos';
 import { DarkModeContext } from '../context/DarkModeContext';
 
-function Footer(){
+function Footer() {
+  const { darkMode } = useContext(DarkModeContext);
 
-  const {darkMode} = useContext(DarkModeContext);
   return (
-    <footer className={`footer ${darkMode ? 'dark-mode' : ''}`}>
-      <section className="footer-content">
+    
+    <footer className={`footer ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <section className="footer-left">
+          <Link to="/sobreNosotros">Contacto</Link>
+        </section>
 
-        <article className="footer-left">
-          <span className='infor'>&copy; La Diva Tatoo</span>
-          <span className='infor'><img src={iconos.movil} alt="Icono de un correo" className='icono' /> 660 59 31 54 </span>
-          <span className='infor'><img src={iconos.correo} alt="Icono de un correo" className='icono' /> <a href="mailto:ladivatattoo@gmail.com">Enviar correo</a>
-          </span>
-          <span className='infor'><img src={iconos.ubicacion} alt="Icono de un correo" className='icono' /> C. Palangre 1, 35510 Puerto Del Carmen, Tías</span>
-          
-        </article>
+        <section className="mid">
+          <span className="copyright">© 2024 La diva tattoo, Inc</span>
+        </section>
 
-        
+        <ul className="social-links">
+          <li>
+            <a href="#">
+              <img src={iconos.tiktok} alt="TikTok" className="icono" />
+            </a>
+          </li>
 
-        <article className="footer-right">
-          <a href="https://www.facebook.com/profile.php?id=61553597955917" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-            <img className="icon" src={iconos.facebook} alt="Facebook icon" />
-          </a>
-          <a href="https://www.tiktok.com/@la.diva.tattoo" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-            <img className="icon" src={iconos.tiktok} alt="TikTok icon" />
-          </a>
-          <a href="https://www.instagram.com/la_diva_tattoo/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-            <img className="icon" src={iconos.instagram} alt="Instagram icon" />
-          </a>
-        </article>
+          <li>
+            <a href="#">
+              <img src={iconos.facebook} alt="Facebook" className="icono" />
+            </a>
+          </li>
 
-      </section>
+          <li>
+            <a href="#">
+              <img src={iconos.instagram} alt="Instagram" className="icono" />
+            </a>
+          </li>
+
+        </ul>
     </footer>
+    
   );
-};
+}
 
 export default Footer;

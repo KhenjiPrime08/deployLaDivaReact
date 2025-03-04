@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  gap: 25px;
 }
 @media screen and (max-width: 768px) {
   .info {
@@ -16,24 +17,24 @@
     align-items: center;
   }
 }
-
-.video {
+.info .video {
   height: 300px;
-  margin: 10px;
+  margin-left: 30px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+  border-radius: 10px; /* Bordes redondeados */
 }
 @media screen and (max-width: 768px) {
-  .video {
+  .info .video {
     height: 270px;
   }
 }
 @media screen and (max-width: 480px) {
-  .video {
+  .info .video {
     height: 200px;
   }
 }
 @media screen and (max-height: 768px) and (orientation: landscape) {
-  .video {
+  .info .video {
     flex-direction: column;
     width: 80%;
     max-width: 600px;
@@ -42,21 +43,19 @@
     display: block;
   }
 }
-
-.texto {
+.info .texto {
   margin-left: 25px;
   width: 60%;
-  margin: 20px auto;
   text-align: justify;
 }
 @media screen and (max-width: 768px) {
-  .texto {
+  .info .texto {
     width: 70%;
     text-align: justify;
   }
 }
 @media screen and (max-width: 480px) {
-  .texto {
+  .info .texto {
     width: 80%;
   }
 }
@@ -197,7 +196,7 @@
   padding: 20px;
 }
 .reseñas h1 {
-  font-family: "angel wish", sans-serif;
+  font-family: "Angel Wish", sans-serif;
   font-weight: normal;
   font-size: 40px;
   text-align: center;

@@ -1,6 +1,7 @@
 /* Variables */
 $font-family-navbar: "Angel wish", serif;
 
+
 $navbar-font-size: 23px;
 $navbar-font-size-medium: 20px;
 $navbar-font-size-small: 15px;
@@ -36,7 +37,7 @@ header {
 
     /* Imagen del menú hamburguesa */
     .menu {
-        display: none; // Oculto por defecto
+        display: none;
         width: 35px;
         height: auto;
         cursor: pointer;
@@ -47,11 +48,11 @@ header {
         z-index: 1100;
     }
 
-    /* Navbar en pantallas grandes (posición horizontal) */
+    /* Navbar en pantallas grandes */
     nav {
         display: flex;
         align-items: center;
-        
+
         ul {
             display: flex;
             list-style: none;
@@ -61,20 +62,19 @@ header {
         }
     }
 
-    /* Modo responsive (≤468px) */
+    /* Responsive (≤468px) */
     @media screen and (max-width: $mobile) {
         .menu {
-            display: block; // Aparece el botón hamburguesa
+            display: block;
             margin-right: 50px;
 
-           &.dark{
+            &.dark {
                 filter: invert(1);
             }
         }
 
-
         nav {
-            display: none; // Ocultar navbar en móvil
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -96,37 +96,10 @@ header {
             transform: translateX(0);
         }
 
-        /* Lista de navegación centrada */
         nav ul {
             flex-direction: column;
             width: 100%;
             gap: 20px;
-        }
-
-        .languages {
-            justify-content: center;
-
-            
-            
-        }
-
-        .flags-dropdown{
-            width: auto;
-            li img{
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        .navbar {
-            font-size: 25px;
-        }
-
-        .navbar img{
-            
-            width: 20px;
-            height: 20px;
-            
         }
 
         &.dark nav {
@@ -135,10 +108,7 @@ header {
             .navbar {
                 color: white;
             }
-
-
         }
-
     }
 }
 
@@ -171,22 +141,33 @@ nav ul {
     margin: 0;
 }
 
-/* Elementos de la navbar */
+/* Elementos de la navbar con subrayado animado */
 .navbar {
     font-family: $font-family-navbar;
     font-size: $navbar-font-size;
-    text-decoration: none;
-    cursor: pointer;
     position: relative;
 
     a {
         text-decoration: none;
         color: inherit;
-    }
+        position: relative;
+        padding: 5px 0;
 
-    &:hover {
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: text-shadow 0.3s ease;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #ff5733;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            width: 100%;
+            left: 0;
+        }
     }
 
     @media screen and (max-width: $tablet) {
@@ -292,12 +273,7 @@ nav ul {
     }
 }
 
-/* MODO OSCURO */
-.navbar.dark {
-    &:hover {
-        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
-    }
-}
+
 
 .navbar.icono.dark img {
     filter: invert(1);

@@ -2,6 +2,8 @@
 $tablet: 768px;
 $mobile: 480px;
 
+$fuente: "Roboto", sans-serif;
+
 .presentacion {
   display: flex;
   align-items: center;
@@ -37,7 +39,7 @@ $mobile: 480px;
     text-align: justify;
 
     h1 {
-      font-family: "Old English Text MT", serif;
+      font-family: $fuente;
       font-size: 2.5rem;
       text-align: center;
       margin-bottom: 20px;

@@ -30,7 +30,7 @@ function SobreNosotros() {
 
       <section className='profesionales'>
         <article>
-          <Link to="/">
+          <Link to="/irisGems">
             <img src={otros.lorena} alt="Foto Lorenaur encargada de gemas dentales" />
 
             <h2>@I_iris_gems</h2>
@@ -74,7 +74,7 @@ function SobreNosotros() {
         </article>
 
         <article className='mara'>
-          <Link to="/">
+          <Link to="/McPiercing">
             <img src={otros.mara} alt="Foto McPiercing, anilladora residente del estudio" />
 
             <h2>@McPiercing</h2>

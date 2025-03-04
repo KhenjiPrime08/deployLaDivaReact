@@ -15,7 +15,7 @@
 }
 .sobre-nosotros .intro p {
   font-size: 23px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   text-align: justify;
   max-width: 800px;
   margin-bottom: 30px;

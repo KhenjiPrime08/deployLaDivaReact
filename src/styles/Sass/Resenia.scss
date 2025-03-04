@@ -1,3 +1,5 @@
+$fuente: "Roboto", sans-serif;
+
 .reseña {
     background: white;
     border-radius: 10px;
@@ -15,7 +17,7 @@
   
     p {
         text-align: justify;
-        font-family: 'Roboto', sans-serif;
+        font-family: $fuente;
         font-size: 16px;
         line-height: 1.4;
     }

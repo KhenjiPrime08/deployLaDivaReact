@@ -1,4 +1,5 @@
 $font-family-navbar: "Angel wish", serif;
+$fuente: "Roboto", sans-serif;
 
 $font-size: 23px;
 $font-size-medium: 20px;
@@ -23,7 +24,7 @@ $mobile: 480px;
 
         p {
             font-size:$font-size;
-            font-family:'Roboto';
+            font-family: $fuente;
             text-align: justify;
             max-width: 800px;
             margin-bottom: 30px;
