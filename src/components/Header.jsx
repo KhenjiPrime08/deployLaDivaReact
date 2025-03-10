@@ -4,6 +4,7 @@ import "../styles/Css/Header.css";
 import { Link } from 'react-router-dom';
 import LoginContext from '../context/LoginContext.jsx';
 import { DarkModeContext } from '../context/DarkModeContext.jsx';
+import Switch from './Switch.jsx';
 
 function Header() {
     const { logged } = useContext(LoginContext);
@@ -31,7 +32,7 @@ function Header() {
              
                 <ul>
                     <li className={`navbar icono ${darkMode ? "dark" : ""}`} onClick={toggleTheme}>
-                        <img src={darkMode ? iconos.sun : iconos.moon} alt={darkMode ? "Modo claro" : "Modo oscuro"} onClick={closeMenu}/>
+                        <Switch darkMode={darkMode} toggleTheme={toggleTheme} />
                     </li>
                     {menuOpen && <li className="navbar"><Link to="/" onClick={closeMenu}>Inicio</Link></li>} {/* Solo se muestra con el menú abierto*/}
                     <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to="/sobreNosotros" onClick={closeMenu}>Sobre Nosotros </Link></li>

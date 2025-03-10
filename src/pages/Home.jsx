@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import otros from '../assets/images/otros/otros.js'
 import Carrusel from '../components/Carrusel.jsx'
 import yani from '../assets/images/tattos_Yani/yani.js';
@@ -8,9 +8,12 @@ import { Link } from 'react-router-dom';
 import Separador from '../components/Separador.jsx';
 import Resenia from '../components/Resenia.jsx';
 import '../styles/Css/Home.css'
+import { DarkModeContext } from '../context/DarkModeContext.jsx';
 
 
-function Home({darkMode, logged}) {
+function Home({logged}) {
+
+  const {darkMode} = useContext(DarkModeContext);
 
   const tattooImages = [
     yani.batman,
@@ -54,7 +57,7 @@ function Home({darkMode, logged}) {
       <Separador text={"Servicios"} />
 
 
-      <section className='muestras' >
+      <section className={`muestras ${darkMode ? 'dark-mode' : ''}`} >
 
         <article className='abajo'>
           <h1>Tatuajes</h1>
@@ -75,7 +78,7 @@ function Home({darkMode, logged}) {
         
       </section>
 
-      <section className='reseñas'>
+      <section className={`reseñas ${darkMode ? 'dark-mode' : ''}`}>
         
         <h1>Reseñas</h1>
         

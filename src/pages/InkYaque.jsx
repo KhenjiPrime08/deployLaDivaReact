@@ -41,6 +41,7 @@ function InkYaque() {
       }
       />
 
+        
       <Separador text={"Galeria de tatuajes"}/>
 
       <GaleriaTatuajes images={galeria} />

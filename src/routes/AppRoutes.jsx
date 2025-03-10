@@ -9,7 +9,6 @@ import SobreNosotros from '../pages/SobreNosotros.jsx'
 import Perfil from '../pages/Perfil.jsx'
 import Admin from '../pages/Admin.jsx'
 import PrivateRoute from './PrivateRoute.jsx'
-import { DarkModeContext } from '../context/DarkModeContext.jsx'
 import CitaGema from '../pages/CitaGema.jsx'
 import InkYaque from '../pages/InkYaque.jsx'
 import TotoTattoo from '../pages/TotoTattoo.jsx'
@@ -19,12 +18,11 @@ import Iris_Gems from '../pages/Iris_Gems.jsx'
 
 
 function AppRoutes(logged) {
-   const { darkMode } = useContext(DarkModeContext);
-
+   
   return (
     
         <Routes>
-            <Route path='/' element={<Home darkMode={darkMode} logged={logged}/>} />
+            <Route path='/' element={<Home logged={logged}/>} />
             <Route path='/citaTattoo' element={<CitaTattoo />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
@@ -36,6 +34,9 @@ function AppRoutes(logged) {
             <Route path='/totoTattoo' element={<TotoTattoo />} />
             <Route path='/McPiercing' element={<McPiercing />} />
             <Route path='/irisGems' element={<Iris_Gems />} />
+
+
+            <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}
 
             {/*Ruta protegida */}
             <Route path='/admin' element={<PrivateRoute> <Admin /> </PrivateRoute>} />

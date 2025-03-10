@@ -1,27 +1,33 @@
 $tablet: 768px;
 $mobile: 480px;
+$landscape-height: 500px; // Dispositivos en orientación horizontal con altura reducida
 
-.tattoo-gallery {
+$light-fill: #5251512F;
+$dark-fill: #1c1c1cd3;
+
+.fondo {
+  background-color: $light-fill;
+  transition: background-color 0.3s ease-in-out; // Transición suave
+
+  .tattoo-gallery {
     display: grid;
     width: 100%;
     max-width: 1300px;
     height: 800px;
     justify-self: center;
 
-    grid-template-columns: repeat(5, 1fr); // 🔹 6 columnas fijas
+    grid-template-columns: repeat(5, 1fr); // 🔹 5 columnas fijas
     gap: 16px;
     padding: 20px;
     justify-content: center;
-    
-  
+
     .tattoo-item {
       position: relative;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      
-  
+
       img {
         width: 100%;
         height: 100%;
@@ -30,34 +36,42 @@ $mobile: 480px;
         border-radius: 12px;
         transition: transform 0.3s ease-in-out;
       }
-  
+
       &:hover {
         transform: scale(1.05);
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
       }
     }
-}
-  
-  // 🔹 Responsivo para móviles (máx. 768px)
+  }
+
+  // 🔹 Responsivo para tablets (máx. 768px)
   @media (max-width: $tablet) {
     .tattoo-gallery {
-        grid-template-columns: repeat(2, 1fr); // 2 columnas en móviles
-
-        width: 100%;
-        max-width: 700px;
-        height: auto;
-        justify-self: center;
+      grid-template-columns: repeat(2, 1fr); // 2 columnas en tablets
+      max-width: 700px;
+      height: auto;
     }
   }
-  
+
   // 🔹 Extra pequeño (máx. 480px)
   @media (max-width: $mobile) {
     .tattoo-gallery {
-        grid-template-columns: repeat(1, 1fr); // 1 columna en pantallas pequeñas
-        width: 100%;
-        max-width: 350px;
-        
+      grid-template-columns: repeat(1, 1fr); // 1 columna en móviles pequeños
+      max-width: 350px;
     }
   }
 
-  
+  // 🔹 Estilos para landscape (pantallas anchas con poca altura)
+  @media (max-height: $landscape-height) and (orientation: landscape) {
+    .tattoo-gallery {
+      grid-template-columns: repeat(4, 1fr); // 3 columnas en landscape
+      max-width: 900px;
+      height: auto;
+      gap: 10px;
+    }
+  }
+
+  &.dark {
+    background-color: $dark-fill;
+  }
+}

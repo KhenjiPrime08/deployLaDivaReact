@@ -97,7 +97,6 @@
   .sobre-nosotros .mapa-container iframe {
     width: 95%;
     height: 250px;
-    border: 0;
   }
 }
 @media (max-width: 768px) {
@@ -130,6 +129,16 @@
   .sobre-nosotros .profesionales article img {
     width: 200px;
     height: 200px;
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .sobre-nosotros .profesionales {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    gap: 15px;
+  }
+  .sobre-nosotros .mapa-container iframe {
+    height: 250px;
   }
 }
 .sobre-nosotros.dark-mode .intro h1 {

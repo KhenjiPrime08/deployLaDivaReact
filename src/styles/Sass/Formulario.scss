@@ -104,6 +104,7 @@ $fuente: "Roboto", sans-serif;
         border: none;
         padding: 12px;
         background-color: #E4E3E3;
+        font-weight: bold;
         border-radius: 8px;
         font-size: 15px;
         cursor: pointer;
@@ -162,6 +163,8 @@ $fuente: "Roboto", sans-serif;
           justify-self: center; // Centra el botón horizontalmente en pantallas pequeñas
         }
       }
+
+      
 
       @media screen and (max-width: $mobile) {
 

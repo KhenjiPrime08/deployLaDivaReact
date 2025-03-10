@@ -5,6 +5,7 @@ import video from './video_diva.mp4'
 import yani from './yani.webp'
 import yani_tatuando from './yani_tatuando.webp'
 import alex_tatuando from './alex_tatuando.webp'
+import fondo from './fondo.jpg'
 
 const otros = {
     alex,
@@ -13,7 +14,8 @@ const otros = {
     video,
     yani,
     yani_tatuando,
-    alex_tatuando
+    alex_tatuando,
+    fondo
 };
 
 export default otros;
