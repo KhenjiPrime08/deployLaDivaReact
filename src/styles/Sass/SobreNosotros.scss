@@ -206,4 +206,17 @@ $landscape-height: 500px; // Para pantallas anchas pero con poca altura
             }
         }
     }
+
+    .mapa-container{
+        display: flex;
+       flex-direction: column;
+
+
+       .rowline{
+        display: flex;
+        flex-direction: row;
+       }
+    }
+
+    
 }

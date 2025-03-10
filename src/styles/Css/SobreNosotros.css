@@ -158,5 +158,13 @@
 .sobre-nosotros.dark-mode .profesionales article p {
   color: #ccc;
 }
+.sobre-nosotros .mapa-container {
+  display: flex;
+  flex-direction: column;
+}
+.sobre-nosotros .mapa-container .rowline {
+  display: flex;
+  flex-direction: row;
+}
 
 /*# sourceMappingURL=SobreNosotros.css.map */

@@ -93,13 +93,27 @@ function SobreNosotros() {
       <section className='mapa-container'>
         <h1>Donde encontrarnos</h1>
 
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.2880464341315!2d-13.655655788466813!3d28.919497470888555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4625a28e818ac9%3A0x33ef7b57811c8382!2sLa%20Diva%20tattoo!5e0!3m2!1ses!2ses!4v1739970088323!5m2!1ses!2ses" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade">
-        </iframe>
+        <section className='rowline'>
+          <section className='contact-info'>
+            
+            <article>
+              <p>C.palangre.1.local, 35510 Puerto Del Carmen, Tías, España</p>
+              <p>660 59 31 54</p>
+              <p>ladivatattoo@gmail.com</p>
+            </article>
+          </section>
+
+          <section className='map-container'>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.2880464341315!2d-13.655655788466813!3d28.919497470888555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4625a28e818ac9%3A0x33ef7b57811c8382!2sLa%20Diva%20tattoo!5e0!3m2!1ses!2ses!4v1739970088323!5m2!1ses!2ses" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade">
+            </iframe>
+          </section>
+        </section>
         
       </section>
+
 
     </section>
   )
