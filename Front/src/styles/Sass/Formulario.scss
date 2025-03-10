@@ -1,0 +1,259 @@
+$tablet: 768px;
+$mobile: 480px;
+
+$fuente: "Roboto", sans-serif;
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Centra horizontalmente
+    align-items: center; // Centra verticalmente
+    justify-self: center;
+    min-height: 80vh; // Asegura que ocupe al menos el 80% de la altura de la ventana
+    width: 100%;
+    max-width: 700px; /* Opcional, para no hacerlo demasiado ancho */
+  
+    @media screen and (max-width: $tablet) {
+      min-height: 77.9vh;
+      width: 70%;
+    }
+  
+    .titulo {
+      font-family: "Angel Wish", sans-serif;
+      font-size: 50px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: normal;
+  
+      @media screen and (max-width: $tablet) {
+        font-size: 35px;
+      }
+  
+      @media screen and (max-width: $mobile) {
+        font-size: 30px;
+        
+        max-width: 400px;
+      }
+    }
+  
+    .fondo {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); // Define dos columnas
+      gap: 15px;
+      align-items: center;
+      background: whitesmoke;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px; // Aumenta el ancho máximo para acomodar dos columnas
+      margin-bottom: 30px;
+  
+      .form-group {
+        display: grid;
+        grid-template-columns: 1fr; // Cada form-group tendrá una columna
+        gap: 5px;
+        margin-bottom: 25px;
+  
+        .form-label {
+          font-family: $fuente;
+          font-weight: bold;
+          font-size: 20px;
+          display: block;
+          margin-bottom: 5px;
+          text-align: center;
+        }
+  
+        .form-input {
+          font-family: $fuente;
+          padding: 8px;
+          height: 25px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+          transition: background-color 0.3s ease;
+          border-radius: 5px;
+          color: black;
+
+          &::placeholder {
+            color: black; // Color del placeholder en modo claro
+            opacity: 1; // Asegura que se vea bien en algunos navegadores
+          }
+        }
+
+        .select-input {
+          font-family: $fuente;
+          padding: 8px;
+          height: 44px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+          transition: background-color 0.3s ease;
+          border-radius: 5px;
+          color: black;
+          appearance: none; // Evita los estilos predeterminados del navegador
+        }
+        
+        // Estilos para las opciones del select
+        .select-input option {
+          background-color: white;
+          color: black;
+        }
+      }
+  
+      .form-button {
+        grid-column: span 2; // Hace que el botón ocupe ambas columnas
+        border: none;
+        padding: 12px;
+        background-color: #E4E3E3;
+        font-weight: bold;
+        border-radius: 8px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 50%;
+        justify-self: center; // Centra el botón horizontalmente
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  
+        &:hover {
+          background-color: #CAC7C7;
+        }
+  
+        &:focus {
+          background-color: #9C9A9A;
+        }
+      }
+  
+      @media screen and (max-width: $tablet) {
+        grid-template-columns: 1fr; // Cambia a una columna en pantallas pequeñas
+        width: 100%;
+        max-width: 100%;
+        gap: 15px;
+        padding: 10px;
+        margin: 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+  
+        .form-group {
+          width: 100%;
+          margin-bottom: 10px;
+  
+          .form-input {
+              justify-self: center;
+              width: 90%; // Ajusta el ancho de los elementos para que ocupen toda la fila en pantallas pequeñas
+          }
+        }
+  
+        .form-label {
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+  
+        .form-input {
+          padding: 5px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+        }
+  
+        .form-button {
+          padding: 10px;
+          font-size: 12px;
+          grid-column: span 1; // Asegura que el botón ocupe una columna en pantallas pequeñas
+          justify-self: center; // Centra el botón horizontalmente en pantallas pequeñas
+        }
+      }
+
+      
+
+      @media screen and (max-width: $mobile) {
+
+        grid-template-columns: 1fr; // Cambia a una columna en pantallas pequeñas
+        width: 100%;
+        max-width: 350px;
+        gap: 15px;
+        padding: 10px;
+        margin: 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        
+      }
+  
+      @media screen and (max-width: 1024px) and (min-width: $tablet) {
+        .form-group {
+          .form-label, .form-input {
+            width: 90%; // Ajusta el ancho de los elementos para que ocupen menos espacio en pantallas de tablet
+          }
+        }
+      }
+    }
+  
+    .mensaje {
+      font-family: $fuente;
+      
+  
+      a {
+        text-decoration: none;
+        color: black;
+      }
+  
+      @media screen and (max-width: $tablet) {
+        font-size: 15px;
+        margin-bottom: 25px;
+
+      }
+    }
+
+    // Estilos para el modo oscuro
+  &.dark-mode {
+    .fondo {
+      background: #333;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+
+
+      .form-input {
+        background-color: #555;
+        border: 1px solid #777;
+        color:  white;
+
+        &::placeholder {
+          color: white; // Color del placeholder en modo claro
+          opacity: 1; // Asegura que se vea bien en algunos navegadores
+        }
+      }
+
+      .select-input{
+        background-color: #555;
+        border: 1px solid #777;
+        color:  white;
+      }
+
+      .select-input option {
+        background-color: #777; // Color de fondo de las opciones
+        color: white; // Color del texto de las opciones
+      }
+      
+      .form-button {
+        background-color: #777;
+        color: #fff;
+
+        &:hover {
+          background-color: #999;
+        }
+
+        &:focus {
+          background-color: #888;
+        }
+      }
+    }
+
+    .mensaje {
+      color: #fff;
+
+      a {
+        color: #bbb;
+      }
+    }
+  }
+  }

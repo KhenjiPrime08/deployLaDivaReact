@@ -1,0 +1,222 @@
+$font-family-navbar: "Angel wish", serif;
+$fuente: "Roboto", sans-serif;
+
+$font-size: 23px;
+$font-size-medium: 20px;
+$font-size-small: 15px;
+
+$tablet: 768px;
+$mobile: 480px;
+$landscape-height: 500px; // Para pantallas anchas pero con poca altura
+
+.sobre-nosotros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    .intro {
+        h1 {
+            font-family: $font-family-navbar;
+            font-size: 40px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        p {
+            font-size: $font-size;
+            font-family: $fuente;
+            text-align: justify;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        margin-bottom: 40px;
+
+        h2 {
+            font-family: $font-family-navbar;
+            font-size: 40px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+
+    .profesionales {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+        gap: 20px;
+        max-width: 1200px;
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: justify;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f5f5f5;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &:nth-child(odd) {
+                transform: translateX(-10%);
+            }
+
+            &:nth-child(even) {
+                transform: translateX(10%);
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            img {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .mapa-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+
+        h1 {
+            font-size: 40px;
+            font-family: $font-family-navbar;
+            font-weight: normal;
+        }
+
+        iframe {
+            width: 90%; // Ajusta el ancho del mapa
+            max-width: 1000px;
+            height: 400px; // Altura base para pantallas grandes
+            border: 0;
+        }
+
+        @media (max-width: $tablet) {
+            iframe {
+                height: 300px; // Reduce la altura en tablets
+            }
+        }
+
+        @media (max-width: $mobile) {
+            h1 {
+                font-size: 30px;
+            }
+
+            iframe {
+                width: 95%; // Usa todo el ancho en móviles
+                height: 250px; // Altura más reducida en móviles
+            }
+        }
+    }
+
+    @media (max-width: $tablet) {
+        .profesionales {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 650px;
+
+            article {
+                transform: none !important;
+            }
+        }
+
+        .intro p {
+            font-size: $font-size-medium;
+        }
+    }
+
+    @media (max-width: $mobile) {
+        padding: 10px;
+
+        .intro {
+            h1 {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: $font-size-small;
+            }
+        }
+
+        .profesionales article {
+            padding: 10px;
+
+            img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+
+    // 🔹 Modo landscape (orientación horizontal con poca altura)
+    @media (max-height: $landscape-height) and (orientation: landscape) {
+        .profesionales {
+            grid-template-columns: repeat(2, 1fr); // 3 columnas en landscape
+            max-width: 800px;
+            gap: 15px;
+        }
+
+        .mapa-container iframe {
+            height: 250px; // Reduce la altura del mapa en landscape
+        }
+    }
+
+    // 🔹 Modo oscuro
+    &.dark-mode {
+        .intro {
+            h1 {
+                color: #fff;
+            }
+
+            p {
+                color: #ccc;
+            }
+        }
+
+        .profesionales article {
+            background-color: #333;
+            color: #ddd;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+
+            h2 {
+                color: #fff;
+            }
+
+            p {
+                color: #ccc;
+            }
+        }
+    }
+
+    .mapa-container{
+        display: flex;
+       flex-direction: column;
+
+
+       .rowline{
+        display: flex;
+        flex-direction: row;
+       }
+    }
+
+    
+}
