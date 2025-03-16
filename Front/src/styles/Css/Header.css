@@ -147,7 +147,7 @@ nav ul {
 }
 @media screen and (max-width: 480px) {
   .navbar {
-    font-size: 15px;
+    font-size: 25px;
   }
 }
 
@@ -192,7 +192,7 @@ nav ul {
 }
 @media screen and (max-width: 480px) {
   .languages img {
-    height: 15px;
+    height: 20px;
   }
 }
 
@@ -231,10 +231,10 @@ nav ul {
 }
 @media screen and (max-width: 480px) {
   .flags-dropdown {
-    width: 10px;
+    width: 20px;
   }
   .flags-dropdown li img {
-    height: 15px;
+    height: 20px;
   }
 }
 

@@ -8,7 +8,7 @@ $navbar-font-size-small: 15px;
 
 $flag-img-height: 30px;
 $flag-img-height-medium: 20px;
-$flag-img-height-small: 15px;
+$flag-img-height-small: 20px;
 
 $logo-height-large: 110px;
 $logo-height-medium: 80px;
@@ -175,7 +175,8 @@ nav ul {
     }
 
     @media screen and (max-width: $mobile) {
-        font-size: $navbar-font-size-small;
+        font-size: 25px;
+
     }
 }
 
@@ -221,6 +222,7 @@ nav ul {
         }
     }
 
+    //Menu desplegable
     @media screen and (max-width: $mobile) {
         img {
             height: $flag-img-height-small;
@@ -265,7 +267,7 @@ nav ul {
     }
 
     @media screen and (max-width: $mobile) {
-        width: 10px;
+        width: 20px;
 
         li img {
             height: $flag-img-height-small;

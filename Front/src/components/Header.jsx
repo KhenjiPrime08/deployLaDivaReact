@@ -31,7 +31,7 @@ function Header() {
             <nav className={menuOpen ? "open" : ""}>
              
                 <ul>
-                    <li className={`navbar icono ${darkMode ? "dark" : ""}`} onClick={toggleTheme}>
+                    <li>
                         <Switch darkMode={darkMode} toggleTheme={toggleTheme} />
                     </li>
                     {menuOpen && <li className="navbar"><Link to="/" onClick={closeMenu}>Inicio</Link></li>} {/* Solo se muestra con el menú abierto*/}

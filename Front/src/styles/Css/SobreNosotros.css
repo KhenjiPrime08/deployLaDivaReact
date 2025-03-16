@@ -32,6 +32,7 @@
   grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
   gap: 20px;
   max-width: 1200px;
+  font-family: "Roboto", sans-serif;
 }
 .sobre-nosotros .profesionales article {
   display: flex;
@@ -161,10 +162,101 @@
 .sobre-nosotros .mapa-container {
   display: flex;
   flex-direction: column;
+  /** MEDIA QUERIES **/
 }
 .sobre-nosotros .mapa-container .rowline {
   display: flex;
   flex-direction: row;
+  width: 100%;
+}
+.sobre-nosotros .mapa-container .contact-info {
+  width: 100%;
+  align-self: center;
+}
+.sobre-nosotros .mapa-container .contact-info .art {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 30px;
+  height: 300px;
+  width: 70%;
+  font-family: "Roboto", sans-serif;
+}
+.sobre-nosotros .mapa-container .contact-info .art .info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 70px;
+}
+.sobre-nosotros .mapa-container .contact-info .art img {
+  width: 20px;
+  height: auto;
+}
+.sobre-nosotros .mapa-container .contact-info .art.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+.sobre-nosotros .mapa-container .contact-info .art.dark-mode img {
+  filter: invert(1) brightness(2);
+}
+.sobre-nosotros .mapa-container .map-container {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .sobre-nosotros .mapa-container .rowline {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sobre-nosotros .mapa-container .contact-info .art {
+    width: 85%;
+    height: auto;
+    padding: 20px;
+  }
+  .sobre-nosotros .mapa-container .contact-info {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .sobre-nosotros .mapa-container .contact-info .art {
+    width: 95%;
+    padding: 15px;
+  }
+  .sobre-nosotros .mapa-container .contact-info .art .info-item {
+    margin-left: 10px;
+  }
+  .sobre-nosotros .mapa-container .contact-info {
+    margin-bottom: 20px;
+  }
+  .sobre-nosotros .mapa-container .contact-info .art {
+    width: 90%;
+  }
+  .sobre-nosotros .mapa-container .contact-info .art img {
+    width: 25px;
+  }
+}
+@media (max-height: 480px) and (orientation: landscape) {
+  .sobre-nosotros .mapa-container .rowline {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .sobre-nosotros .mapa-container .contact-info .art {
+    width: 70%;
+    height: auto;
+  }
+  .sobre-nosotros .mapa-container .info-item {
+    width: 250px;
+  }
+  .sobre-nosotros .mapa-container .info-item p {
+    text-align: left;
+  }
+  .sobre-nosotros .mapa-container .map-container {
+    margin-top: 20px;
+    width: 70%;
+  }
 }
 
 /*# sourceMappingURL=SobreNosotros.css.map */

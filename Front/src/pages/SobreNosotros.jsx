@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import otros from '../assets/images/otros/otros'
+import iconos from '../assets/images/iconos/Iconos'
 import { DarkModeContext } from '../context/DarkModeContext';
 import '../styles/Css/SobreNosotros.css'
 import { Link } from 'react-router-dom';
@@ -58,7 +59,7 @@ function SobreNosotros() {
           </Link>
         </article>
 
-        <article className='alex'>
+        <article>
 
           <Link to="/totoTattoo">
             <img src={otros.alex} alt="Foto Toto_Tattoo artista residente del estudio" />
@@ -73,7 +74,7 @@ function SobreNosotros() {
           </Link>
         </article>
 
-        <article className='mara'>
+        <article>
           <Link to="/McPiercing">
             <img src={otros.mara} alt="Foto McPiercing, anilladora residente del estudio" />
 
@@ -96,10 +97,23 @@ function SobreNosotros() {
         <section className='rowline'>
           <section className='contact-info'>
             
-            <article>
-              <p>C.palangre.1.local, 35510 Puerto Del Carmen, Tías, España</p>
-              <p>660 59 31 54</p>
+            <article className={`art ${darkMode ? 'dark-mode' : ''}`}>
+              
+              <section className='info-item'>
+                <img src={iconos.ubicacion} alt="icono ubicacion" />
+                <p>C.palangre.1.local, Puerto Del Carmen</p> 
+              </section>
+              
+              <section className='info-item'>
+                <img src={iconos.movil} alt="icono movil" />
+                <p>660 59 31 54</p>
+              </section>
+                
+             <section className='info-item'>
+              <img src={iconos.correo} alt="icono correo" />
               <p>ladivatattoo@gmail.com</p>
+             </section>
+              
             </article>
           </section>
 

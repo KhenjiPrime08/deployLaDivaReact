@@ -47,6 +47,7 @@ $landscape-height: 500px; // Para pantallas anchas pero con poca altura
         grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
         gap: 20px;
         max-width: 1200px;
+        font-family: $fuente;
 
         article {
             display: flex;
@@ -207,16 +208,137 @@ $landscape-height: 500px; // Para pantallas anchas pero con poca altura
         }
     }
 
-    .mapa-container{
-        display: flex;
-       flex-direction: column;
+    .mapa-container {
 
-
-       .rowline{
         display: flex;
-        flex-direction: row;
-       }
-    }
+        flex-direction: column;
+      
+        .rowline {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+      
+        .contact-info {
+            width: 100%;
+            align-self: center;
+      
+            .art {
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #fff;
+            border-radius: 30px;
+            height: 300px;
+            width: 70%;
+            font-family: $fuente;
+        
+            .info-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-left: 70px;
+            }
+        
+            img {
+                width: 20px;
+                height: auto;
+            }
+        
+            &.dark-mode {
+                background-color: #333;
+                color: #fff;
+        
+                img {
+                filter: invert(1) brightness(2); // Convierte iconos negros en blancos
+                }
+            }
+            }
+        }
+      
+        .map-container {
+          width: 100%;
+          
+        }
+      
+        /** MEDIA QUERIES **/
+      
+        // Tablets (768px)
+        @media (max-width: 768px) {
+          .rowline {
+            flex-direction: column; // Apila los elementos en columnas
+            align-items: center;
+          }
+      
+          .contact-info .art {
+            width: 85%; // Más ancho en pantallas pequeñas
+            height: auto;
+            padding: 20px;
+            
+          }
+      
+            .contact-info {
+
+                margin-bottom: 20px;
+                
+            }
+        }
+      
+        // Móviles (480px)
+        @media (max-width: 480px) {
+            .contact-info .art {
+                width: 95%;
+                padding: 15px;
+
+                .info-item{
+                    margin-left: 10px;
+                }
+            }
+      
+            .contact-info {
+                margin-bottom: 20px;
+
+                .art{
+                    width: 90%;
+                }
+            }
+      
+            .contact-info .art img {
+                width: 25px; // Un poco más grande para mejor visibilidad en móviles
+            }
+        }
+      
+        // Landscape (modo horizontal en móviles)
+        @media (max-height: 480px) and (orientation: landscape) {
+
+            .rowline {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            }
+        
+            .contact-info .art {
+                width: 70%;
+                height: auto;
+            }
+
+            .info-item{
+                width: 250px;
+            
+                p{
+                    text-align: left;
+                }
+            }
+        
+            .map-container {
+            margin-top: 20px;
+            width: 70%;
+            }
+        }
+      }
+      
 
     
 }

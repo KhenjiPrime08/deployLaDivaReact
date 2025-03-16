@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/Css/Switch.css'
 
-const Switch = (toggleTheme) => {
+const Switch = ({toggleTheme, darkMode}) => {
 
 
   return (
     <section>
       <label className="switch">
-        <input id="input" type="checkbox" defaultChecked="darkTheme" onChange={toggleTheme}/>
+        <input id="input" type="checkbox" defaultChecked={darkMode} onChange={toggleTheme}/>
         
         <div className="slider round">
           <div className="sun-moon">
