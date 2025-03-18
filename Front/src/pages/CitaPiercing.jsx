@@ -23,11 +23,16 @@ function CitaPiercing() {
       },
     ];
     
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Datos de login", formData)
-        //Faltaria llamar al login context para que haga el login
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        await crearCita("piercing", formData.fecha, formData.hora); //Lo mismo, se le pasa el tipo de cita porque siempre va a ser la misma
+        alert("Cita de piercing reservada con éxito");
+      } catch (error) {
+        console.error(error);
+        alert("Error al reservar la cita");
       }
+    };
   
 
   return (
@@ -38,6 +43,7 @@ function CitaPiercing() {
     setFormData={setFormData}
     onSubmit={handleSubmit}
     buttonText="Reservar Cita"
+    mensaje="El precio del depósito serán 10€ "
     />
   )
 }

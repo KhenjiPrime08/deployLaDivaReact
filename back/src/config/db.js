@@ -7,8 +7,4 @@ const db = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.D
   logging: false,
 });
 
-db.authenticate()
-  .then(() => console.log("✅ Conectado a MySQL"))
-  .catch((err) => console.error("Error de conexión:", err));
-
 module.exports = db;

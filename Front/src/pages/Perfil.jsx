@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/Css/Perfil.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout } from '../services/userService';
+
+
 function Perfil() {
+
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(
     {"name": "Juan Pérez",
@@ -27,6 +32,10 @@ function Perfil() {
     loadData();
   }, []);
   
+  const cerrarSesion = () => {
+    logout()
+    navigate("/login")
+  }
 
   return (
     <div className="profile-container">
@@ -34,13 +43,19 @@ function Perfil() {
         <p className="loading">Cargando datos...</p>
       ) : user ? (
         <>
-          <div className="profile-card">
+          <section className="profile-card">
+            
             <h2>Perfil del Usuario</h2>
             <p><strong>Nombre:</strong> {user.name}</p>
             <p><strong>Correo:</strong> {user.email}</p>
-            <p><strong>Teléfono:</strong> {user.phone}</p>
-            <Link to="/" className="edit-btn">Editar Perfil</Link>
-          </div>
+            
+            <article className='btns'>
+              <Link to="/" className="edit-btn">Editar Perfil</Link>
+              <Link to="/login" className="edit-btn" onClick={cerrarSesion}>Cerrar sesión</Link>
+            </article>
+            
+
+          </section>
 
           <div className="appointments">
             <h3>Mis Citas</h3>

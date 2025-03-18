@@ -1,20 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import iconos from '../assets/images/iconos/Iconos.js'
 import "../styles/Css/Header.css";
 import { Link } from 'react-router-dom';
-import LoginContext from '../context/LoginContext.jsx';
 import { DarkModeContext } from '../context/DarkModeContext.jsx';
 import Switch from './Switch.jsx';
 
 function Header() {
-    const { logged } = useContext(LoginContext);
+    const [logged, setLogged] = useState(!!localStorage.getItem("token"));
     const { darkMode, toggleTheme } = useContext(DarkModeContext);
     const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú
 
-    const closeMenu = () => {
-        setMenuOpen(false);
-    }
+    const closeMenu = () => setMenuOpen(false);
+    
+    //Comprueba si esta logged o no.
+    useEffect(() => {
+        const updateLoginStatus = () => {
+            setLogged(!!localStorage.getItem("token"));
+        };
 
+        window.addEventListener("loginStatusChanged", updateLoginStatus);
+        return () => window.removeEventListener("loginStatusChanged", updateLoginStatus);
+    }, []);
+    
     return (
         <header className={darkMode ? "dark" : ""}>
             <article className="logo-container">

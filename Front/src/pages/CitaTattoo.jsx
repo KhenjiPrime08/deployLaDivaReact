@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Formulario from '../components/Formulario'
+import { crearCita } from '../services/citaService';
 
 function CitaTattoo() {
 
-  const [formData, setFormData] = useState({ nombre: "", email: "", telefono: "", tatuador:"", fecha: "", hora: "", idea: "", notas:"", tamaño: "", archivo:null });  
+  const [formData, setFormData] = useState({ nombre: "", email: "", telefono: "", tatuador:"", fecha: "", hora: "", idea: "", notas:"", archivo:null });  
   
   const fields = [
     { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true, maxLength: 50 },
@@ -14,15 +15,20 @@ function CitaTattoo() {
     { nombre: "hora", label: "Horas Disponibles", type: "time", placeholder: "--:--", required: true },
     { nombre: "diseno", label: "¿Qué te quieres tatuar?", type: "textarea", placeholder: "Describe tu diseño", required: true },
     { nombre: "notas", label: "Notas (Opcional)", type: "textarea", placeholder: "Notas adicionales", required: false },
-    { nombre: "tamano", label: "Tamaño del tatuaje", type: "select", options: [{value: "Pequeño",label: "Pequeño (5cm)"},{value: "Mediano",label:"Mediano"},{value: "Grande",label:"Grande"}], required: true },
     { nombre: "archivo", label: "Pon tu idea de diseño (Opcional)", type: "file", required: false }
   ];
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log("Datos de login", formData)
-      //Faltaria llamar al login context para que haga el login
+  //Meter el método de pago 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await crearCita("tatuaje", formData.fecha, formData.hora); //le indico tatuaje por que SIEMPRE va a ser una cita de tatuajes en esta pagina
+      alert("Cita de tatuaje reservada con éxito");
+    } catch (error) {
+      console.error(error);
+      alert("Error al reservar la cita");
     }
+  };
 
   return (
     <Formulario
@@ -32,6 +38,7 @@ function CitaTattoo() {
       setFormData={setFormData}
       onSubmit={handleSubmit}
       buttonText="Reservar Cita"
+      mensaje="El precio del depósito serán 20€ "
     />
   )
 }
