@@ -7,6 +7,8 @@ const Usuario = db.define("Usuario", {
   email: { type: DataTypes.STRING, unique: true, allowNull: false },
   password: { type: DataTypes.STRING, allowNull: false },
   rol: { type: DataTypes.ENUM("cliente", "admin"), defaultValue: "cliente" },
+  verified: { type: DataTypes.BOOLEAN, defaultValue: false }, // 🔹 Usuario no verificado por defecto
+  verificationCode: { type: DataTypes.STRING } // 🔹 Código OTP para verificar el correo
 });
 
 module.exports = Usuario;

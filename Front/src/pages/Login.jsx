@@ -43,7 +43,7 @@ function Login() {
 
       navigate("/"); //los lleva al home
     }catch(error){
-      console.error("Error en el login:", error);
+      console.error(error);
       
       // Mostrar el error del backend en el front
       setErrors({ general: error.message || "Error al iniciar sesión" });

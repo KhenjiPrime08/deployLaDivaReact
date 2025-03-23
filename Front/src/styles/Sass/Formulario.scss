@@ -12,6 +12,7 @@ $fuente: "Roboto", sans-serif;
     min-height: 80vh;
     width: 100%;
     max-width: 700px;
+    margin-bottom: 30px;
 
     @media screen and (max-width: $tablet) {
         min-height: 77.9vh;
@@ -36,15 +37,15 @@ $fuente: "Roboto", sans-serif;
     }
 
     .fondo {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         align-items: center;
         background: whitesmoke;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        width: 70%;
+        width: 100%;
         max-width: 600px;
         margin-bottom: 30px;
 
@@ -63,29 +64,50 @@ $fuente: "Roboto", sans-serif;
                 text-align: center;
             }
 
+            .input-container {
+                position: relative; // Para posicionar el icono dentro del input
+                display: flex;
+                align-items: center;
+            }
+
             .form-input {
                 font-family: $fuente;
                 padding: 8px;
-                height: 25px;
-                width: 350px;
+                width: 250px;
+                height: 40px;
                 border: 1px solid #E6E6E6;
                 background-color: white;
                 transition: background-color 0.3s ease;
                 border-radius: 5px;
                 color: black;
+                padding-right: 25px; // Espacio para el icono
 
                 &::placeholder {
                     color: black;
                     opacity: 1;
                 }
-
-                
-                  
             }
 
-            .input-error {
-                border: 2px solid red !important;
-                background-color: #ffe6e6; // Color de fondo suave para indicar error
+            .toggle-password {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+              }
+        
+              .toggle-password svg {
+                width: 20px;
+                height: 20px;
+                color: black;
+                transition: color 0.3s ease;
+        
+                
               }
 
             .select-input {
@@ -106,33 +128,13 @@ $fuente: "Roboto", sans-serif;
             }
 
             .error-message {
-                color: red;
-                font-size: 14px;
-                text-align: left;
+                color: #8d0e0e;
+                font-size: 20px;
                 margin-top: 5px;
-              }
+                text-align: center;
+                grid-column: span 2;
+            }
 
-            .input-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            
-            .form-input {
-                flex: 1;
-                padding-right: 40px; // Espacio para el botón de mostrar/ocultar contraseña
-            }
-            
-            .toggle-password {
-                position: absolute;
-                right: 10px;
-                background: none;
-                border: none;
-                cursor: pointer;
-                font-size: 18px;
-                color: black;
-            }
-            }
-              
         }
 
         .form-button {
@@ -158,9 +160,8 @@ $fuente: "Roboto", sans-serif;
             }
         }
 
-        //TABLETS
         @media screen and (max-width: $tablet) {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             width: 100%;
             max-width: 100%;
             gap: 15px;
@@ -169,7 +170,6 @@ $fuente: "Roboto", sans-serif;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             align-items: center;
-            
 
             .form-group {
                 width: 100%;
@@ -179,13 +179,10 @@ $fuente: "Roboto", sans-serif;
                     justify-self: center;
                     width: 90%;
                 }
-
                 .error-message {
-                    font-size: 12px;
-                    text-align: left;
-                    margin-left: 20px;
-                  }
-                
+                    font-size: 16px;
+                    grid-column: span 1;
+                }
             }
 
             .form-label {
@@ -204,15 +201,30 @@ $fuente: "Roboto", sans-serif;
             .form-button {
                 padding: 10px;
                 font-size: 12px;
-                grid-column: span 1;
+                grid-column: span 1fr;
                 justify-self: center;
             }
-              
         }
 
-        //Moviles
+        .mensaje {
+            font-family: $fuente;
+            grid-column: span 2;
+            justify-self: center;
+    
+            a {
+                text-decoration: none;
+                color: black;
+            }
+    
+            @media screen and (max-width: $tablet) {
+                font-size: 15px;
+                margin-bottom: 25px;
+            }
+        }
+
         @media screen and (max-width: $mobile) {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             width: 100%;
             max-width: 350px;
             gap: 15px;
@@ -221,25 +233,47 @@ $fuente: "Roboto", sans-serif;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             align-items: center;
+
+            .form-group{
+                .error-message {
+                    font-size: 15px;
+                }
+            }
+
+            .input-container{
+                .form-input {
+                    width: 90%;
+                    height: 30px; 
+                }
+            }
+
         }
 
-        
+        @media screen and (max-width: 1024px) and (min-width: $tablet) {
+            .form-group {
+                    
+                .error-message {
+                    font-size: 15px;
+                    grid-column: span 1;
+                }
+
+                .form-label, .form-input {
+                    width: 90%;
+                }
+            }
+        }
+
+
     }
 
-    .mensaje {
-        font-family: $fuente;
+    
 
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        @media screen and (max-width: $tablet) {
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
+    // Estilos para errores
+    .input-error {
+        border: 2px solid #ff4d4d !important;
     }
 
+    
 
     // Estilos para el modo oscuro
     &.dark-mode {
@@ -257,6 +291,13 @@ $fuente: "Roboto", sans-serif;
                     opacity: 1;
                 }
             }
+
+            .toggle-password svg {
+                color: white;
+                transition: color 0.3s ease;
+        
+                
+              }
 
             .select-input {
                 background-color: #555;
@@ -281,18 +322,6 @@ $fuente: "Roboto", sans-serif;
                     background-color: #888;
                 }
             }
-
-            //Fondo rojo cuando está mal el input
-            .input-error {
-                background-color: #4d2e2e; 
-            }
-            
-            .form-group{
-                .toggle-password {
-                
-                    color: white;
-                }
-            }
         }
 
         .mensaje {
@@ -301,6 +330,11 @@ $fuente: "Roboto", sans-serif;
             a {
                 color: #bbb;
             }
+        }
+
+        // Modo oscuro - errores
+        .input-error {
+            border: 2px solid #ff4d4d;
         }
     }
 }

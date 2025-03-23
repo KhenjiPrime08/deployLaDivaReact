@@ -23,16 +23,17 @@ function TotoTattoo() {
         imagen={otros.alex_tatuando}
         titulo={"Toto Tattoo, un artista del tatuaje apasionado y experto en estilos de color"}
         texto={<article>
-            <p>En muchas ocasiones, hacerse un tatuaje es un momento trascendental en la vida, y en ese instante especial,
-            es fundamental contar con un profesional que entienda la importancia de transformar ideas en arte permanente.</p>
+            <p>Alejandro nació en Uruguay, donde desde niño descubrió su pasión por el dibujo. Con un talento innato y una curiosidad inagotable,
+              pasaba horas perfeccionando sus trazos. Sin embargo, su camino hacia el arte no fue fácil. A lo largo de los años, emprendió viajes
+              en busca de oportunidades y nuevos horizontes, persiguiendo un sueño que aún no sabía cómo definir.  </p>
           
-            <p>Mi nombre es Alejandro, aunque en el mundo del tatuaje soy mejor conocido como Toto Tattoo. Mi trayectoria comenzó en 2018, cuando el destino me llevó a 
-            descubrir mi verdadera vocación: el tatuaje. Desde niño, siempre me sentí atraído por el arte, disfrutando de dibujar,
-            pintar e ilustrar. Sin embargo, no fue hasta años después, trabajando como mánager en un estudio de tatuajes, que redescubrí mi pasión por la creación artística.</p> 
+            <p>Todo cambió cuando conoció a un amigo tatuador que le mostró el increíble mundo del arte en la piel.
+              Fue en ese momento cuando Alejandro entendió que lo que siempre había buscado estaba allí:
+              dar vida a sus dibujos en las pieles de quienes confían en su visión artística.  </p> 
 
-            <p>Con esfuerzo, dedicación y el apoyo de mis seres queridos, adquirí mi primera máquina de tatuar, dando inicio a una carrera que me llena de orgullo.
-            Hoy, tengo el privilegio de tatuar a diario en mi propio estudio, La Diva Tattoo, donde me especializo en estilos vibrantes como acuarela, 
-            full color, anime y neo tradicional, siempre explorando el fascinante mundo del color.</p>
+            <p>Hoy, Alejandro es tatuador residente en <b>La Diva Tattoo</b>, en la hermosa isla de Lanzarote.
+              Especializado en el realismo, cada uno de sus trabajos refleja una dedicación absoluta a los detalles, una técnica impecable
+              y la pasión de alguien que convirtió su sueño en realidad.  </p>
           
           </article>   
         }

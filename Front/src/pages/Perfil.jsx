@@ -14,10 +14,12 @@ function Perfil() {
     "phone": "+123456789"},
     
   );
+
   const [appointments, setAppointments] = useState([
     { "id": 1, "date": "2025-03-10", "artist": "Tattoo Master A" },
     { "id": 2, "date": "2025-03-15", "artist": "Tattoo Master B" }
   ]);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ function Perfil() {
             <p><strong>Correo:</strong> {user.email}</p>
             
             <article className='btns'>
-              <Link to="/" className="edit-btn">Editar Perfil</Link>
+              <Link to="/editar" className="edit-btn">Editar Perfil</Link>
               <Link to="/login" className="edit-btn" onClick={cerrarSesion}>Cerrar sesión</Link>
             </article>
             

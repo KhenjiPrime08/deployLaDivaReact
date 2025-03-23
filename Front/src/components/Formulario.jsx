@@ -4,7 +4,7 @@ import MedidorPassword from "./MedidorPassword";
 import { Eye, EyeOff } from "lucide-react";
 import "../styles/Css/Formulario.css";
 
-function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo, errors, mostrarMedidorPassword }) {
+function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo, errors, setErrors, mostrarMedidorPassword }) {
   const { darkMode } = useContext(DarkModeContext);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -61,13 +61,17 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
               </section>
 
               {campo.nombre === "password" && mostrarMedidorPassword && <MedidorPassword password={formData.password} />}
-              {errors?.[campo.nombre] && <p className="error-message">{errors[campo.nombre]}</p>}
+              {errors && errors?.[campo.nombre] && <p className="error-message">{errors[campo.nombre]}</p>}
+              
+
 
             </section>
           ))}
+          {errors?.general && <p className="error-message">{errors.general}</p>}
           <input className="form-button" type="submit" value={buttonText} />
+          <article className="mensaje">{mensaje}</article>
         </section>
-        <article className="mensaje">{mensaje}</article>
+        
       </form>
     </section>
   );

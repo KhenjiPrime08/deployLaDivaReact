@@ -20,13 +20,13 @@ function Iris_Gems() {
         imagen={gemas.gema1}
         titulo={"Iris Gems: Gemas Dentales de Alta Calidad"}
         texto={<article>
-            <p>Las gemas dentales son una tendencia en auge en el mundo de la estética dental. Cada vez más personas buscan darle un toque
-            único y personal a su sonrisa, y las gemas dentales son una excelente opción para lograrlo. En este contexto, Iris Gems se
-            presenta como una de las marcas más destacadas en el mercado, ofreciendo gemas de alta calidad y una amplia variedad de diseños.</p>   
+            <p>Lorena es el corazón cálido de nuestro estudio. Como recepcionista, se encarga de que todo esté en su lugar,
+              creando un ambiente organizado y acogedor para que cada cliente se sienta como en casa desde el momento en que entra.
+              Su dedicación y atención al detalle son clave para que la experiencia de cada persona sea perfecta, brindando apoyo constante a nuestros tatuadores
+              y asegurándose de que todo transcurra sin problemas. </p>   
 
-            <p>Las gemas dentales de Iris Gems están fabricadas con materiales de primera calidad, lo que garantiza su durabilidad y resistencia.
-            Además, su amplio catálogo de diseños permite a cada persona encontrar la gema perfecta para su sonrisa. Desde gemas de colores
-            vibrantes hasta diseños más sutiles y elegantes, Iris Gems tiene opciones para todos los gustos y estilos.</p>
+            <p>Además, Lorena tiene una habilidad única que ilumina aún más las sonrisas: ¡es especialista en la colocación de gemas dentales! Si deseas darle un toque
+              especial a tu sonrisa, ella estará encantada de ayudarte a brillar tanto por dentro como por fuera.</p>
             </article>
         }
         />

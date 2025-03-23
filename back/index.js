@@ -20,7 +20,7 @@ app.use("/api/citas", citaRutas); // Endpoints para citas
 // Sincronizar base de datos y arrancar el servidor
 db.sync({ force: false }) // ⚠️ Si cambias a { force: true }, se borrarán las tablas y se recrearán
   .then(() => {
-    console.log("✅ Base de datos conectada y tablas creadas.");
+    console.log("✅ Base de datos conectada");
     app.listen(PORT, () => console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`));
   })
   .catch(error => console.error("❌ Error al conectar la base de datos:", error));

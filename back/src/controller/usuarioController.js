@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../model/Usuario");
-const { loginUser } = require("../service/authService");
+const { sendVerificationEmail } = require("../service/emailService");
 
 exports.register = async (req, res) => {
   try {
@@ -21,7 +21,16 @@ exports.register = async (req, res) => {
       return res.status(400).json({ error: "El email ya está en uso" });
     }
 
-    const user = await User.create({ nombre, email, password: hashedPassword});
+    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString(); //Crea el codigo de verificacion
+
+    const user = await User.create({ 
+      nombre, 
+      email, 
+      password: hashedPassword, 
+      verificationCode 
+    }); //Crea el usuario
+
+    await sendVerificationEmail(email, verificationCode); //Envia el correo de verificacion
 
     res.status(201).json({ message: "Usuario registrado con éxito", user });
   } catch (error) {
@@ -32,15 +41,98 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-    console.log(req.body)
     const { email, password } = req.body;
-    console.log(email);
-    console.log(password);
-    const { token, user } = await loginUser(email, password);
-    res.json({ message: "Login exitoso", token, user });
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) return res.status(404).json({ error: "Usuario no encontrado" });
+    if (!user.verified) return res.status(400).json({ error: "Verifica tu correo antes de iniciar sesión" });
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) return res.status(400).json({ error: "Credenciales incorrectas" });
+
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    res.json({ token, user });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
+
+
+exports.verifyEmail = async (req, res) => {
+  try {
+    const { email, codigo } = req.body;
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) return res.status(404).json({ error: "Usuario no encontrado" });
+    if (user.verified) return res.status(400).json({ error: "El usuario ya está verificado" });
+
+    if (String(user.verificationCode) !== String(codigo)) {
+      return res.status(400).json({ error: "Código incorrecto" });
+    }
+
+    user.verified = true;
+    user.verificationCode = null; // 🔹 Limpiar el código
+    await user.save();
+    
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+   
+    res.json({ token, user });
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+    console.log(error.message);
+  }
+};
+
+exports.actualizarUser = async (req, res) => {
+
+  try {
+    const { nombre, email, password } = req.body;
+    const { id } = req.params;
+    
+    console.log("ID", id);
+    const usuario = await User.findByPk(id);
+
+    if(!usuario) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    if (!nombre || !email || !password) {
+      return res.status(400).json({ error: "Todos los campos son obligatorios" });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({ error: "La contraseña debe tener al menos 6 caracteres" });
+    }
+
+
+    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString(); //Crea el codigo de verificacion
+    await sendVerificationEmail(email, verificationCode); //Envia el correo de verificacion
+
+
+    //ACTUALIZAR USUARIO
+    usuario.nombre = nombre;
+    usuario.email = email;
+    usuario.verified = false; // 🔹 Marcar como no verificado para cambiar a verificado en la autenticacion en dos pasos
+    usuario.verificationCode = verificationCode; // 🔹 Agregar el nuevo codigo de verificacion
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    usuario.password = hashedPassword;
+
+    await usuario.save();
+
+    
+
+    res.status(200).json({ message: "Usuario registrado con éxito", usuario});;
+
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: error.message });
+    console.log("ERROR ACTUALIZANDO USER", error.message);
+  }
+
+};
+
 
 //Actualizar, borrar

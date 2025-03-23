@@ -27,13 +27,13 @@ function Register() {
     const email = formData.email;
     const password = formData.password;
   
-    if (!formData.nombre.trim()) {
+    if (!nombre.trim()) {
       validationErrors.nombre = "El nombre es obligatorio";
     }
-    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       validationErrors.email = "Correo inválido";
     }
-    if (formData.password.length < 6) {
+    if (password.length < 6) {
       validationErrors.password = "La contraseña debe tener al menos 6 caracteres";
     }
   
@@ -47,7 +47,7 @@ function Register() {
       await register( nombre, email, password ); 
   
       //Llevarlos al login despues de crear la cuenta correctamente
-      navigate("/login");
+      navigate("/verificar");
   
     } catch (error) {
       console.error("Error en el registro:", error);
@@ -70,6 +70,7 @@ function Register() {
         mensaje={<p>¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link></p>}
         errors={errors}
         mostrarMedidorPassword={true}
+        setErrors={setErrors}
         />
       {errors.general && <p className="error">{errors.general}</p>}
     </section>

@@ -14,6 +14,8 @@ import InkYaque from '../pages/InkYaque.jsx'
 import TotoTattoo from '../pages/TotoTattoo.jsx'
 import McPiercing from '../pages/McPIercing.jsx'
 import Iris_Gems from '../pages/Iris_Gems.jsx'
+import VerificarCorreo from '../pages/VerificarCorreo.jsx'
+import EditarPerfil from '../pages/EditarPerfil.jsx'
 
 
 
@@ -34,6 +36,8 @@ function AppRoutes(logged) {
             <Route path='/totoTattoo' element={<TotoTattoo />} />
             <Route path='/McPiercing' element={<McPiercing />} />
             <Route path='/irisGems' element={<Iris_Gems />} />
+            <Route path='/verificar' element={<VerificarCorreo />} />
+            <Route path='/editar' element={<EditarPerfil />} />
 
 
             <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}
