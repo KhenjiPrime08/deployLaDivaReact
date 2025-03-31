@@ -50,7 +50,7 @@ exports.login = async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) return res.status(400).json({ error: "Credenciales incorrectas" });
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "24h" });
     res.json({ token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -74,7 +74,7 @@ exports.verifyEmail = async (req, res) => {
     user.verificationCode = null; // 🔹 Limpiar el código
     await user.save();
     
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "24h" });
    
     res.json({ token, user });
 
@@ -121,9 +121,7 @@ exports.actualizarUser = async (req, res) => {
 
     await usuario.save();
 
-    
-
-    res.status(200).json({ message: "Usuario registrado con éxito", usuario});;
+    res.status(200).json({ message: "Usuario registrado con éxito", usuario});
 
 
   } catch (error) {
@@ -134,5 +132,41 @@ exports.actualizarUser = async (req, res) => {
 
 };
 
+exports.buscarUser = async (req, res) => {
+  try{
 
-//Actualizar, borrar
+    const { id } = req.params;
+    
+    const usuario = await User.findByPk(id);
+
+    if(!usuario) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    res.status(200).json({ message: "Usuario encontrado con éxito", usuario});
+  }catch(error){
+    console.error(error.message);
+    res.status(500).json({message: error.message})
+    console.log("ERROR GET USER", error.message);
+  }
+}
+
+
+exports.borrarUser = async (req, res) => {
+  try{
+    const { id } = req.params;
+
+    const usuario = await User.findByPk(id);
+
+    if(!usuario){
+      return res.status(400).json({ error: "Usuario no encontrado"});
+    }
+
+    await usuario.destroy(); //Sequelize usa destroy para borrar usuarios en la bdd
+
+    res.status(200).json( {message: "Cuenta eliminada con exito"});
+  }catch(error){
+    console.error("Error al eliminar cuenta", error)
+    res.status(500).json({error: "Error interno eliminando"})
+  }
+}

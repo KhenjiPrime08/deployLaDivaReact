@@ -1,0 +1,101 @@
+.back {
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.back .card {
+  background-color: rgb(190, 187, 187);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 40vh;
+  font-size: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+}
+.back .card .h1Card {
+  font-size: 35px;
+}
+.back .card .btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.back .card .btns .delete-btn,
+.back .card .btns .btn {
+  max-width: 180px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+.back .card .btns .delete-btn {
+  background: #f52727;
+  color: black;
+}
+.back .card .btns .delete-btn:hover {
+  background: #ad1c1c;
+}
+.back .card .btns .delete-btn:focus {
+  background-color: #991919;
+}
+.back .card .btns .btn {
+  background: #f5f5f5;
+  color: black;
+}
+.back .card .btns .btn:hover {
+  background: #b6b5b5;
+}
+.back .card .btns .btn:focus {
+  background-color: #7a7979;
+}
+.back .card.dark-mode {
+  background-color: #525151;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+@media (max-width: 768px) {
+  .back .card {
+    width: 80%;
+    height: auto;
+    font-size: 22px;
+  }
+  .back .card .h1Card {
+    font-size: 30px;
+  }
+  .back .card .btns {
+    gap: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .back .card {
+    width: 90%;
+    font-size: 18px;
+    height: auto;
+    padding: 15px;
+  }
+  .back .card .h1Card {
+    font-size: 24px;
+  }
+  .back .card .btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .back .card .delete-btn,
+  .back .card .btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/*# sourceMappingURL=Delete.css.map */

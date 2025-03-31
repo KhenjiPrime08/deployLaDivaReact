@@ -81,3 +81,55 @@ export const editarPerfil  = async (id, nombre, email, password) => {
     throw error;
   }
 }
+
+
+export const getUser = async (id) => {
+  try{
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(`${API_URL}/usuario/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token
+      }
+    });
+
+    if(!response.ok) throw new Error("Error al obtener el usuario");
+
+    const usuario = await response.json();
+    return usuario;
+  }catch(error){
+    console.error("Error al obtener el usuario", error)
+    throw error;
+  }
+}
+
+
+export const deleteUser = async (id) => {
+
+  try{
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(`${API_URL}/usuario/eliminar/${id}`, {
+      method:"Delete",
+      headers: {
+        "Authorization": token,
+        "Content-Type": "application/json"
+      }
+    });
+
+    if(!response.ok){
+      const errorData = await response.json(); // ⚠️ Si el backend devuelve HTML aquí fallará
+      console.log(errorData);
+      throw new Error(errorData.error || "No se pudo eliminar la cuenta");
+    }
+
+    const data = await response.json();
+
+    return data
+  }catch(error){
+    console.error("Error en el service eliminando cuenta", error)
+    throw error;
+  }
+}

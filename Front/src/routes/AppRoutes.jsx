@@ -16,6 +16,7 @@ import McPiercing from '../pages/McPIercing.jsx'
 import Iris_Gems from '../pages/Iris_Gems.jsx'
 import VerificarCorreo from '../pages/VerificarCorreo.jsx'
 import EditarPerfil from '../pages/EditarPerfil.jsx'
+import DeleteAcc from '../pages/DeleteAcc.jsx'
 
 
 
@@ -38,6 +39,7 @@ function AppRoutes(logged) {
             <Route path='/irisGems' element={<Iris_Gems />} />
             <Route path='/verificar' element={<VerificarCorreo />} />
             <Route path='/editar' element={<EditarPerfil />} />
+            <Route path='/delete' element={<DeleteAcc />} />
 
 
             <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}

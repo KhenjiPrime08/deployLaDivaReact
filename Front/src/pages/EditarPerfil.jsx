@@ -23,7 +23,7 @@ function EditarPerfil() {
         const token = localStorage.getItem("token");
         if (token) {
           const decoded = jwtDecode(token);
-          setUserId(decoded.id); // Suponiendo que el token tiene el ID en `id`
+          setUserId(decoded.id); 
           console.log("ID del usuario:", decoded.id);
         }
       }, []);
