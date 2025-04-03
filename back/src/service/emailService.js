@@ -22,7 +22,6 @@ exports.sendVerificationEmail = async (email, code) => {
       text: `Tu código de verificación es: ${code}`,
       html: `<p>Tu código de verificación es: <strong>${code}</strong></p>`
     });
-    console.log(`Correo enviado a ${email}`);
   } catch (error) {
     console.error("Error enviando correo:", error);
   }

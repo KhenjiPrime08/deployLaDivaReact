@@ -6,7 +6,7 @@ import { DarkModeContext } from '../context/DarkModeContext.jsx';
 import Switch from './Switch.jsx';
 
 
-function Header() {
+function HeaderAdmin() {
     const [logged, setLogged] = useState(!!localStorage.getItem("token"));
     const { darkMode, toggleTheme } = useContext(DarkModeContext);
     const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú
@@ -46,23 +46,13 @@ function Header() {
 
                     <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to="/sobreNosotros" onClick={closeMenu}>Sobre Nosotros </Link></li>
 
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaTattoo" : "/login"} onClick={closeMenu}> Cita Tattoo</Link></li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaPiercing" : "/login"} onClick={closeMenu}> Cita Piercing </Link></li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaGema" : "/login"} onClick={closeMenu}> Cita Gemas Dentales </Link></li>
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to="/admin" onClick={closeMenu}> Todas las citas</Link></li>
 
                     <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to={logged ? "/perfil" : "/login"} onClick={closeMenu}> {logged ? "Perfil" : "Iniciar sesión"} </Link></li>
-
-                    <li className={`navbar languages ${darkMode ? "dark" : ""}`}>
-                        <img src={iconos.esp} alt="Spain flag" />
-                        <ul className={`flags-dropdown ${darkMode ? "dark" : ""}`}>
-                            <li><img src={iconos.eng} alt="England flag" /></li>
-                            <li><img src={iconos.de} alt="German flag" /></li>
-                        </ul>
-                    </li>
                 </ul>
             </nav>
         </header>
     );
 }
 
-export default Header;
+export default HeaderAdmin;

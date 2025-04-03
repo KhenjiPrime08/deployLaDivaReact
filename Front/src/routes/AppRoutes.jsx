@@ -8,7 +8,6 @@ import CitaPiercing from '../pages/CitaPiercing.jsx'
 import SobreNosotros from '../pages/SobreNosotros.jsx'
 import Perfil from '../pages/Perfil.jsx'
 import Admin from '../pages/Admin.jsx'
-import PrivateRoute from './PrivateRoute.jsx'
 import CitaGema from '../pages/CitaGema.jsx'
 import InkYaque from '../pages/InkYaque.jsx'
 import TotoTattoo from '../pages/TotoTattoo.jsx'
@@ -44,8 +43,8 @@ function AppRoutes(logged) {
 
             <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}
 
-            {/*Ruta protegida */}
-            <Route path='/admin' element={<PrivateRoute> <Admin /> </PrivateRoute>} />
+            
+            <Route path='/admin' element={ <Admin /> } />
         </Routes>
     
     

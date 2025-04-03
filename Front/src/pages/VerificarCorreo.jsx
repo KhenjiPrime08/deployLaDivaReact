@@ -41,19 +41,18 @@ function VerificarCorreo() {
     }
 
     try {
-      console.log("LLEGA AQUI");
       const response = await verifyEmail(email, codigo);
       setMessage(response.message);
-      console.log(response.message);
       navigate("/");
     } catch (error) {
-      setMessage("Error verificando el correo",error.message);
-      console.log("error aqui", error.message);
+      setMessage(error.message);
+      console.log("error verificarCorreo", error.message);
     }
   };
 
   return (
     <section className="verificacion">
+      
       <Formulario 
       titulo={"Verificar correo"}
       campos={fields}

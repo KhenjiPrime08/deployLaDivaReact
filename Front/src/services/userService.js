@@ -12,7 +12,6 @@ export const loginUser = async (email, password) => {
     if (!response.ok) throw new Error("Credenciales incorrectas");
 
     const datos = await response.json();
-    console.log("Token recibido:", datos.token); // Verifica si llega el token
 
    
     localStorage.setItem("token", datos.token); // Guarda el token
@@ -121,7 +120,6 @@ export const deleteUser = async (id) => {
 
     if(!response.ok){
       const errorData = await response.json(); // ⚠️ Si el backend devuelve HTML aquí fallará
-      console.log(errorData);
       throw new Error(errorData.error || "No se pudo eliminar la cuenta");
     }
 

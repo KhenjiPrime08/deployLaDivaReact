@@ -27,8 +27,9 @@ exports.register = async (req, res) => {
       nombre, 
       email, 
       password: hashedPassword, 
-      verificationCode 
-    }); //Crea el usuario
+      verificationCode,
+      rol: email === process.env.EMAIL_ADMIN ? "admin" : undefined 
+    }); //Crea el usuario, si el email es igual al del .env se le asigna admin, si no, 
 
     await sendVerificationEmail(email, verificationCode); //Envia el correo de verificacion
 
@@ -50,7 +51,8 @@ exports.login = async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) return res.status(400).json({ error: "Credenciales incorrectas" });
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "24h" });
+    const token = jwt.sign({ id: user.id, rol: user.rol }, process.env.JWT_SECRET);
+    console.log(user.role)
     res.json({ token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -74,7 +76,7 @@ exports.verifyEmail = async (req, res) => {
     user.verificationCode = null; // 🔹 Limpiar el código
     await user.save();
     
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "24h" });
+    const token = jwt.sign({ id: user.id, rol: user.rol }, process.env.JWT_SECRET);
    
     res.json({ token, user });
 

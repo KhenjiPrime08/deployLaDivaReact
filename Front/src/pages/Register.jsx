@@ -72,7 +72,6 @@ function Register() {
         mostrarMedidorPassword={true}
         setErrors={setErrors}
         />
-      {errors.general && <p className="error">{errors.general}</p>}
     </section>
     
   )

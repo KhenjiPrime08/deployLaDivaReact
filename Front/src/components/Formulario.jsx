@@ -35,31 +35,46 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
             <section className="form-group" key={campo.nombre}>
               <label className="form-label">{campo.label}</label>
               <section className="input-container">
-
-                <input
-                  className={`form-input ${errors?.[campo.nombre] ? "input-error" : ""}`}
-                  type={
-                    campo.type === "password"
-                      ? showPassword
-                        ? "text"
-                        : "password"
-                      : campo.type
-                  }
-                  name={campo.nombre}
-                  value={formData[campo.nombre] || ""}
-                  onChange={handleChange}
-                  placeholder={campo.placeholder}
-                  required={campo.required}
-                />
+                {campo.type === "select" ? (
+                  <select
+                    className={`select-input`}
+                    name={campo.nombre}
+                    value={formData[campo.nombre] || ""}
+                    onChange={handleChange}
+                    required={campo.required}
+                  >
+                    <option value="">Seleccione una opción</option>
+                    {campo.options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    className={`form-input ${errors?.[campo.nombre] ? "input-error" : ""}`}
+                    type={
+                      campo.type === "password"
+                        ? showPassword
+                          ? "text"
+                          : "password"
+                        : campo.type
+                    }
+                    name={campo.nombre}
+                    value={formData[campo.nombre] || ""}
+                    onChange={handleChange}
+                    placeholder={campo.placeholder}
+                    required={campo.required}
+                  />
+                )}
 
                 {campo.type === "password" && (
                   <button type="button" className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
                     {showPassword ? <EyeOff /> : <Eye />}
                   </button>
                 )}
-
               </section>
-
+              
               {campo.nombre === "password" && mostrarMedidorPassword && <MedidorPassword password={formData.password} />}
               {errors && errors?.[campo.nombre] && <p className="error-message">{errors[campo.nombre]}</p>}
               

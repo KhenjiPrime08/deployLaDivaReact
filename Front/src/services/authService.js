@@ -7,12 +7,10 @@ export const verifyEmail = async (email, codigo) => {
     body: JSON.stringify({ email, codigo })
   });
 
-  if (!response.ok) throw new Error("Código incorrecto");
+  if (!response.ok) throw new Error("Código o correo incorrectos");
 
   if(response.ok){
     const datos = await response.json();
-    console.log("Token recibido:", datos.token); // Verifica si llega el token
-
     
     localStorage.setItem("token", datos.token); // Guarda el token
     window.dispatchEvent(new Event("loginStatusChanged"));

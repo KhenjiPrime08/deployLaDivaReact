@@ -102,7 +102,8 @@
 .form-container .fondo .form-group .select-input {
   font-family: "Roboto", sans-serif;
   padding: 8px;
-  height: 44px;
+  height: 58px;
+  width: 285px;
   border: 1px solid #E6E6E6;
   background-color: white;
   transition: background-color 0.3s ease;

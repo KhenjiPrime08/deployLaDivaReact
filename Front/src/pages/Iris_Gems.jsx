@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import gemas from '../assets/images/gemas_dentales/gemas'
 import Presentacion from '../components/Presentacion';
 import Separador from '../components/Separador';
 import GaleriaTatuajes from '../components/GaleriaTatuajes';
+import { UserContext } from '../context/userContext';
 
 function Iris_Gems() {
-    const galeria = [
-        gemas.gema1,
-        gemas.gema2,
-        gemas.gema3,
-        gemas.gema4,
-        gemas.gema5,
-        gemas.gema6
-    ];
+  const { isAdmin } = useContext(UserContext)
+
+  const [galeria, setGaleria ] = useState([
+      gemas.gema1,
+      gemas.gema2,
+      gemas.gema3,
+      gemas.gema4,
+      gemas.gema5,
+      gemas.gema6
+  ]);
+
+  const [imagen, setImagen] = useState(null);
+
+  const handleImageChange = (e) => {
+    const foto = e.target.files[0];
+    
+    if(foto){
+      const urlFoto = URL.createObjectURL(file) //Crea una url a partir de un objeto
+    }
+  } 
+
 
   return (
     <section>

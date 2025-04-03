@@ -1,0 +1,26 @@
+.citas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.citas-container h1 {
+  font-size: 2rem;
+}
+.citas-container .citas-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 100px;
+}
+@media (max-width: 768px) {
+  .citas-container .citas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .citas-container .citas-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/*# sourceMappingURL=Admin.css.map */
