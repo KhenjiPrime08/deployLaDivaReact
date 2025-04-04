@@ -11,7 +11,7 @@ function GaleriaTatuajes({images}) {
       <section className="tattoo-gallery">
         {images.map((image, index) => (
           <section key={index} className="tattoo-item">
-            <img src={image} alt={`Tatuaje ${index + 1}`} />
+            <img src={`http://localhost:4000/api/upload/${image}`} alt={`Imagen ${index + 1}`} />
           </section>
         ))}
       </section>

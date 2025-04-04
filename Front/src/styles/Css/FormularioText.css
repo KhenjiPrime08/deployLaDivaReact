@@ -1,0 +1,77 @@
+.formulario-text {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.formulario-text.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+.formulario-text.dark-mode input, .formulario-text.dark-mode textarea {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #777;
+}
+.formulario-text.dark-mode input::placeholder, .formulario-text.dark-mode textarea::placeholder {
+  color: #bbb;
+}
+.formulario-text h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+.dark-mode .formulario-text h2 {
+  color: #fff;
+}
+.formulario-text .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+.formulario-text .form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.formulario-text .form-group input, .formulario-text .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+.formulario-text .form-group input:focus, .formulario-text .form-group textarea:focus {
+  border-color: #007bff;
+}
+.formulario-text .form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.formulario-text .form-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.formulario-text .form-button:hover {
+  background-color: #218838;
+}
+.formulario-text .form-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=FormularioText.css.map */

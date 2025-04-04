@@ -4,7 +4,7 @@ import MedidorPassword from "./MedidorPassword";
 import { Eye, EyeOff } from "lucide-react";
 import "../styles/Css/Formulario.css";
 
-function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo, errors, setErrors, mostrarMedidorPassword }) {
+function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo, errors, mostrarMedidorPassword }) {
   const { darkMode } = useContext(DarkModeContext);
   const [showPassword, setShowPassword] = useState(false);
 

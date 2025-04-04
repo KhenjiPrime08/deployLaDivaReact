@@ -16,7 +16,7 @@ $dark-fill: #1c1c1cd3;
     height: 800px;
     justify-self: center;
 
-    grid-template-columns: repeat(5, 1fr); // 🔹 5 columnas fijas
+    grid-template-columns: repeat(5, 1fr); //  5 columnas fijas
     gap: 16px;
     padding: 20px;
     justify-content: center;
@@ -31,8 +31,8 @@ $dark-fill: #1c1c1cd3;
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover; // 🔹 Mantiene la proporción de todas las imágenes
-        aspect-ratio: 1 / 1; // 🔹 Todas las imágenes serán cuadradas
+        object-fit: cover; //  Mantiene la proporción de todas las imágenes
+        aspect-ratio: 1 / 1; //  Todas las imágenes serán cuadradas
         border-radius: 12px;
         transition: transform 0.3s ease-in-out;
       }
@@ -44,7 +44,7 @@ $dark-fill: #1c1c1cd3;
     }
   }
 
-  // 🔹 Responsivo para tablets (máx. 768px)
+  //  Responsivo para tablets (máx. 768px)
   @media (max-width: $tablet) {
     .tattoo-gallery {
       grid-template-columns: repeat(2, 1fr); // 2 columnas en tablets
@@ -53,7 +53,7 @@ $dark-fill: #1c1c1cd3;
     }
   }
 
-  // 🔹 Extra pequeño (máx. 480px)
+  //  Extra pequeño (máx. 480px)
   @media (max-width: $mobile) {
     .tattoo-gallery {
       grid-template-columns: repeat(1, 1fr); // 1 columna en móviles pequeños
@@ -61,7 +61,7 @@ $dark-fill: #1c1c1cd3;
     }
   }
 
-  // 🔹 Estilos para landscape (pantallas anchas con poca altura)
+  //  Estilos para landscape (pantallas anchas con poca altura)
   @media (max-height: $landscape-height) and (orientation: landscape) {
     .tattoo-gallery {
       grid-template-columns: repeat(4, 1fr); // 3 columnas en landscape
