@@ -131,3 +131,26 @@ export const deleteUser = async (id) => {
     throw error;
   }
 }
+
+export const contactar = async (nombre, email, mensaje) => {
+  try {
+    // Enviar el formulario al backend
+    const response = await fetch(`${API_URL}/usuario/contacto`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, nombre, mensaje }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Error al enviar el mensaje');
+    }
+
+    return data; // Retorna la respuesta del servidor
+  } catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+  }
+}

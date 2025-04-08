@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import '../styles/Css/GaleriaTatuajes.css'
 import { DarkModeContext } from '../context/DarkModeContext';
+import API_URL from '../config/config';
 
-function GaleriaTatuajes({images}) {
+function GaleriaTatuajes({images, onDelete}) {
 
   const {darkMode} = useContext(DarkModeContext);
 
@@ -11,7 +12,17 @@ function GaleriaTatuajes({images}) {
       <section className="tattoo-gallery">
         {images.map((image, index) => (
           <section key={index} className="tattoo-item">
-            <img src={`http://localhost:4000/api/upload/${image}`} alt={`Imagen ${index + 1}`} />
+            <img src={`${API_URL}/upload/${image}`} alt={`Imagen ${index + 1}`} />
+
+            {onDelete && (
+              <button
+                className="delete-btn"
+                onClick={() => onDelete(image)}
+              >
+                🗑️
+              </button>
+            )}
+            
           </section>
         ))}
       </section>

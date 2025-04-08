@@ -9,11 +9,13 @@ import Separador from '../components/Separador.jsx';
 import Resenia from '../components/Resenia.jsx';
 import '../styles/Css/Home.css'
 import { DarkModeContext } from '../context/DarkModeContext.jsx';
+import { UserContext } from '../context/userContext';
 
 
 function Home({logged}) {
 
   const {darkMode} = useContext(DarkModeContext);
+  const { isAdmin } = useContext(UserContext);
 
   const tattooImages = [
     yani.batman,
@@ -65,14 +67,14 @@ function Home({logged}) {
           <p>Esta es tu oportunidad de convertir tus ideas en arte eterno.
             Dale vida a tu historia sobre tu piel, porque un tatuaje es más que un diseño,
             es un reflejo de quién eres. ¿Te atreves?</p>
-          <Link to={logged ? '/citaTattoo' : '/login' } className='btn'>Pedir cita tatuajes</Link>
+          <Link to={isAdmin ? '/admin' :  (logged ? '/citaTattoo' : '/login') } className='btn'>Pedir cita tatuajes</Link>
         </article>
         
         <article className='abajo'>
           <h1>Piercings</h1>
           <Carrusel images={piercingImagesList} />
           <p>Un piercing es más que un accesorio, es una declaración de estilo y actitud. Esta es tu oportunidad de brillar con algo único y auténtico. ¡Hazlo tuyo!</p>
-          <Link to={logged ? '/citaPiercing' : '/login' } className='btn'>Pedir cita piercing</Link>
+          <Link to={isAdmin ? '/admin' :  (logged ? '/citaTattoo' : '/login') } className='btn'>Pedir cita piercing</Link>
         </article>
         
         

@@ -28,6 +28,19 @@
   border-radius: 12px;
   transition: transform 0.3s ease-in-out;
 }
+.fondo .tattoo-gallery .tattoo-item .delete-btn {
+  position: absolute;
+  top: 15px;
+  right: 8px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.fondo .tattoo-gallery .tattoo-item .tattoo-item {
+  position: relative;
+}
 .fondo .tattoo-gallery .tattoo-item:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);

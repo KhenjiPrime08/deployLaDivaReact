@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../model/Usuario");
-const { sendVerificationEmail } = require("../service/emailService");
+const { sendVerificationEmail, contactEmail } = require("../service/emailService");
 
 exports.register = async (req, res) => {
   try {
@@ -172,3 +172,17 @@ exports.borrarUser = async (req, res) => {
     res.status(500).json({error: "Error interno eliminando"})
   }
 }
+
+exports.contact = async (req, res) => {
+  const { email, nombre, mensaje } = req.body;
+
+  try {
+    await contactEmail(email, nombre, mensaje); // Llama a la función de envío de correo
+
+
+    return res.status(200).json('Mensaje enviado con éxito'); // Responde al cliente
+  } catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+    res.status(500).json('Hubo un error al enviar el mensaje');
+  }
+};

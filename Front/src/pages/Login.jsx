@@ -13,7 +13,7 @@ function Login() {
 
 
   const fields = [
-    { nombre: "email", label: "Correo electrónico", type: "email", placeholder: "Correo", required: false },
+    { nombre: "email", label: "Correo electrónico", type: "text", placeholder: "Correo", required: false },
     { nombre: "password", label: "Contraseña", type: "password", placeholder: "Contraseña", required: false }
   ];
 

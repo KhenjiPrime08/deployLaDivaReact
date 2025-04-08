@@ -44,5 +44,19 @@ const uploadImage = async (file, categoria) => {
       return [];  // En caso de error, devolvemos un array vacío
     }
   };
+
+    // Borra una imagen del servidor
+  const deleteImage = async (url) => {
+    const response = await fetch(`${API_URL}/upload/delete-image`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+    });
+
+    if (!response.ok) {
+      throw new Error("No se pudo eliminar la imagen");
+    }
+  };
+
   
-  export { uploadImage, fetchImages };
+  export { uploadImage, fetchImages, deleteImage};

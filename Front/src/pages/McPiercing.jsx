@@ -5,7 +5,7 @@ import mara from '../assets/images/piercings/piercings';
 import GaleriaTatuajes from '../components/GaleriaTatuajes';
 import { UserContext } from '../context/userContext';
 import FormularioAdmin from '../components/FormularioAdmin';
-import { uploadImage, fetchImages } from '../services/uploadService';
+import { uploadImage, fetchImages, deleteImage } from '../services/uploadService';
 
 function McPiercing() {
   const { isAdmin } = useContext(UserContext);
@@ -44,6 +44,19 @@ function McPiercing() {
     }
   };
 
+  // Eliminar imagen
+  const handleDeleteImage = async (url) => {
+    if (!window.confirm("¿Estás seguro de que quieres eliminar esta imagen?")) return;
+  
+    try {
+      await deleteImage(url);
+      setGaleria((prev) => prev.filter((img) => img !== url));
+    } catch (error) {
+      console.error("Error al eliminar la imagen:", error);
+      setError(error.message)
+    }
+  };
+
   return (
     <section>
       <Presentacion 
@@ -76,7 +89,7 @@ function McPiercing() {
 
       <Separador text={"Galería de piercings"} />
 
-      <GaleriaTatuajes images={galeria} />
+      <GaleriaTatuajes images={galeria} onDelete={isAdmin ? handleDeleteImage : null}/>
 
       {isAdmin && (
         <FormularioAdmin

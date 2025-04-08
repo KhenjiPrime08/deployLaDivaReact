@@ -118,4 +118,26 @@ router.get("/imagenes/:categoria", (req, res) => {
   });
 });
 
+router.post('/delete-image', (req, res) => {
+  const { url } = req.body;
+
+  if (!url) {
+    return res.status(400).json({ error: "No se proporcionó la URL" });
+  }
+
+  // Extrae el path del archivo desde la URL
+  const filePath = path.join(__dirname, '..','..', url.replace('http://localhost:4000', ''));
+
+  // Verifica si el archivo existe y lo elimina
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error("Error al eliminar el archivo:", err);
+      return res.status(500).json({ error: "No se pudo eliminar el archivo" });
+    }
+
+    console.log("Archivo eliminado:", filePath);
+    res.json({ message: "Imagen eliminada correctamente" });
+  });
+});
+
 module.exports = router;

@@ -26,3 +26,17 @@ exports.sendVerificationEmail = async (email, code) => {
     console.error("Error enviando correo:", error);
   }
 };
+
+exports.contactEmail = async (email, nombre, mensaje) => {
+
+  try {
+    await transporter.sendMail({
+      from: email, // El correo de quien envía el mensaje (usuario)
+      to: process.env.EMAIL_RECEIVER, // Correo al que se enviarán los mensajes (empresa)
+      subject: `Nuevo mensaje de ${nombre}`, // Asunto del correo
+      text: `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`, // Cuerpo del mensaje
+    });
+  } catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+  }
+};

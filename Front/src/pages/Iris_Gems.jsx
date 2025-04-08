@@ -56,7 +56,7 @@ function Iris_Gems() {
     getImages();
   }, [loading]); // Se vuelve a ejecutar al subir una imagen
 
-  // ✅ Subir nueva imagen
+  //Subir nueva imagen
   const handleNewImage = async (file, categoria) => {
     setLoading(true);
     try {
@@ -67,6 +67,19 @@ function Iris_Gems() {
       setError(error.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Eliminar imagen
+  const handleDeleteImage = async (url) => {
+    if (!window.confirm("¿Estás seguro de que quieres eliminar esta imagen?")) return;
+  
+    try {
+      await deleteImage(url);
+      setGaleria((prev) => prev.filter((img) => img !== url));
+    } catch (error) {
+      console.error("Error al eliminar la imagen:", error);
+      setError(error.message)
     }
   };
 
@@ -86,7 +99,7 @@ function Iris_Gems() {
 
       <Separador />
 
-      <GaleriaTatuajes images={galeria} />
+      <GaleriaTatuajes images={galeria} onDelete={isAdmin ? handleDeleteImage : null}/>
 
       {isAdmin && (
         <section>

@@ -11,11 +11,12 @@ import Admin from '../pages/Admin.jsx'
 import CitaGema from '../pages/CitaGema.jsx'
 import InkYaque from '../pages/InkYaque.jsx'
 import TotoTattoo from '../pages/TotoTattoo.jsx'
-import McPiercing from '../pages/McPIercing.jsx'
+import McPiercing from '../pages/McPiercing.jsx'
 import Iris_Gems from '../pages/Iris_Gems.jsx'
 import VerificarCorreo from '../pages/VerificarCorreo.jsx'
 import EditarPerfil from '../pages/EditarPerfil.jsx'
 import DeleteAcc from '../pages/DeleteAcc.jsx'
+import Contacto from '../pages/Contacto.jsx'
 
 
 
@@ -39,6 +40,7 @@ function AppRoutes(logged) {
             <Route path='/verificar' element={<VerificarCorreo />} />
             <Route path='/editar' element={<EditarPerfil />} />
             <Route path='/delete' element={<DeleteAcc />} />
+            <Route path='/contacto' element={<Contacto />} />
 
 
             <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}

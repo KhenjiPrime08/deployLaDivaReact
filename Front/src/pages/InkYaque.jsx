@@ -44,6 +44,19 @@ function InkYaque() {
     }
   };
 
+  // Eliminar imagen
+  const handleDeleteImage = async (url) => {
+    if (!window.confirm("¿Estás seguro de que quieres eliminar esta imagen?")) return;
+  
+    try {
+      await deleteImage(url);
+      setGaleria((prev) => prev.filter((img) => img !== url));
+    } catch (error) {
+      console.error("Error al eliminar la imagen:", error);
+      setError(error.message)
+    }
+  };
+
   return (
     <section>
       <Presentacion
@@ -60,7 +73,7 @@ function InkYaque() {
 
       <Separador text={"Galería de tatuajes"} />
 
-      <GaleriaTatuajes images={galeria} />
+      <GaleriaTatuajes images={galeria} onDelete={isAdmin ? handleDeleteImage : null}/>
 
       {isAdmin && (
         <FormularioAdmin

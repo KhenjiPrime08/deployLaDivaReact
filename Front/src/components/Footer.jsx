@@ -11,7 +11,7 @@ function Footer() {
     
     <footer className={`footer ${darkMode ? 'dark-mode' : 'light-mode'}`}>
         <section className="footer-left">
-          <Link to="/sobreNosotros">Contacto</Link>
+          <Link to="/contacto">Contacto</Link>
         </section>
 
         <section className="mid">
@@ -20,19 +20,19 @@ function Footer() {
 
         <ul className="social-links">
           <li>
-            <a href="#">
+            <a href="https://www.tiktok.com/@la.diva.tattoo">
               <img src={iconos.tiktok} alt="TikTok" className="icono" />
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="https://www.facebook.com/profile.php?id=61553597955917">
               <img src={iconos.facebook} alt="Facebook" className="icono" />
             </a>
           </li>
 
           <li>
-            <a href="#">
+            <a href="https://www.instagram.com/la_diva_tattoo">
               <img src={iconos.instagram} alt="Instagram" className="icono" />
             </a>
           </li>

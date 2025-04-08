@@ -103,6 +103,19 @@ function Admin() {
       <h1>TODAS LAS CITAS</h1>
 
       <section className="citas-grid">
+
+        <article className="cita-card">
+          <Formulario
+            titulo="Reserva cita Tattoo"
+            campos={fieldsTattoo}
+            formData={formDataTattoo}
+            setFormData={setFormDataTattoo}
+            onSubmit={handleSubmitTattoo}
+            buttonText="Reservar Cita"
+            mensaje="El precio del depósito serán 20€ "
+          />
+        </article>
+
         <article className="cita-card">
           <Formulario 
             titulo="Reserva cita Gema dental"
@@ -126,18 +139,6 @@ function Admin() {
           />
         </article>
 
-
-        <article className="cita-card">
-          <Formulario
-            titulo="Reserva cita Tattoo"
-            campos={fieldsTattoo}
-            formData={formDataTattoo}
-            setFormData={setFormDataTattoo}
-            onSubmit={handleSubmitTattoo}
-            buttonText="Reservar Cita"
-            mensaje="El precio del depósito serán 20€ "
-          />
-        </article>
       </section>
     </section>
   )
