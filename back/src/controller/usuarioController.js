@@ -5,15 +5,20 @@ const { sendVerificationEmail, contactEmail } = require("../service/emailService
 
 exports.register = async (req, res) => {
   try {
-    const { nombre, email, password } = req.body;
+    const { nombre, email, password, telefono } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    if (!nombre || !email || !password) {
+    if (!nombre || !email || !password || !telefono) {
       return res.status(400).json({ error: "Todos los campos son obligatorios" });
     }
       //CAMBIAR POR UN REGEX, SOLO PRUEBA DE MOMENTO
     if (password.length < 6) {
       return res.status(400).json({ error: "La contraseña debe tener al menos 6 caracteres" });
+    }
+
+    const comprobarTel = /^\+?[1-9]\d{1,14}$/;
+    if (!comprobarTel.test(telefono)) {
+      return res.status(400).json({ error: "Número de teléfono no válido" });
     }
 
     const existeUser = await User.findOne({where: { email } });
@@ -28,6 +33,7 @@ exports.register = async (req, res) => {
       email, 
       password: hashedPassword, 
       verificationCode,
+      telefono,
       rol: email === process.env.EMAIL_ADMIN ? "admin" : undefined 
     }); //Crea el usuario, si el email es igual al del .env se le asigna admin, si no, 
 
@@ -52,7 +58,6 @@ exports.login = async (req, res) => {
     if (!isPasswordValid) return res.status(400).json({ error: "Credenciales incorrectas" });
 
     const token = jwt.sign({ id: user.id, rol: user.rol }, process.env.JWT_SECRET);
-    console.log(user.role)
     res.json({ token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });

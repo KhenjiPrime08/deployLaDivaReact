@@ -7,6 +7,11 @@ import '../styles/Css/Admin.css'
 function Admin() {
   const { isAdmin } = useContext(UserContext);
   const navigate = useNavigate();
+  const [ textoInicial, setTextoInicial ] = useState("");
+  const [errors, setErrors] = useState(""); //En este caso me renta que sea un string porque solo voy a mostrar un error a la vez
+
+
+
   if(!isAdmin){
     navigate('/'); // Redirige al inicio si no es admin
   } 
@@ -26,10 +31,10 @@ function Admin() {
     e.preventDefault();
     try {
       await crearCita("gema_dental", formDataGema.fecha, formDataGema.hora);
-      alert("Cita de gema dental reservada con éxito");
+      setTextoInicial("Cita de gema dental reservada con éxito");
     } catch (error) {
       console.error(error);
-      alert("Error al reservar la cita");
+      setErrors("Error al reservar la cita");
     }
   };
 
@@ -60,10 +65,10 @@ function Admin() {
     e.preventDefault();
     try {
       await crearCita("piercing", formDataPiercing.fecha, formDataPiercing.hora); //Lo mismo, se le pasa el tipo de cita porque siempre va a ser la misma
-      alert("Cita de piercing reservada con éxito");
+      setTextoInicial("Cita de piercing reservada con éxito");
     } catch (error) {
       console.error(error);
-      alert("Error al reservar la cita");
+      setErrors("Error al reservar la cita");
     }
   };
 
@@ -90,10 +95,10 @@ function Admin() {
     e.preventDefault();
     try {
       await crearCita("tatuaje", formData.fecha, formData.hora); //le indico tatuaje por que SIEMPRE va a ser una cita de tatuajes en esta pagina
-      alert("Cita de tatuaje reservada con éxito");
+      setTextoInicial("Cita de tatuaje reservada con éxito");
     } catch (error) {
       console.error(error);
-      alert("Error al reservar la cita");
+      setErrors("Error al reservar la cita");
     }
   };
 
@@ -108,21 +113,24 @@ function Admin() {
           <Formulario
             titulo="Reserva cita Tattoo"
             campos={fieldsTattoo}
+            textoInicial={textoInicial}
             formData={formDataTattoo}
             setFormData={setFormDataTattoo}
             onSubmit={handleSubmitTattoo}
+            errors={errors}
             buttonText="Reservar Cita"
-            mensaje="El precio del depósito serán 20€ "
           />
         </article>
 
         <article className="cita-card">
           <Formulario 
             titulo="Reserva cita Gema dental"
+            textoInicial={textoInicial}
             campos={fieldsGemas}
             formData={formDataGemas}
             setFormData={setFormDataGemas}
             onSubmit={handleSubmitGemas}
+            errors={errors}
             buttonText="Reservar Cita"
           />
         </article>
@@ -131,10 +139,12 @@ function Admin() {
         <article className="cita-card">
           <Formulario 
             titulo="Reserva cita Piercing"
+            textoInicial={textoInicial}
             campos={fieldsPiercing}
             formData={formDataPiercing}
             setFormData={setFormDataPiercing}
             onSubmit={handleSubmitPiercing}
+            errors={errors}
             buttonText="Reservar Cita"
           />
         </article>

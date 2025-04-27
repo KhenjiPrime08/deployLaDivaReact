@@ -54,7 +54,7 @@ function VerificarCorreo() {
     <section className="verificacion">
       
       <Formulario 
-      titulo={"Verificar correo"}
+      titulo={"Verifica el correo"}
       campos={fields}
       formData={formData}
       setFormData={setFormData}
@@ -66,7 +66,5 @@ function VerificarCorreo() {
     </section>
   );
 }
-
-//{message && <p className="verificacion__mensaje">{message}</p>}
 
 export default VerificarCorreo;

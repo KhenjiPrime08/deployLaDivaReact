@@ -1,0 +1,120 @@
+.stripe-container2 {
+    width: 600px;
+    display: block;
+    margin: 0 auto;
+
+    .label {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+        margin-left: 50px;
+    }
+
+    .tarjeta {
+        border: 1px solid #E6E6E6;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .boton-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .boton {
+        width: 60%;
+        padding: 12px;
+        background-color: #e4e3e3;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #cac7c7;
+        }
+
+        &:focus {
+            background-color: #9c9a9a;
+        }
+    }
+
+    // Ajustes para tablet (máx. 768px)
+    @media screen and (max-width: 768px) {
+        width: 600px;
+
+        .label {
+            font-size: 16px; 
+            margin-left: 20px; 
+        }
+
+        .tarjeta {
+            padding: 10px; 
+        }
+
+        .boton {
+            width: 70%; 
+            font-size: 16px; 
+            padding: 10px;
+        }
+    }
+
+    // Ajustes para móviles (máx. 480px)
+    @media screen and (max-width: 480px) {
+        width: 300px; 
+
+        .label {
+            font-size: 14px; 
+            margin-left: 10px; 
+        }
+
+        .tarjeta {
+            padding: 8px; 
+        }
+
+        .boton {
+            width: 90%; 
+            font-size: 14px; 
+            padding: 10px; 
+        }
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+
+    &.dark{
+
+        .tarjeta{
+            background-color: #555;
+            border: 1px solid #777;
+            color: white;
+  
+        }
+        
+        .boton{
+            background-color: #777;
+          color: #fff;
+
+          &:hover {
+            background-color: #999;
+          }
+
+          &:focus {
+            background-color: #888;
+          }
+        }
+    }
+}

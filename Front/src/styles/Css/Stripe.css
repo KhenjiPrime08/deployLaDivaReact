@@ -1,0 +1,100 @@
+.stripe-container2 {
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+.stripe-container2 .label {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: 50px;
+}
+.stripe-container2 .tarjeta {
+  border: 1px solid #E6E6E6;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.stripe-container2 .boton-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.stripe-container2 .boton {
+  width: 60%;
+  padding: 12px;
+  background-color: #e4e3e3;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+.stripe-container2 .boton:hover {
+  background-color: #cac7c7;
+}
+.stripe-container2 .boton:focus {
+  background-color: #9c9a9a;
+}
+@media screen and (max-width: 768px) {
+  .stripe-container2 {
+    width: 600px;
+  }
+  .stripe-container2 .label {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+  .stripe-container2 .tarjeta {
+    padding: 10px;
+  }
+  .stripe-container2 .boton {
+    width: 70%;
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .stripe-container2 {
+    width: 300px;
+  }
+  .stripe-container2 .label {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .stripe-container2 .tarjeta {
+    padding: 8px;
+  }
+  .stripe-container2 .boton {
+    width: 90%;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+.stripe-container2 .error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+}
+.stripe-container2.dark .tarjeta {
+  background-color: #555;
+  border: 1px solid #777;
+  color: white;
+}
+.stripe-container2.dark .boton {
+  background-color: #777;
+  color: #fff;
+}
+.stripe-container2.dark .boton:hover {
+  background-color: #999;
+}
+.stripe-container2.dark .boton:focus {
+  background-color: #888;
+}
+
+/*# sourceMappingURL=Stripe.css.map */

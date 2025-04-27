@@ -1,19 +1,12 @@
 .form-container {
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  justify-self: center;
   min-height: 80vh;
   width: 100%;
   max-width: 700px;
-  margin-bottom: 30px;
-}
-@media screen and (max-width: 768px) {
-  .form-container {
-    min-height: 77.9vh;
-    width: 70%;
-  }
+  margin: 0 auto 30px;
 }
 .form-container .titulo {
   font-family: "Angel Wish", sans-serif;
@@ -22,88 +15,85 @@
   text-align: center;
   font-weight: normal;
 }
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .form-container .titulo {
     font-size: 35px;
   }
 }
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .form-container .titulo {
     font-size: 30px;
-    max-width: 400px;
   }
+}
+.form-container .texto-inicial {
+  color: rgb(0, 255, 0);
+  font-family: "Roboto", sans-serif;
 }
 .form-container .fondo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  align-items: center;
+  gap: 20px;
   background: whitesmoke;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
-  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+  .form-container .fondo {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .form-container .fondo {
+    padding: 10px;
+    max-width: 350px;
+  }
 }
 .form-container .fondo .form-group {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 5px;
-  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .form-container .fondo .form-group .form-label {
-  font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 20px;
-  display: block;
+  font-size: 18px;
   margin-bottom: 5px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .form-container .fondo .form-group .form-label {
+    font-size: 16px;
+  }
+}
 .form-container .fondo .form-group .input-container {
   position: relative;
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
-.form-container .fondo .form-group .form-input {
+.form-container .fondo .form-group .input-container .form-input {
   font-family: "Roboto", sans-serif;
-  padding: 8px;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   height: 40px;
-  border: 1px solid #E6E6E6;
-  background-color: white;
-  transition: background-color 0.3s ease;
+  padding: 8px;
+  padding-right: 35px;
+  border: 1px solid #e6e6e6;
   border-radius: 5px;
+  background-color: white;
   color: black;
-  padding-right: 25px;
+  transition: background-color 0.3s ease;
 }
-.form-container .fondo .form-group .form-input::placeholder {
+.form-container .fondo .form-group .input-container .form-input::placeholder {
   color: black;
-  opacity: 1;
 }
-.form-container .fondo .form-group .toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-}
-.form-container .fondo .form-group .toggle-password svg {
-  width: 20px;
-  height: 20px;
-  color: black;
-  transition: color 0.3s ease;
-}
-.form-container .fondo .form-group .select-input {
+.form-container .fondo .form-group .input-container .select-input {
   font-family: "Roboto", sans-serif;
   padding: 8px;
   height: 58px;
-  width: 285px;
+  width: 295px;
   border: 1px solid #E6E6E6;
   background-color: white;
   transition: background-color 0.3s ease;
@@ -111,36 +101,76 @@
   color: black;
   appearance: none;
 }
-.form-container .fondo .form-group .select-input option {
-  background-color: white;
+.form-container .fondo .form-group .input-container .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.form-container .fondo .form-group .input-container .toggle-password svg {
+  width: 20px;
+  height: 20px;
   color: black;
 }
 .form-container .fondo .form-group .error-message {
   color: #8d0e0e;
-  font-size: 20px;
+  font-size: 16px;
   margin-top: 5px;
   text-align: center;
+  width: 100%;
+}
+.form-container .fondo .stripe-container {
   grid-column: span 2;
+  justify-self: center;
+  padding: 12px;
 }
 .form-container .fondo .form-button {
   grid-column: span 2;
-  border: none;
+  justify-self: center;
+  width: 50%;
   padding: 12px;
-  background-color: #E4E3E3;
-  font-weight: bold;
+  background-color: #e4e3e3;
+  border: none;
   border-radius: 8px;
+  font-weight: bold;
   font-size: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 50%;
-  justify-self: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 .form-container .fondo .form-button:hover {
-  background-color: #CAC7C7;
+  background-color: #cac7c7;
 }
 .form-container .fondo .form-button:focus {
-  background-color: #9C9A9A;
+  background-color: #9c9a9a;
+}
+@media (max-width: 768px) {
+  .form-container .fondo .form-button {
+    grid-column: span 2;
+    width: 90%;
+    font-size: 14px;
+  }
+}
+.form-container .fondo .mensaje {
+  grid-column: span 2;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-container .fondo .mensaje a {
+  color: black;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .form-container .fondo .mensaje {
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 768px) {
   .form-container .fondo {
@@ -149,14 +179,30 @@
     max-width: 100%;
     gap: 15px;
     padding: 10px;
-    margin: 0;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
+    align-self: center;
+    justify-self: center;
   }
   .form-container .fondo .form-group {
     width: 100%;
     margin-bottom: 10px;
+  }
+  .form-container .fondo .form-group .input-container {
+    position: relative;
+    width: 100%;
+  }
+  .form-container .fondo .form-group .input-container .toggle-password {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
   }
   .form-container .fondo .form-group .form-input {
     justify-self: center;
@@ -166,18 +212,18 @@
     font-size: 16px;
     grid-column: span 1;
   }
-  .form-container .fondo .form-label {
+  .form-container .fondo .form-group .form-label {
     font-size: 16px;
     margin-bottom: 15px;
   }
-  .form-container .fondo .form-input {
+  .form-container .fondo .form-group .form-input {
     padding: 5px;
     height: 20px;
     border-radius: 5px;
     border: 1px solid #E6E6E6;
     background-color: white;
   }
-  .form-container .fondo .form-button {
+  .form-container .fondo .form-group .form-button {
     padding: 10px;
     font-size: 12px;
     grid-column: span 1fr;
@@ -204,13 +250,30 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
     gap: 15px;
     padding: 10px;
     margin: 0;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     align-items: center;
+    justify-content: center;
+  }
+  .form-container .fondo .form-group .input-container {
+    position: relative;
+    width: 100%;
+  }
+  .form-container .fondo .form-group .input-container .toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
   }
   .form-container .fondo .form-group .error-message {
     font-size: 15px;
@@ -225,7 +288,8 @@
     font-size: 15px;
     grid-column: span 1;
   }
-  .form-container .fondo .form-group .form-label, .form-container .fondo .form-group .form-input {
+  .form-container .fondo .form-group .form-label,
+  .form-container .fondo .form-group .form-input {
     width: 90%;
   }
 }
@@ -236,36 +300,36 @@
   background: #333;
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
-.form-container.dark-mode .fondo .form-input {
+.form-container.dark-mode .fondo .form-group .form-input {
   background-color: #555;
   border: 1px solid #777;
   color: white;
 }
-.form-container.dark-mode .fondo .form-input::placeholder {
+.form-container.dark-mode .fondo .form-group .form-input::placeholder {
   color: white;
   opacity: 1;
 }
-.form-container.dark-mode .fondo .toggle-password svg {
+.form-container.dark-mode .fondo .form-group .toggle-password svg {
   color: white;
   transition: color 0.3s ease;
 }
-.form-container.dark-mode .fondo .select-input {
+.form-container.dark-mode .fondo .form-group .select-input {
   background-color: #555;
   border: 1px solid #777;
   color: white;
 }
-.form-container.dark-mode .fondo .select-input option {
+.form-container.dark-mode .fondo .form-group .select-input option {
   background-color: #777;
   color: white;
 }
-.form-container.dark-mode .fondo .form-button {
+.form-container.dark-mode .fondo .form-group .form-button {
   background-color: #777;
   color: #fff;
 }
-.form-container.dark-mode .fondo .form-button:hover {
+.form-container.dark-mode .fondo .form-group .form-button:hover {
   background-color: #999;
 }
-.form-container.dark-mode .fondo .form-button:focus {
+.form-container.dark-mode .fondo .form-group .form-button:focus {
   background-color: #888;
 }
 .form-container.dark-mode .mensaje {

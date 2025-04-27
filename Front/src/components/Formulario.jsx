@@ -4,32 +4,30 @@ import MedidorPassword from "./MedidorPassword";
 import { Eye, EyeOff } from "lucide-react";
 import "../styles/Css/Formulario.css";
 
-function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, titulo, errors, mostrarMedidorPassword }) {
+function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensaje, textoInicial, titulo, errors, mostrarMedidorPassword }) {
   const { darkMode } = useContext(DarkModeContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const { name, value, files, type } = e.target;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    let validationErrors = {};
-    campos.forEach((campo) => {
-      if (campo.required && !formData[campo.nombre]) {
-        validationErrors[campo.nombre] = `${campo.label} es obligatorio`;
-      }
-    });
-
-    onSubmit(e);
+    if (type === "file") {
+      setFormData({ ...formData, [name]: files[0] }); // Guardamos el archivo temporalmente
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   return (
     <section>
-      <form className={`form-container ${darkMode ? "dark-mode" : ""}`} onSubmit={handleSubmit}>
+      <form
+        className={`form-container ${darkMode ? "dark-mode" : ""}`}
+        onSubmit={onSubmit}
+        encType="multipart/form-data"
+      >
         <h1 className="titulo">{titulo}</h1>
+        {textoInicial && <h2 className="texto-inicial">{textoInicial}</h2>}
+
         <section className="fondo">
           {campos.map((campo) => (
             <section className="form-group" key={campo.nombre}>
@@ -37,7 +35,7 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
               <section className="input-container">
                 {campo.type === "select" ? (
                   <select
-                    className={`select-input`}
+                    className="select-input"
                     name={campo.nombre}
                     value={formData[campo.nombre] || ""}
                     onChange={handleChange}
@@ -50,6 +48,15 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
                       </option>
                     ))}
                   </select>
+                ) : campo.type === "file" ? (
+                  <input
+                    className="form-input"
+                    type="file"
+                    name={campo.nombre}
+                    accept="image/*"
+                    onChange={handleChange}
+                    required={campo.required}
+                  />
                 ) : (
                   <input
                     className={`form-input ${errors?.[campo.nombre] ? "input-error" : ""}`}
@@ -69,24 +76,30 @@ function Formulario({ campos, formData, setFormData, onSubmit, buttonText, mensa
                 )}
 
                 {campo.type === "password" && (
-                  <button type="button" className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                  <button
+                    type="button"
+                    className="toggle-password"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
                     {showPassword ? <EyeOff /> : <Eye />}
                   </button>
                 )}
               </section>
-              
-              {campo.nombre === "password" && mostrarMedidorPassword && <MedidorPassword password={formData.password} />}
-              {errors && errors?.[campo.nombre] && <p className="error-message">{errors[campo.nombre]}</p>}
-              
 
-
+              {campo.nombre === "password" && mostrarMedidorPassword && (
+                <MedidorPassword password={formData.password} />
+              )}
+              {errors?.[campo.nombre] && (
+                <p className="error-message">{errors[campo.nombre]}</p>
+              )}
             </section>
           ))}
+
           {errors?.general && <p className="error-message">{errors.general}</p>}
+
           <input className="form-button" type="submit" value={buttonText} />
           <article className="mensaje">{mensaje}</article>
         </section>
-        
       </form>
     </section>
   );
