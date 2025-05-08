@@ -113,6 +113,16 @@ function SobreNosotros() {
               <img src={iconos.correo} alt="icono correo" />
               <p>ladivatattoo@gmail.com</p>
              </section>
+
+
+             <section className='info-item'>
+              <img src={iconos.horario} alt="icono correo" />
+              <p>
+              Lunes, miercoles, jueves, viernes : 10am-22pm <br />
+              martes sabados : 10am-13pm
+              </p>
+              
+             </section>
               
             </article>
           </section>

@@ -17,6 +17,7 @@ import VerificarCorreo from '../pages/VerificarCorreo.jsx'
 import EditarPerfil from '../pages/EditarPerfil.jsx'
 import DeleteAcc from '../pages/DeleteAcc.jsx'
 import Contacto from '../pages/Contacto.jsx'
+import CitasAdmin from '../pages/CitasAdmin.jsx'
 
 
 
@@ -41,12 +42,14 @@ function AppRoutes(logged) {
             <Route path='/editar' element={<EditarPerfil />} />
             <Route path='/delete' element={<DeleteAcc />} />
             <Route path='/contacto' element={<Contacto />} />
+            
 
 
             <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}
 
             
             <Route path='/admin' element={ <Admin /> } />
+            <Route path='/citasAdmin' element={<CitasAdmin />} />
         </Routes>
     
     

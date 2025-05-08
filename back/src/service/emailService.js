@@ -40,3 +40,28 @@ exports.contactEmail = async (email, nombre, mensaje) => {
     console.error('Error al enviar el mensaje:', error);
   }
 };
+
+
+exports.contactClient = async (email, nombre, fecha, horaInicio, horaFin) => {
+
+  const asunto = 'Tu cita ha sido confirmada';
+  const mensaje = `
+    <h2>¡Hola ${nombre}!</h2>
+    <p>Tu cita ha sido confirmada para el día <strong>${fecha}</strong> desde <strong>${horaInicio}</strong> hasta <strong>${horaFin}</strong>.</p>
+    <p>Por favor, entra a tu perfil para <strong>aceptarla</strong> o <strong>rechazarla</strong> según tu disponibilidad.</p>
+    <br />
+    <p>Gracias por confiar en nosotros.</p>
+    <p>La Diva Tattoo</p>
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER, // El correo de quien envía el mensaje (empresa)
+      to: email, // Correo al que se enviarán los mensajes (usuario)
+      subject: asunto, // Asunto del correo
+      html: mensaje, // Cuerpo del mensaje en html para que sea mas bonito
+    });
+  } catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+  }
+}

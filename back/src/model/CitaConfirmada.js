@@ -8,9 +8,11 @@ const CitaConfirmada = db.define("CitaConfirmada", {
     servicio: { type: DataTypes.ENUM("tatuaje", "piercing", "gema_dental"), allowNull: false },
     fechaAsignada: { type: DataTypes.DATEONLY, allowNull: false },
     horaInicio: { type: DataTypes.TIME, allowNull: false }, //Para ajustar la hora perfectamente 
-    estado: { type: DataTypes.ENUM('pendiente_pago', 'confirmada', 'cancelada'), defaultValue: 'pendiente_pago' },
+    horaFin: { type: DataTypes.TIME, allowNull: false }, //Para ajustar la hora perfectamente 
+    estado: { type: DataTypes.ENUM('pendiente_pago', 'pagada', 'cancelada'), defaultValue: 'pendiente_pago' },
     motivoCancelacion: { type: DataTypes.TEXT, allowNull: true },
-    notasAdmin: { type: DataTypes.TEXT } // Para anotar cosas internas
+    notasAdmin: { type: DataTypes.TEXT },// Para anotar cosas internas
+    artista: { type: DataTypes.ENUM('yani', 'alex', 'mara', 'lorena', 'elegir' ), defaultValue: 'elegir' }, //Artista que ha confirmado la cita
   });
   
 module.exports = CitaConfirmada;

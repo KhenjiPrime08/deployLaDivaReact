@@ -13,8 +13,6 @@ export const crearCita = async (nuevoFormData, servicio) => {
   const token = localStorage.getItem("token");
   const decodedToken = jwtDecode(token);
   const usuarioId = decodedToken.id; // ID del usuario que solicita la cita
-
-  console.log("TODO", fecha, diseno, observaciones, archivo, usuarioId);
  
   if (!fecha || !diseno ) {
     return { error: "La fecha y el diseño son obligatorios." };
@@ -52,6 +50,31 @@ export const crearCita = async (nuevoFormData, servicio) => {
 
 };
 
+export const getAllCitas = async (token) => {
+  try {
+    const res = await fetch(`${API_URL}/citas/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+
+    const data = await res.json();
+
+
+    if (data.error ) {
+      throw new Error(data.error); // Si hay error, lo lanzamos
+    }
+
+    return data; // Si no hay error, devolvemos las citas
+  } catch (err) {
+    throw new Error("No se pudieron cargar las citas.");
+    
+  }
+};
+
+
 
 export const getCitas = async (usuarioId, token) => {
   try {
@@ -65,7 +88,7 @@ export const getCitas = async (usuarioId, token) => {
 
     const data = await res.json();
 
-    if (data.error) {
+    if (data.error ) {
       throw new Error(data.error); // Si hay error, lo lanzamos
     }
 
@@ -74,4 +97,6 @@ export const getCitas = async (usuarioId, token) => {
     throw new Error("No se pudieron cargar las citas.");
   }
 };
+
+
 

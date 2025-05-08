@@ -42,6 +42,7 @@ exports.register = async (req, res) => {
     res.status(201).json({ message: "Usuario registrado con éxito", user });
   } catch (error) {
     res.status(500).json({ error: error.message });
+    console.error(error.message);
   }
 };
 
@@ -61,6 +62,7 @@ exports.login = async (req, res) => {
     res.json({ token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });
+    console.error(error.message);
   }
 };
 
@@ -87,7 +89,7 @@ exports.verifyEmail = async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ error: error.message });
-    console.log(error.message);
+    console.error(error.message);
   }
 };
 
@@ -97,7 +99,6 @@ exports.actualizarUser = async (req, res) => {
     const { nombre, email, password } = req.body;
     const { id } = req.params;
     
-    console.log("ID", id);
     const usuario = await User.findByPk(id);
 
     if(!usuario) {
@@ -134,7 +135,6 @@ exports.actualizarUser = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: error.message });
-    console.log("ERROR ACTUALIZANDO USER", error.message);
   }
 
 };
@@ -154,7 +154,6 @@ exports.buscarUser = async (req, res) => {
   }catch(error){
     console.error(error.message);
     res.status(500).json({message: error.message})
-    console.log("ERROR GET USER", error.message);
   }
 }
 

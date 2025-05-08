@@ -7,6 +7,7 @@ function VerificarCorreo() {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({email: "", codigo: ""});
   const [errors, setErrors] = useState({});
+  const textoInicial = "Verifica tu correo electrónico para continuar con el registro.";
   const navigate = useNavigate();
 
   const fields = [
@@ -55,6 +56,7 @@ function VerificarCorreo() {
       
       <Formulario 
       titulo={"Verifica el correo"}
+      textoInicial={textoInicial}
       campos={fields}
       formData={formData}
       setFormData={setFormData}

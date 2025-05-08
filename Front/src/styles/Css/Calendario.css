@@ -1,0 +1,104 @@
+.calendar-component {
+  min-width: 600px;
+  max-width: 600px;
+}
+.calendar-component .rbc-date-cell {
+  display: table-cell;
+  padding: 30px;
+  margin-bottom: -40px;
+  text-align: right;
+  vertical-align: top;
+  height: 100px;
+  box-sizing: border-box;
+}
+.calendar-component .calendar-wrapper {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.calendar-component .calendar-wrapper .rbc-show-more {
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  padding: 2px 2px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: -20px;
+  transition: background-color 0.2s ease-in-out;
+}
+.calendar-component .calendar-wrapper .rbc-show-more:hover {
+  background-color: #1a252f;
+}
+.calendar-component .calendar-wrapper .rbc-show-more:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 219, 94, 0.5);
+}
+.calendar-component .calendar-wrapper .rbc-calendar {
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+.calendar-component .calendar-wrapper .rbc-calendar .rbc-time-header-content button {
+  all: unset;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.calendar-component .calendar-wrapper .rbc-calendar .rbc-time-header-content button:hover {
+  color: #949393;
+}
+.calendar-component .calendar-wrapper .rbc-calendar .rbc-time-header-cell {
+  border-right: 1px solid #ddd;
+}
+.calendar-component .calendar-wrapper .rbc-header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+.calendar-component .calendar-wrapper .rbc-event {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 13px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  cursor: auto;
+  border: 1px solid #2980b9;
+}
+.calendar-component .calendar-wrapper .rbc-today {
+  background-color: #d1dce4 !important;
+}
+.calendar-component .calendar-wrapper .select-servicio {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  margin-top: 5px;
+  font-family: "Roboto", sans-serif;
+  padding: 8px;
+  height: 58px;
+  width: 295px;
+  border: 1px solid #000000;
+  background-color: rgb(238, 236, 236);
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  color: black;
+  appearance: none;
+  margin-bottom: 20px;
+}
+.calendar-component .calendar-wrapper .select-servicio:hover {
+  background-color: rgb(223, 218, 218);
+}
+
+/*# sourceMappingURL=Calendario.css.map */

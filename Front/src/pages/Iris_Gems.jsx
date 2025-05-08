@@ -5,7 +5,7 @@ import Separador from "../components/Separador";
 import GaleriaTatuajes from "../components/GaleriaTatuajes";
 import { UserContext } from "../context/userContext";
 import FormularioAdmin from "../components/FormularioAdmin";
-import { uploadImage, fetchImages } from "../services/uploadService";
+import { uploadImage, fetchImages, deleteImage } from "../services/uploadService";
 import FormularioText from "../components/FormularioText";
 
 function Iris_Gems() {

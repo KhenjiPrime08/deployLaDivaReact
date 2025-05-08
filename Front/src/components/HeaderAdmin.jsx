@@ -47,6 +47,8 @@ function HeaderAdmin() {
                     <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to="/sobreNosotros" onClick={closeMenu}>Sobre Nosotros </Link></li>
 
                     <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to="/admin" onClick={closeMenu}> Todas las citas</Link></li>
+                    
+                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to="/citasAdmin" onClick={closeMenu}> Citas Pendientes</Link></li>
 
                     <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to={logged ? "/perfil" : "/login"} onClick={closeMenu}> {logged ? "Perfil" : "Iniciar sesión"} </Link></li>
                 </ul>

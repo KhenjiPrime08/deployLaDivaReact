@@ -1,0 +1,533 @@
+$fuente: 'Roboto', sans-serif;
+
+.principal {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  justify-self: center;
+
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    gap: 20px;
+
+    .pendientes {
+      border-radius: 25px;
+      width: 100%;
+      min-width: 600px;
+      background-color: whitesmoke;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      margin-left: 15px;
+      flex-direction: column;
+
+      align-items: center;
+
+      .h1 {
+        font-size: 40px;
+      }
+
+      .h2 {
+        font-size: 30px;
+      }
+      
+
+      .ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        width: 90%;
+        padding: 0 20px;
+        margin-bottom: 50px;
+
+
+        .li {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 95%; // necesario para que funcione bien el "push" hacia abajo
+          background-color: #f0f0f0;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+
+          .p {
+            font-size: 15x;
+            align-self: center;
+          }
+
+          .btn {
+            background-color: #e4e3e3;
+
+            &:hover {
+              background: #cac7c7;
+            }
+
+            &:focus {
+              background-color: #9c9a9a;
+              ;
+            }
+          }
+
+          img {
+            max-width: 100%;
+            border-radius: 8px;
+            justify-self: center;
+            align-self: center;
+          }
+
+          input[type="button"] {
+            margin-top: auto;
+          }
+        }
+
+      }
+
+      .cita-seleccionada {
+
+        min-width: 600px; //Puesto asi para que no varie porque es un poco feo que uno que tiene mas texto se vea diferente al otro
+        max-width: 600px;
+
+
+        .h2 {
+          font-size: 30px;
+          justify-self: center;
+        }
+
+        .form {
+          width: 90%;
+          justify-self: center;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          border: 1px solid black;
+          border-radius: 25px;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          justify-content: center;
+          margin-bottom: 30px;
+          padding: 10px;
+
+          .select {
+            align-self: center;
+            font-family: 'Roboto', sans-serif;
+            margin-left: 10px;
+            padding: 8px;
+            width: 96%;
+            border: 1px solid #E6E6E6;
+            background-color: #ececec;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            color: black;
+            appearance: none;
+          }
+          
+          .label{
+            font-size: 20px;
+            margin-left: 15px;
+            margin-bottom: 5px; /* mejor un margin menor */
+            padding: 5px; /* opcional pero mejora visibilidad */
+          }
+
+          .delete-btn {
+            align-items: center;
+            justify-self: center;
+            margin-bottom: 20px;
+            max-width: 180px;
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            background: #f52727;
+            color: black;
+
+            &:hover {
+              background: #ad1c1c;
+            }
+
+            &:focus {
+              background-color: #991919;
+            }
+          }
+
+          .btn {
+            align-items: center;
+            justify-self: center;
+            margin-bottom: 20px;
+            max-width: 180px;
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            background-color: #e4e3e3;
+            color: black;
+
+            &:hover {
+              background: #cac7c7;
+            }
+
+            &:focus {
+              background-color: #9c9a9a;
+              ;
+            }
+
+
+          }
+
+          
+
+          .input-form {
+            margin: 10px;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #ececec;
+            height: 20px;
+
+            &:hover {
+              background-color: #cac7c7;
+            }
+
+            &:focus {
+              background-color: #bdb9b9;
+            }
+          }
+          
+          .label-form {
+            display: block;
+            font-size: 20px;
+            margin-left: 15px;
+            margin-bottom: 5px; /* mejor un margin menor */
+            
+            padding: 5px; /* opcional pero mejora visibilidad */
+          }
+          
+
+        }
+      }
+    }
+
+    .confirmadas {
+      border-radius: 25px;
+      width: 100%;
+      min-width: 600px;
+      background-color: whitesmoke;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      margin-right: 15px;
+
+      .label {
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        align-self: center;
+      }
+
+      .p-cita{
+        font-size: 20px;
+        margin-bottom: 10px;
+        align-self: center;
+      }
+
+      .citas-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .cita-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 15px;
+        width: 200px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+        
+
+        &:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        &.expandida {
+          width: 30%;
+          background-color: #f4f4f4;
+        }
+
+        
+      }
+
+      .imagen-diseno {
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 6px;
+      }
+
+      .info-cita-expandida {
+        margin-top: 10px;
+        font-size: 0.95rem;
+
+        p {
+          margin: 4px 0;
+        }
+      }
+
+
+      .select {
+        align-self: center;
+        font-family: 'Roboto', sans-serif;
+        padding: 8px;
+        height: 58px;
+        width: 295px;
+        border: 1px solid #E6E6E6;
+        background-color: white;
+        transition: background-color 0.3s ease;
+        border-radius: 5px;
+        color: black;
+        appearance: none;
+      }
+
+      .h1 {
+        font-size: 40px;
+        justify-self: center;
+        align-self: center;
+      }
+
+      .p {
+        font-size: 20px;
+        align-self: center;
+      }
+
+    }
+  }
+
+  &.dark-mode {
+    .pendientes {
+      background-color: #333;
+
+      .ul {
+        .li {
+          background-color: #444;
+          color: white;
+
+          .btn {
+            background-color: #777;
+            color: #fff;
+
+            &:hover {
+              background-color: #999;
+            }
+
+            &:focus {
+              background-color: #888;
+            }
+          }
+        }
+      }
+
+      .cita-seleccionada {
+
+        .form {
+
+          background-color: #525151;
+          box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+
+          .btn {
+            background-color: #777;
+            color: #fff;
+
+            &:hover {
+              background-color: #999;
+            }
+
+            &:focus {
+              background-color: #888;
+            }
+          }
+        }
+      }
+
+      
+    }
+
+    .confirmadas {
+      background-color: #333;
+      .cita-card{
+        background-color: #444;
+        color: white;
+        border: 1px solid #555;
+
+        &:hover {
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        &.expandida {
+          background-color: #555;
+        }
+        
+      }
+    }
+
+
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .principal {
+    width: 90%;
+
+
+    .row {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      .pendientes,
+      .confirmadas {
+        width: 100%;
+        min-width: 700px;
+
+        .h1 {
+          font-size: 32px;
+          text-align: center;
+        }
+
+        .li {
+          font-size: 18px;
+        }
+
+        .p{
+          font-size: 18px;
+        }
+
+        .form {
+          grid-template-columns: 1fr;
+          width: 100%;
+          min-width: 350px;
+
+          .input-form,
+          .btn,
+          .delete-btn {
+            font-size: 1rem;
+            width: 85%;
+            background-color: rgb(255, 255, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .principal {
+    width: 80%;
+    padding: 10px;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      .pendientes,
+      .confirmadas {
+
+        min-width: 100%;
+        max-width: 350px;
+        padding: 10px;
+
+        .h1 {
+          font-size: 22px;
+          text-align: center;
+        }
+
+        .ul {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+
+          width: 100%;
+
+
+          .li {
+            width: 70%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            justify-self: center;
+
+            img {
+              width: 100%;
+              max-height: 200px;
+              object-fit: contain;
+              margin: 10px 0;
+            }
+
+            input[type="button"] {
+              margin-top: auto;
+              width: 100%;
+            }
+          }
+        }
+
+        .cita-seleccionada {
+
+          min-width: 100%;
+
+          .h2 {
+            font-size: 24px;
+            text-align: center;
+          }
+
+          .form {
+            padding: 10px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .input-form,
+            .btn,
+            .delete-btn {
+              width: 70%;
+              font-size: 0.9rem;
+              padding: 10px;
+              margin-top: 10px;
+            }
+          }
+
+          .p {
+            font-size: 16px;
+            text-align: center;
+          }
+        }
+      }
+
+
+
+    }
+
+  }
+}

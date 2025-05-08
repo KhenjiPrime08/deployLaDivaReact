@@ -12,6 +12,7 @@ import movil from './movil.svg'
 import ubicacion from './ubicacion.png'
 import menu from './menu.webp'
 import tiktok from './tik-tok.svg'
+import horario from './calendario.png'
 
 const iconos = {
   facebook,
@@ -28,7 +29,8 @@ const iconos = {
   ubicacion,
   correo,
   menu,
-  tiktok
+  tiktok, 
+  horario
 };
 
 export default iconos;

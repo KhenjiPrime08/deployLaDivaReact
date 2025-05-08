@@ -5,7 +5,7 @@ import Separador from '../components/Separador.jsx';
 import GaleriaTatuajes from '../components/GaleriaTatuajes.jsx';
 import { UserContext } from '../context/userContext';
 import FormularioAdmin from '../components/FormularioAdmin';
-import { uploadImage, fetchImages } from '../services/uploadService';
+import { uploadImage, fetchImages, deleteImage } from '../services/uploadService';
 
 function InkYaque() {
   const { isAdmin } = useContext(UserContext);

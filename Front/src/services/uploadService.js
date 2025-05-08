@@ -29,34 +29,34 @@ const uploadImage = async (file, categoria) => {
     }
   };
   
-  // Función para obtener las imágenes de una categoría
-  const fetchImages = async (categoria) => {
-    try {
-      const response = await fetch(`${API_URL}/upload/imagenes/${categoria}`);
+// Función para obtener las imágenes de una categoría
+const fetchImages = async (categoria) => {
+  try {
+    const response = await fetch(`${API_URL}/upload/imagenes/${categoria}`);
 
-
-      if (!response.ok) {
-        throw new Error('No se pudieron cargar las imágenes');
-      }
-      return await response.json();  // Devuelve un array de URLs de las imágenes
-    } catch (error) {
-      console.error('Error al cargar las imágenes:', error);
-      return [];  // En caso de error, devolvemos un array vacío
-    }
-  };
-
-    // Borra una imagen del servidor
-  const deleteImage = async (url) => {
-    const response = await fetch(`${API_URL}/upload/delete-image`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url }),
-    });
 
     if (!response.ok) {
-      throw new Error("No se pudo eliminar la imagen");
+      throw new Error('No se pudieron cargar las imágenes');
     }
-  };
+    return await response.json();  // Devuelve un array de URLs de las imágenes
+  } catch (error) {
+    console.error('Error al cargar las imágenes:', error);
+    return [];  // En caso de error, devolvemos un array vacío
+  }
+};
+
+  // Borra una imagen del servidor
+const deleteImage = async (url) => {
+  const response = await fetch(`${API_URL}/upload/delete-image`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url }),
+  });
+
+  if (!response.ok) {
+    throw new Error("No se pudo eliminar la imagen");
+  }
+};
 
   
   export { uploadImage, fetchImages, deleteImage};

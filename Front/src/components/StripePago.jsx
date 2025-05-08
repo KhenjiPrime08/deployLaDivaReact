@@ -1,24 +1,21 @@
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import '../styles/Css/Stripe.css';
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DarkModeContext } from "../context/DarkModeContext";
 import API_URL from "../config/config";
 
-function StripePago({ citaConfirmada }) {
+function StripePago({ citaConfirmada, modalPago, cerrarModal}) {
   const stripe = useStripe();
   const elements = useElements();
   const { darkMode } = useContext(DarkModeContext);
   const [errores, setErrores] = useState({});
-  const {cantidad, setCantidad } = useState(0);
+  const [cantidad, setCantidad] = useState(0);
+  const [ pagoCorrecto, setPagoCorrecto ]  = useState("");
+  const [pagoConfirmado, setPagoConfirmado ] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // Calcular la cantidad una vez que carga la cita
 
-    if (!stripe || !elements) {
-      setErrores({ stripe: "Stripe no está cargado aún." });
-      return;
-    }
-
+  useEffect(() => {
     switch (citaConfirmada.servicio) {
       case "tatuaje":
         setCantidad(20);
@@ -31,20 +28,30 @@ function StripePago({ citaConfirmada }) {
         break;
       default:
         setErrores({ stripe: "Servicio no válido." });
-        return;
+    }
+  }, [citaConfirmada.servicio]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!stripe || !elements) {
+      setErrores({ stripe: "Stripe no está cargado aún." });
+      return;
     }
 
     try {
-      const { clientSecret } = await fetch(`${API_URL}/pagos/pagar`, {
+      const response = await fetch(`${API_URL}/stripe/pagar/${citaConfirmada.id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          cantidad: cantidad,
-          usuarioId: citaConfirmada.usuarioId,
-          citaId: citaConfirmada.id, // este es el id de la CitaConfirmada
+          cantidad,
+          usuarioId: citaConfirmada.usuarioIdCita,
+          citaId: citaConfirmada.id,
           servicio: citaConfirmada.servicio
         })
-      }).then(res => res.json());
+      });
+
+      const { clientSecret } = await response.json();
 
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -56,13 +63,15 @@ function StripePago({ citaConfirmada }) {
         console.error("Error con el pago:", result.error.message);
         setErrores({ stripe: result.error.message });
       } else if (result.paymentIntent.status === "succeeded") {
-        console.log("✅ Pago completado con éxito");
-        // Aquí puedes hacer una llamada para actualizar el estado del pago o redirigir
+        setPagoCorrecto("Pago completado con éxito");
+        setPagoConfirmado(true);
+        cerrarModal(true)
       }
 
     } catch (error) {
       console.error("Error al procesar el pago:", error.message);
       setErrores({ stripe: "Hubo un error al procesar el pago." });
+      setPagoConfirmado(false);
     }
   };
 
@@ -81,21 +90,35 @@ function StripePago({ citaConfirmada }) {
 
   return (
     <section className={`stripe-container2 ${darkMode ? 'dark' : ''}`}>
-      <label className="label" htmlFor="card-element">Información de la tarjeta</label>
-      <article className="tarjeta">
-        <CardElement options={{ style }} />
-      </article>
+      <form onSubmit={handleSubmit}>
+        <label className="label" htmlFor="card-element">
+          Información de la tarjeta
+        </label>
+        <article className="tarjeta">
+          <CardElement id="card-element" options={{ style }} />
+        </article>
 
-      {errores.stripe && <p className="error-message">{errores.stripe}</p>}
+        {errores.stripe && <p className="error-message">{errores.stripe}</p>}
 
-      <div className='boton-container'>
-        <input
-          type="submit"
-          onClick={handleSubmit}
-          className="boton"
-          value={`Pagar ${citaConfirmada.cantidad || 20} €`}
-        />
-      </div>
+        <section className="boton-container">
+          <input type="submit" className="boton" value={`Pagar ${cantidad} €`} />
+          <input
+            type="button"
+            className="boton cancelar"
+            value={"Cancelar"}
+            onClick={() => modalPago(false)}
+          />
+        </section>
+
+        <article>
+          <p>Lo que se está pagando es un adelanto para asegurar la asistencia y reserva a la cita</p>
+
+          <article className="confirmado">
+            {pagoConfirmado && pagoCorrecto}
+          </article>
+          
+        </article>
+      </form>
     </section>
   );
 }

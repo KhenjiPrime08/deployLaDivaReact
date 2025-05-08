@@ -28,8 +28,6 @@ function CitaTattoo() {
   
     const { fecha, diseno, observaciones, archivo } = nuevoFormData;
   
-    console.log("NuevoFormData", nuevoFormData);
-  
     // Validaciones
     if (!fecha) {
       validationErrors.fecha = "La fecha es obligatoria";
@@ -77,7 +75,7 @@ function CitaTattoo() {
           setErrors({ general: subirCitaTattoo.error });
         } else {
           setErrors({}); // Limpiar errores si la cita se creó correctamente
-          setTextoInicial("Cita de tatuaje reservada con éxito");
+          setTextoInicial("Cita de tatuaje reservada con éxito, te llegará un correo con la confirmación");
           setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "" }); // Resetear el formulario
         }
 
@@ -89,7 +87,7 @@ function CitaTattoo() {
           setErrors({ general: subirCitaTattoo.error });
         } else {
           setErrors({}); // Limpiar errores si la cita se creó correctamente
-          setTextoInicial("Cita de tatuaje reservada con éxito");
+          setTextoInicial("Cita de tatuaje reservada con éxito, te llegará un correo con la confirmación");
           setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "" }); // Resetear el formulario
         }
       }
@@ -104,12 +102,12 @@ function CitaTattoo() {
     <section>
       <Formulario
         titulo="Reserva tu cita para tatuarte"
-        textoInicial={textoInicial}
         campos={fields}
         formData={nuevoFormData}
         setFormData={setNuevoFormData}
         onSubmit={handleSubmit}
         buttonText="Reservar Cita"
+        mensaje={textoInicial}
         errors={errors} // Pasar los errores al formulario
       />
     </section>

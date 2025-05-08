@@ -11,6 +11,10 @@
   display: block;
   margin-left: 50px;
 }
+.stripe-container2 .confirmado {
+  color: green;
+  text-align: center;
+}
 .stripe-container2 .tarjeta {
   border: 1px solid #E6E6E6;
   background-color: #fff;

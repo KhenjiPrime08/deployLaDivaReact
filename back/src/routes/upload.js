@@ -76,14 +76,8 @@ router.post("/subir-imagen-gema", upload.single("imagen"), (req, res) => {
   });
 });
 
-
-
-
-
 // Servir imágenes de la carpeta `uploads`
 router.use("/uploads", express.static(path.join(__dirname, "../../uploads")));
-
-
 
 // Ruta para listar imágenes por categoría
 router.get("/imagenes/:categoria", (req, res) => {
@@ -134,8 +128,7 @@ router.post('/delete-image', (req, res) => {
       console.error("Error al eliminar el archivo:", err);
       return res.status(500).json({ error: "No se pudo eliminar el archivo" });
     }
-
-    console.log("Archivo eliminado:", filePath);
+    
     res.json({ message: "Imagen eliminada correctamente" });
   });
 });
