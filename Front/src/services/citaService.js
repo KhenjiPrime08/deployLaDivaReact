@@ -5,11 +5,22 @@ import { jwtDecode } from "jwt-decode";
 
 export const crearCita = async (nuevoFormData, servicio) => {
 
+  //PARA TATTOO
   const fecha = nuevoFormData.fecha;
-  const diseno = nuevoFormData.diseno;
+  let diseno = nuevoFormData.diseno; //let porque va a cambiar de valor dependiendo de la cita
   const observaciones = nuevoFormData.observaciones;
   const archivo = nuevoFormData.archivo;
- 
+
+  //PARA PIERCING
+  const piercing = nuevoFormData.piercing
+
+  if(diseno === undefined){
+    diseno = piercing
+  }
+
+
+
+  //PARA TODO
   const token = localStorage.getItem("token");
   const decodedToken = jwtDecode(token);
   const usuarioId = decodedToken.id; // ID del usuario que solicita la cita
@@ -40,8 +51,6 @@ export const crearCita = async (nuevoFormData, servicio) => {
     if (data.error) {
       throw new Error(data.error); // Si hay error, lo lanzamos
     }
-    //SI no hay error, mandar correo llamar a la funcion del admin para que compruebe si puede pillar la cita.
-
 
     return data; // Si no hay error, devolvemos la cita creada
   }catch (error) {

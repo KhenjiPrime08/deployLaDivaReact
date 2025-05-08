@@ -25,7 +25,7 @@ function Perfil() {
     todas: "Todas las citas asignadas",
     asignadas: "Citas asignadas",
     pendiente_pago: "Citas pendientes de pago",
-    pagadas: "Citas pagadas",
+    pagada: "Citas pagadas",
     cancelada: "Citas canceladas",
   };
 
@@ -106,7 +106,7 @@ function Perfil() {
     };
 
     obtenerCitasDelUsuario();
-  }, [user?.id, token]);
+  }, [user?.id, token, citas]);
 
 
   //UseEffect para cerrar el modal cuando el pago sea exitoso

@@ -17,8 +17,6 @@ exports.stripeWebhook = async (req, res) => {
     const paymentIntent = event.data.object;
     const { usuarioId, citaId, servicio } = paymentIntent.metadata;
 
-    console.log("PROBANDOO", usuarioId, citaId, servicio);
-
     try {
       await Pagos.create({
         usuarioId,
