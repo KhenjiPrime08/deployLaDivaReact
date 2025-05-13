@@ -16,6 +16,7 @@ function Perfil() {
 
   // Estados para manejar el perfil del usuario
   const [estadoFiltro, setEstadoFiltro] = useState("todas");
+  const [servicioFiltro, setServicioFiltro] = useState("todos");
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const [citas, setCitas] = useState([]); // Aquí guardamos las citas
@@ -130,10 +131,11 @@ function Perfil() {
 
   // Filtrar citas por estado
   const citasFiltradas = citas.filter((cita) => {
-    if (estadoFiltro === "todas") return true;
-    return cita.estado === estadoFiltro;
+    const estadoValido = estadoFiltro === "todas" || cita.estado === estadoFiltro;
+    const servicioValido = servicioFiltro === "todos" || cita.servicio === servicioFiltro;
+    return estadoValido && servicioValido;
   });
-
+  
   return (
     <section className="profile-container">
       {loading ? (
@@ -161,20 +163,45 @@ function Perfil() {
           <section className="appointments">
             <h3>{titulosPorEstado[estadoFiltro]}</h3>
 
-            <label htmlFor="estadoFiltro" className="label">
-              Filtrar por estado:
-            </label>
-            <select
-              id="estadoFiltro"
-              value={estadoFiltro}
-              onChange={(e) => setEstadoFiltro(e.target.value)}
-              className="select"
-            >
-              <option value="todas">Todas</option>
-              <option value="pendiente_pago">Pendiente de pago</option>
-              <option value="pagada">Pagadas</option>
-              <option value="cancelada">Canceladas</option>
-            </select>
+            <article className='label-filtros'>
+              <label htmlFor="estadoFiltro" className="label">
+                  Filtrar por estado:
+              </label>
+
+              <label htmlFor="servicioFiltro" className="label">
+                Filtrar por servicio:
+              </label>
+            </article>
+            
+            <section className='filtros'>
+              
+              <select
+                id="estadoFiltro"
+                value={estadoFiltro}
+                onChange={(e) => setEstadoFiltro(e.target.value)}
+                className="select"
+              >
+                <option value="todas">Todas</option>
+                <option value="pendiente_pago">Pendiente de pago</option>
+                <option value="pagada">Pagadas</option>
+                <option value="cancelada">Canceladas</option>
+              </select>
+
+              
+
+              <select
+                id="servicioFiltro"
+                value={servicioFiltro}
+                onChange={(e) => setServicioFiltro(e.target.value)}
+                className="select"
+              >
+                <option value="todos">Todos</option>
+                <option value="tatuaje">Tatuaje</option>
+                <option value="piercing">Piercing</option>
+                <option value="gema_dental">Gema Dental</option>
+              </select>
+            </section>
+            
 
             {citasFiltradas.length > 0 ? (
               <ul>
@@ -190,6 +217,7 @@ function Perfil() {
             ) : (
               <p>No tienes citas {estadoFiltro}.</p>
             )}
+
           </section>
 
           {/* MODALES para aceptar o rechazar cita */}

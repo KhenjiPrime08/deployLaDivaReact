@@ -323,6 +323,16 @@ $fuente: "Roboto", sans-serif;
             border-radius: 5px;
             color: black;
         }
+
+        .filtros{
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+        }
+
+        .label{
+          margin: 50px;
+        }
     }
 }
 
