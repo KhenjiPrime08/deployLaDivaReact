@@ -6,10 +6,8 @@ function CitaGema() {
    const [formData, setFormData] = useState({ nombre: "", email: "", telefono: "", piercing:"", fecha: "", hora: "", notas:""});  
       
       const fields = [
-        { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true, maxLength: 50 },
-        { nombre: "email", label: "Tu Email", type: "email", placeholder: "Correo electrónico", required: true },
-        { nombre: "contacto", label: "Número de contacto", type: "tel", placeholder: "Teléfono", required: true, pattern: "^[0-9]{9}$" },
-        { nombre: "fecha", label: "Fecha", type: "date", placeholder: "Selecciona una fecha", required: true, min: new Date().toISOString().split("T")[0] }, //Bloquea fechas pasadas
+        
+        { nombre: "fecha", label: "Mejor disponibilidad", type: "text", placeholder: "Selecciona una fecha", required: true, min: new Date().toISOString().split("T")[0] }, //Bloquea fechas pasadas
       ];
       
       const handleSubmit = async (e) => {
