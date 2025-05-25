@@ -64,14 +64,14 @@ exports.getAllCitas = async (req, res) => {
 
 exports.eliminarCita = async (req, res) => {
   try {
-    console.log("GOLAGOALLA")
+    
     const { citaId } = req.params; // ID de la cita a cancelar
 
     const cita = await Cita.findByPk(citaId);
     if (!cita) return res.status(404).json({ error: "Cita no encontrada" });
 
     // Elimina la cita de la bdd
-    await Cita.destroy(cita);
+    await Cita.destroy({where: { id: citaId }});
 
     res.status(200).json({ message: "Cita eliminada correctamente" });
   } catch (error) {

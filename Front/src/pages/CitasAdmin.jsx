@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { eliminarCita, getAllCitas } from "../services/citaService";
 import { cancelarCita, confirmarCita, getAllCitasConfirmadas } from "../services/citasConfirmadasService";
 
-import { crearEventoPresencial, getEventos } from "../services/calendarService";
 import "../styles/Css/CitasAdmin.css";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
-import CalendarComponent from "../components/CalendarComponent";
+
 
 function CitasAdmin() {
   const { isAdmin } = useContext(UserContext);
@@ -24,9 +23,6 @@ function CitasAdmin() {
   const [ notasAdmin, setNotasAdmin ] = useState("");
   const [ artista, setArtista ] = useState("");
   const [ expandedCardId, setExpandedCardId ] = useState(null);
-  const [ deposito, setDeposito ] = useState("");
-
-  const [ citasCalendario, setCitasCalendario ] = useState([]);
 
   const { darkMode } = useContext(DarkModeContext);
   const token = localStorage.getItem("token");
@@ -49,24 +45,14 @@ function CitasAdmin() {
     }
 
     cargarCitas();
-  }, []);
+  }, [citas]);
 
-  //useEffect para cargar los eventos de googleCalendar
-
-  useEffect(() => {
-    async function cargarEventos(){
-      const eventosObtenidos = await getEventos(token)
-      setCitasCalendario(eventosObtenidos);
-    }
-
-    cargarEventos()
-  }, [citas])
 
   //UseEffect para mostrar las citas confirmadas, las de la derecha
   useEffect(() => {
     async function cargarCitasConfirmadas() {
       const citasConfirmadas = await getAllCitasConfirmadas(token);
-      setCitasCalendario(citasConfirmadas);
+      setCitasConfirmadas(citasConfirmadas);
     }
 
     cargarCitasConfirmadas();
@@ -80,7 +66,7 @@ function CitasAdmin() {
   });
 
   const handleConfirmar = async () => {
-    if (!fechaAsignada || !horaInicio || !horaFin || !artista || !deposito) {
+    if (!fechaAsignada || !horaInicio || !horaFin || !artista ) {
       alert("Por favor, selecciona una fecha y hora para confirmar la cita.");
       return;
     }
@@ -111,8 +97,8 @@ function CitasAdmin() {
       setHoraFin("");
       setNotasAdmin("");
 
-      // const citasObtenidas = await getAllCitas(token);
-      // setCitas(citasObtenidas);
+      const citasObtenidas = await getAllCitas(token);
+      setCitas(citasObtenidas);
     } catch (error) {
       console.error("Error al confirmar la cita:", error);
     }
@@ -123,7 +109,6 @@ function CitasAdmin() {
       const citaEliminada = await eliminarCita(cita.id, token)
 
 
-      console.log(citaEliminada);
     }catch(error){
       console.error("Error eliminando la cita",error)
     }
@@ -237,17 +222,6 @@ function CitasAdmin() {
                     placeholder="Notas del admin (Opcional)"
                     className="input-form"
                     />
-
-                    <span id="precioDeposito" className="label-form">Precio del deposito:</span>
-                    
-                    <input
-                    id="precioDeposito"
-                    type="number"
-                    value={deposito}
-                    onChange={(e) => setDeposito(e.target.value)}
-                    placeholder="Introduzca precio del depósito"
-                    className="input-form"
-                    />
                     
 
                     <input
@@ -274,8 +248,9 @@ function CitasAdmin() {
           <iframe
             src="https://calendar.google.com/calendar/embed?src=ladivatattoo%40gmail.com&ctz=Atlantic%2FCanary"
             style={{ border: 0 }}
-            width="800"
+            width="700"
             height="600"
+            className="calendar"
           />
 
         </section>

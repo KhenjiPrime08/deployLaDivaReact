@@ -16,7 +16,7 @@
 .principal .row .pendientes {
   border-radius: 25px;
   width: 100%;
-  min-width: 600px;
+  min-width: 500px;
   background-color: whitesmoke;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -92,8 +92,8 @@
   margin-top: auto;
 }
 .principal .row .pendientes .cita-seleccionada {
-  min-width: 600px;
-  max-width: 600px;
+  min-width: 500px;
+  max-width: 500px;
 }
 .principal .row .pendientes .cita-seleccionada .h2 {
   font-size: 30px;
@@ -200,7 +200,7 @@
 .principal .row .confirmadas {
   border-radius: 25px;
   width: 100%;
-  min-width: 600px;
+  min-width: 500px;
   background-color: whitesmoke;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -240,7 +240,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .principal .row .confirmadas .cita-card.expandida {
-  width: 30%;
+  width: 40%;
   background-color: #f4f4f4;
 }
 .principal .row .confirmadas .imagen-diseno {
@@ -378,55 +378,16 @@
     align-items: center;
     gap: 20px;
   }
-  .principal .row .pendientes,
-  .principal .row .confirmadas {
-    min-width: 100%;
-    max-width: 350px;
+  .principal .row .pendientes {
+    margin-right: 15px;
+    width: 400px;
+    min-width: 300px;
+  }
+  .principal .row .pendientes .cita-seleccionada {
+    width: 100%;
     padding: 10px;
   }
-  .principal .row .pendientes .h1,
-  .principal .row .confirmadas .h1 {
-    font-size: 22px;
-    text-align: center;
-  }
-  .principal .row .pendientes .ul,
-  .principal .row .confirmadas .ul {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
-  }
-  .principal .row .pendientes .ul .li,
-  .principal .row .confirmadas .ul .li {
-    width: 70%;
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    justify-self: center;
-  }
-  .principal .row .pendientes .ul .li img,
-  .principal .row .confirmadas .ul .li img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: contain;
-    margin: 10px 0;
-  }
-  .principal .row .pendientes .ul .li input[type=button],
-  .principal .row .confirmadas .ul .li input[type=button] {
-    margin-top: auto;
-    width: 100%;
-  }
-  .principal .row .pendientes .cita-seleccionada,
-  .principal .row .confirmadas .cita-seleccionada {
-    min-width: 100%;
-  }
-  .principal .row .pendientes .cita-seleccionada .h2,
-  .principal .row .confirmadas .cita-seleccionada .h2 {
-    font-size: 24px;
-    text-align: center;
-  }
-  .principal .row .pendientes .cita-seleccionada .form,
-  .principal .row .confirmadas .cita-seleccionada .form {
+  .principal .row .pendientes .cita-seleccionada .form {
     padding: 10px;
     width: 50%;
     display: flex;
@@ -435,7 +396,66 @@
   }
   .principal .row .pendientes .cita-seleccionada .form .input-form,
   .principal .row .pendientes .cita-seleccionada .form .btn,
-  .principal .row .pendientes .cita-seleccionada .form .delete-btn,
+  .principal .row .pendientes .cita-seleccionada .form .delete-btn {
+    width: 70%;
+    font-size: 0.9rem;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .principal .row .pendientes .cita-seleccionada .form .select {
+    width: 77%;
+  }
+  .principal .row .calendar {
+    width: 400px;
+    height: 450px;
+  }
+  .principal .row .confirmadas {
+    width: 400px;
+    min-width: 300px;
+    margin-left: 15px;
+    padding: 10px;
+  }
+  .principal .row .confirmadas h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .principal .row .confirmadas ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+  .principal .row .confirmadas ul li {
+    width: 70%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+  }
+  .principal .row .confirmadas ul li img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin: 10px 0;
+  }
+  .principal .row .confirmadas ul li input[type=button] {
+    margin-top: auto;
+    width: 100%;
+  }
+  .principal .row .confirmadas .cita-card.expandida {
+    width: 60%;
+  }
+  .principal .row .confirmadas .cita-seleccionada h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .principal .row .confirmadas .cita-seleccionada .form {
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .principal .row .confirmadas .cita-seleccionada .form .input-form,
   .principal .row .confirmadas .cita-seleccionada .form .btn,
   .principal .row .confirmadas .cita-seleccionada .form .delete-btn {
@@ -444,8 +464,7 @@
     padding: 10px;
     margin-top: 10px;
   }
-  .principal .row .pendientes .cita-seleccionada .p,
-  .principal .row .confirmadas .cita-seleccionada .p {
+  .principal .row .confirmadas .cita-seleccionada p {
     font-size: 16px;
     text-align: center;
   }

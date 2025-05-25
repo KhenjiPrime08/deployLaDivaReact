@@ -78,7 +78,7 @@ function CitaTattoo() {
         } else {
           setErrors({}); // Limpiar errores si la cita se creó correctamente
           setTextoInicial("Cita de tatuaje reservada con éxito, te llegará un correo con la confirmación");
-          setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "" }); // Resetear el formulario
+          setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "", terminos: false }); // Resetear el formulario
         }
 
       } else {
@@ -90,7 +90,7 @@ function CitaTattoo() {
         } else {
           setErrors({}); // Limpiar errores si la cita se creó correctamente
           setTextoInicial("Cita de tatuaje reservada con éxito, te llegará un correo con la confirmación");
-          setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "" }); // Resetear el formulario
+          setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "", terminos: false }); // Resetear el formulario
         }
       }
     } catch (error) {

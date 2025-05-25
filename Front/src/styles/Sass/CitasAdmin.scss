@@ -21,7 +21,7 @@ $fuente: 'Roboto', sans-serif;
     .pendientes {
       border-radius: 25px;
       width: 100%;
-      min-width: 600px;
+      min-width: 500px;
       background-color: whitesmoke;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       display: flex;
@@ -117,8 +117,8 @@ $fuente: 'Roboto', sans-serif;
 
       .cita-seleccionada {
 
-        min-width: 600px; //Puesto asi para que no varie porque es un poco feo que uno que tiene mas texto se vea diferente al otro
-        max-width: 600px;
+        min-width: 500px; //Puesto asi para que no varie porque es un poco feo que uno que tiene mas texto se vea diferente al otro
+        max-width: 500px;
 
 
         .h2 {
@@ -250,7 +250,7 @@ $fuente: 'Roboto', sans-serif;
     .confirmadas {
       border-radius: 25px;
       width: 100%;
-      min-width: 600px;
+      min-width: 500px;
       background-color: whitesmoke;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       display: flex;
@@ -295,7 +295,7 @@ $fuente: 'Roboto', sans-serif;
         }
 
         &.expandida {
-          width: 30%;
+          width: 40%;
           background-color: #f4f4f4;
         }
 
@@ -475,26 +475,64 @@ $fuente: 'Roboto', sans-serif;
       align-items: center;
       gap: 20px;
 
-      .pendientes,
-      .confirmadas {
+      .pendientes{
+        margin-right: 15px;
+        width: 400px;
+        min-width: 300px;
+        
 
-        min-width: 100%;
-        max-width: 350px;
+
+        .cita-seleccionada {
+          width: 100%;
+          padding: 10px;
+
+          .form {
+            padding: 10px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .input-form,
+            .btn,
+            .delete-btn {
+              width: 70%;
+              font-size: 0.9rem;
+              padding: 10px;
+              margin-top: 10px;
+            }
+            .select {
+            width: 77%;
+            }
+          }
+          
+        }
+      }
+
+      .calendar{
+          width: 400px;
+          height: 450px;
+        
+      } 
+      
+      .confirmadas {
+       width: 400px;
+        min-width: 300px;
+        
+        margin-left: 15px;
         padding: 10px;
 
-        .h1 {
+        h1 {
           font-size: 22px;
           text-align: center;
         }
 
-        .ul {
+        ul {
           display: grid;
           grid-template-columns: repeat(1, 1fr);
-
           width: 100%;
 
-
-          .li {
+          li {
             width: 70%;
             padding: 15px;
             font-size: 16px;
@@ -515,12 +553,14 @@ $fuente: 'Roboto', sans-serif;
             }
           }
         }
+        .cita-card{
+          &.expandida{
+            width: 60%;
+          }
+        }
 
         .cita-seleccionada {
-
-          min-width: 100%;
-
-          .h2 {
+          h2 {
             font-size: 24px;
             text-align: center;
           }
@@ -542,16 +582,12 @@ $fuente: 'Roboto', sans-serif;
             }
           }
 
-          .p {
+          p {
             font-size: 16px;
             text-align: center;
           }
         }
       }
-
-
-
     }
-
   }
 }

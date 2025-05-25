@@ -120,7 +120,6 @@ export const eliminarCita = async(idCita, token) => {
       }
     });
   
-    console.log(res)
     const data = await res.json();
     
   

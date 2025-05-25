@@ -198,7 +198,6 @@ function Perfil() {
                 <option value="todos">Todos</option>
                 <option value="tatuaje">Tatuaje</option>
                 <option value="piercing">Piercing</option>
-                <option value="gema_dental">Gema Dental</option>
               </select>
             </section>
             

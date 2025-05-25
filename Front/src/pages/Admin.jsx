@@ -9,98 +9,140 @@ function Admin() {
   const navigate = useNavigate();
   const [ textoInicial, setTextoInicial ] = useState("");
   const [errors, setErrors] = useState(""); //En este caso me renta que sea un string porque solo voy a mostrar un error a la vez
-
+  const [ showModal, setShowModal] = useState(false);
 
 
   if(!isAdmin){
     navigate('/'); // Redirige al inicio si no es admin
   } 
 
+  // INFO CITA PIERCING
 
-  //INFO DE GEMAS DENTALES
-  const [formDataGemas, setFormDataGemas] = useState({ nombre: "", email: "", telefono: "", piercing:"", fecha: "", hora: "", notas:""});  
-      
-  const fieldsGemas = [
-    { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true, maxLength: 50 },
-    { nombre: "email", label: "Tu Email", type: "email", placeholder: "Correo electrónico", required: true },
-    { nombre: "contacto", label: "Número de contacto", type: "tel", placeholder: "Teléfono", required: true, pattern: "^[0-9]{9}$" },
-    { nombre: "fecha", label: "Fecha", type: "date", placeholder: "Selecciona una fecha", required: true, min: new Date().toISOString().split("T")[0] }, //Bloquea fechas pasadas
-  ];
-  
-  const handleSubmitGemas = async (e) => {
-    e.preventDefault();
-    try {
-      await crearCita("gema_dental", formDataGema.fecha, formDataGema.hora);
-      setTextoInicial("Cita de gema dental reservada con éxito");
-    } catch (error) {
-      console.error(error);
-      setErrors("Error al reservar la cita");
-    }
-  };
-
-
-  // INFO CITA TATUAJES
-
-  const [formDataPiercing, setFormDataPiercing] = useState({ nombre: "", email: "", telefono: "", piercing:"", fecha: "", hora: "", notas:""});  
+  const [formDataPiercing, setFormDataPiercing] = useState({ piercing: "", fecha: "", notas: "",  terminos:"" });  
     
   const fieldsPiercing = [
-    { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true, maxLength: 50 },
-    { nombre: "email", label: "Tu Email", type: "email", placeholder: "Correo electrónico", required: true },
-    { nombre: "contacto", label: "Número de contacto", type: "tel", placeholder: "Teléfono", required: true, pattern: "^[0-9]{9}$" },
-    { nombre: "fecha", label: "Fecha", type: "date", placeholder: "Selecciona una fecha", required: true, min: new Date().toISOString().split("T")[0] }, //Bloquea fechas pasadas
+    { nombre: "fecha", label: "Mejor disponibilidad", type: "text", placeholder: "Indica una fecha ", required: true, },
 
-    { nombre: "piercing",
-      label: "¿Que piercing quieres?", 
-      type: "select", 
+    {
+      nombre: "piercing",
+      label: "¿Que piercing quieres?",
+      type: "select",
       options: [
-        {value: "Oreja", label: "Oreja (Lóbulo, Helix...)"},
-        {value: "Cara",label:"Cara (Ceja, Septum...)"}, 
-        {value: "Cuerpo",label:"Cuerpo (Ombligo, Pezón...)"}
-      ], 
-      required: true 
+        { value: "Oreja", label: "Oreja (Lóbulo, Helix...) - 10 euros de señal" },
+        { value: "Cara", label: "Cara (Ceja, Septum...) - 10 euros de señal" },
+        { value: "Cuerpo", label: "Cuerpo (Ombligo, Pezón...) - 10 euros de señal" }
+      ],
+      required: true
     },
+    { nombre: "observaciones", label: "Notas (Opcional) ", type: "text", placeholder: "Notas adicionales", required: false, },
+    { nombre: "terminos", label: "He leido y acepto los terminos y condiciones", type: "checkbox", required: true }
   ];
 
   const handleSubmitPiercing = async (e) => {
-    e.preventDefault();
-    try {
-      await crearCita("piercing", formDataPiercing.fecha, formDataPiercing.hora); //Lo mismo, se le pasa el tipo de cita porque siempre va a ser la misma
-      setTextoInicial("Cita de piercing reservada con éxito");
-    } catch (error) {
-      console.error(error);
-      setErrors("Error al reservar la cita");
-    }
-  };
+      e.preventDefault();
+      try {
+        const response = await crearCita( formData, "piercing"); //Lo mismo, se le pasa el tipo de cita porque siempre va a ser la misma
+  
+        if (response.error){
+          throw new Error("Ha habido un error al crear la cita.");
+        }else {
+          setTextoInicial("Cita reservada con éxito, te llegará un correo con la confirmación");
+          setFormData({piercing: "", fecha: "", notas: ""}); // Resetear el formulario
+        }
+      } catch (error) {
+        setMensaje(error.message);
+      }
+    };
 
 
 
   //INFO CITAS TATUAJES
 
-  const [formDataTattoo, setFormDataTattoo] = useState({ nombre: "", email: "", telefono: "", tatuador:"", fecha: "", hora: "", idea: "", notas:"", archivo:null });  
-  
-  const fieldsTattoo = [
-    { nombre: "nombre", label: "Tu nombre", type: "text", placeholder: "Nombre completo", required: true, maxLength: 50 },
-    { nombre: "email", label: "Tu Email", type: "email", placeholder: "Correo electrónico", required: true },
-    { nombre: "contacto", label: "Número de contacto", type: "tel", placeholder: "Teléfono", required: true, pattern: "^[0-9]{9}$" },
-    { nombre: "fecha", label: "Fecha", type: "date", placeholder: "Selecciona una fecha", required: true, min: new Date().toISOString().split("T")[0] }, //Bloquea fechas pasadas
-    { nombre: "tatuador", label: "Tatuador", type: "select", options: [{value: "InkYaque", label: "InkYaque"},{value: "Toto_Tattoo",label:"Toto_tattoo"}], required: true },
-    { nombre: "hora", label: "Horas Disponibles", type: "time", placeholder: "--:--", required: true },
+  const [nuevoFormData, setNuevoFormData] = useState({ fecha: "", diseno: "", archivo:"", servicio: "tatuaje", observaciones:"", terminos:"" });
+   const fieldsTattoo = [
+    { nombre: "fecha", label: "Mejor disponibilidad", type: "string", placeholder: "Selecciona una fecha", required: false}, 
     { nombre: "diseno", label: "¿Qué te quieres tatuar?", type: "textarea", placeholder: "Describe tu diseño", required: true },
-    { nombre: "notas", label: "Notas (Opcional)", type: "textarea", placeholder: "Notas adicionales", required: false },
-    { nombre: "archivo", label: "Pon tu idea de diseño (Opcional)", type: "file", required: false }
+    { nombre: "observaciones", label: "Notas (Opcional)", type: "textarea", placeholder: "Notas adicionales", required: false },
+    { nombre: "archivo", label: "Pon tu diseño (Opcional)", type: "file", required: false },
+    { nombre: "terminos", label: "He leido y acepto los terminos y condiciones", type: "checkbox", required: true }
   ];
   
   //Meter el método de pago 
-  const handleSubmitTattoo = async (e) => {
-    e.preventDefault();
-    try {
-      await crearCita("tatuaje", formData.fecha, formData.hora); //le indico tatuaje por que SIEMPRE va a ser una cita de tatuajes en esta pagina
-      setTextoInicial("Cita de tatuaje reservada con éxito");
-    } catch (error) {
-      console.error(error);
-      setErrors("Error al reservar la cita");
-    }
-  };
+  const handleSubmitTatoo = async (e) => {
+      e.preventDefault();
+    
+      let validationErrors = {};
+    
+      const { fecha, diseno, observaciones, archivo } = nuevoFormData;
+    
+      // Validaciones
+      if (!fecha) {
+        validationErrors.fecha = "La fecha es obligatoria";
+      }
+      if (!diseno.trim()) {
+        validationErrors.diseno = "El diseño es obligatorio";
+      }
+    
+      if (archivo && archivo.size > 5 * 1024 * 1024) { // Limitar a 5MB
+        validationErrors.archivo = "El archivo es demasiado grande. Máximo 5MB.";
+      }
+      if (observaciones && observaciones.length > 500) { // Limitar a 500 caracteres
+        validationErrors.notas = "Las notas son demasiado largas. Máximo 500 caracteres.";
+      }
+    
+      if (Object.keys(validationErrors).length > 0) {
+        setErrors(validationErrors);
+        return false;
+      }
+    
+      try {
+        // Si hay un archivo, subirlo a Cloudinary
+        if (archivo) {
+          const data = new FormData();
+          data.append("file", archivo); // Aquí se agrega el archivo
+          data.append("upload_preset", "tatuajes_upload");
+    
+          const res = await fetch("https://api.cloudinary.com/v1_1/dqmbt7gvm/image/upload", {
+            method: "POST",
+            body: data,
+          });
+    
+          const file = await res.json();
+          
+          // Guardamos la URL en el estado
+          const urlFoto = file.secure_url;
+    
+          // Actualizamos nuevoFormData con la URL de la imagen 
+          const updatedFormData = { ...nuevoFormData, archivo: urlFoto }; // Usamos la URL en lugar del archivo
+    
+          // Ahora enviamos los datos al servidor
+          const subirCitaTattoo = await crearCita(updatedFormData, "tatuaje");
+    
+          if (subirCitaTattoo.error) {
+            setErrors({ general: subirCitaTattoo.error });
+          } else {
+            setErrors({}); // Limpiar errores si la cita se creó correctamente
+            setTextoInicial("Cita de tatuaje reservada con éxito, te llegará un correo con la confirmación");
+            setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "", terminos: false }); // Resetear el formulario
+          }
+  
+        } else {
+          // Si no hay archivo, simplemente enviar el formData sin cambios
+          const subirCitaTattoo = await crearCita(nuevoFormData, "tatuaje");
+    
+          if (subirCitaTattoo.error) {
+            setErrors({ general: subirCitaTattoo.error });
+          } else {
+            setErrors({}); // Limpiar errores si la cita se creó correctamente
+            setTextoInicial("Cita de tatuaje reservada con éxito, te llegará un correo con la confirmación");
+            setNuevoFormData({ fecha: "", diseno: "", archivo: null, servicio: "tatuaje", observaciones: "", terminos: false }); // Resetear el formulario
+          }
+        }
+      } catch (error) {
+        console.error("Error al crear la cita:", error);
+        setErrors({ general: "Error al crear la cita. Inténtalo de nuevo." });
+      }
+    };
 
 
   return (
@@ -110,29 +152,22 @@ function Admin() {
       <section className="citas-grid">
 
         <article className="cita-card">
-          <Formulario
-            titulo="Reserva cita Tattoo"
+              <Formulario
+            titulo="Reserva tu cita para tatuarte"
             campos={fieldsTattoo}
-            textoInicial={textoInicial}
-            formData={formDataTattoo}
-            setFormData={setFormDataTattoo}
-            onSubmit={handleSubmitTattoo}
-            errors={errors}
+            formData={nuevoFormData}
+            setFormData={setNuevoFormData}
+            onSubmit={handleSubmitTatoo}
             buttonText="Reservar Cita"
+            mensaje={textoInicial}
+            errors={errors} // Pasar los errores al formulario
+            setShowModal={setShowModal}
           />
-        </article>
-
-        <article className="cita-card">
-          <Formulario 
-            titulo="Reserva cita Gema dental"
-            textoInicial={textoInicial}
-            campos={fieldsGemas}
-            formData={formDataGemas}
-            setFormData={setFormDataGemas}
-            onSubmit={handleSubmitGemas}
-            errors={errors}
-            buttonText="Reservar Cita"
-          />
+          {
+            showModal && (
+              <ModalTerminos show={showModal} onClose = {() => setShowModal(false)} />
+            )
+          }
         </article>
 
         

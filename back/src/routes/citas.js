@@ -7,7 +7,7 @@ const verificarToken = require("../middleware/authMiddleware");
 router.post("/crear-cita", verificarToken, solicitarCita);      // Crear una cita
 router.get("/:usuarioId", verificarToken, obtenerCitas);    // Obtener citas del usuario
 router.get("/", verificarToken, getAllCitas);    // Obtener citas del usuario
-router.post("/eliminar/:citaId", verificarToken, eliminarCita); // Elimina la cita  
+router.delete("/eliminar/:citaId", verificarToken, eliminarCita); // Elimina la cita  
 
 
 module.exports = router;
