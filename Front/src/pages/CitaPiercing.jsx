@@ -5,7 +5,7 @@ import { crearCita } from '../services/citaService';
 
 function CitaPiercing() {
 
-  const [formData, setFormData] = useState({ piercing: "", fecha: "", notas: "" });
+  const [formData, setFormData] = useState({ piercing: "", fecha: "", notas: "",  terminos:"" });
   const [mensaje, setMensaje] = useState("");
   const [ textoInicial, setTextoInicial] = useState("");
 
@@ -25,6 +25,7 @@ function CitaPiercing() {
       required: true
     },
     { nombre: "observaciones", label: "Notas (Opcional) ", type: "text", placeholder: "Notas adicionales", required: false, },
+    { nombre: "terminos", label: "He leido y acepto los terminos y condiciones", type: "checkbox", required: true }
   ];
 
   const handleSubmit = async (e) => {

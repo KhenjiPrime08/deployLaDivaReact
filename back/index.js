@@ -8,6 +8,7 @@ const confirmadasRutas = require("./src/routes/confirmadas"); // Rutas de citas
 const uploadRoutes = require("./src/routes/upload");//Ruta de las imagenes
 const stripeRoutes = require("./src/routes/stripe");
 const stripeWebhook = require("./src/routes/StripeWebhook"); // Webhook de Stripe
+const calendarRoute = require("./src/routes/calendar"); // Webhook para google Calendar
 
 
 
@@ -31,6 +32,7 @@ app.use("/api/citas", citaRutas); // Endpoints para citas
 app.use("/api/citasConfirmadas", confirmadasRutas); // Endpoints para citas CONFIRMADAS
 app.use("/api/upload", uploadRoutes); //Endpoints para las imagenes
 app.use("/api/stripe", stripeRoutes); //Endpoints para el pago con stripe
+app.use("/api/calendar", calendarRoute); //Endpoints para el pago con stripe
 
 
 

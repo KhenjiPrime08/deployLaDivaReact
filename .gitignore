@@ -25,3 +25,6 @@ dist-ssr
 
 #variables de entorno
 *.env
+
+#Json de google calendar
+google-service-account.json

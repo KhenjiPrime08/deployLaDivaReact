@@ -76,6 +76,30 @@ $fuente: 'Roboto', sans-serif;
               ;
             }
           }
+          .boton-cancelar {
+            align-items: center;
+            justify-self: center;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            height: 40px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            background-color: #ff0000;
+            color: white;
+
+            &:hover {
+              background: #d90101;
+            }
+
+            &:focus {
+              background-color: #a70000;
+              ;
+            }
+          }
 
           img {
             max-width: 100%;

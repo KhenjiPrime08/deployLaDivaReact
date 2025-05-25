@@ -48,17 +48,8 @@ function Header() {
 
                     <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaTattoo" : "/login"} onClick={closeMenu}> Cita Tattoo</Link></li>
                     <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaPiercing" : "/login"} onClick={closeMenu}> Cita Piercing </Link></li>
-                    <li className={`navbar ${darkMode ? "dark" : ""}`}> <Link to={logged ? "/citaGema" : "/login"} onClick={closeMenu}> Cita Gemas Dentales </Link></li>
 
                     <li className={`navbar ${darkMode ? "dark" : ""}`}><Link to={logged ? "/perfil" : "/login"} onClick={closeMenu}> {logged ? "Perfil" : "Iniciar sesión"} </Link></li>
-
-                    <li className={`navbar languages ${darkMode ? "dark" : ""}`}>
-                        <img src={iconos.esp} alt="Spain flag" />
-                        <ul className={`flags-dropdown ${darkMode ? "dark" : ""}`}>
-                            <li><img src={iconos.eng} alt="England flag" /></li>
-                            <li><img src={iconos.de} alt="German flag" /></li>
-                        </ul>
-                    </li>
                 </ul>
             </nav>
         </header>

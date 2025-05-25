@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getAllCitas } from "../services/citaService";
-import {
-  confirmarCita,
-  getAllCitasConfirmadas,
-} from "../services/citasConfirmadasService";
+import { eliminarCita, getAllCitas } from "../services/citaService";
+import { cancelarCita, confirmarCita, getAllCitasConfirmadas } from "../services/citasConfirmadasService";
+
+import { crearEventoPresencial, getEventos } from "../services/calendarService";
 import "../styles/Css/CitasAdmin.css";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { UserContext } from "../context/userContext";
@@ -15,15 +14,19 @@ function CitasAdmin() {
   const navigate = useNavigate();
   const [estadoFiltro, setEstadoFiltro] = useState("todas");
 
-  const [citas, setCitas] = useState([]);
-  const [citaSeleccionada, setCitaSeleccionada] = useState(null);
-  const [citasConfirmadas, setCitasConfirmadas] = useState([]);
-  const [fechaAsignada, setFechaAsignada] = useState("");
-  const [horaInicio, setHoraInicio] = useState("");
-  const [horaFin, setHoraFin] = useState("");
-  const [notasAdmin, setNotasAdmin] = useState("");
-  const [artista, setArtista] = useState("");
-  const [expandedCardId, setExpandedCardId] = useState(null);
+  const [ citas, setCitas ] = useState([]);
+  const [ citaSeleccionada, setCitaSeleccionada ] = useState(null);
+  const [ citasConfirmadas, setCitasConfirmadas ] = useState([]);
+
+  const [ fechaAsignada, setFechaAsignada ] = useState("");
+  const [ horaInicio, setHoraInicio ] = useState("");
+  const [ horaFin, setHoraFin ] = useState("");
+  const [ notasAdmin, setNotasAdmin ] = useState("");
+  const [ artista, setArtista ] = useState("");
+  const [ expandedCardId, setExpandedCardId ] = useState(null);
+  const [ deposito, setDeposito ] = useState("");
+
+  const [ citasCalendario, setCitasCalendario ] = useState([]);
 
   const { darkMode } = useContext(DarkModeContext);
   const token = localStorage.getItem("token");
@@ -38,6 +41,7 @@ function CitasAdmin() {
     navigate("/"); // Redirige al inicio si no es admin
   }
 
+  //UseEffect para cargar las citas entrantes, las de la izq
   useEffect(() => {
     async function cargarCitas() {
       const citasObtenidas = await getAllCitas(token);
@@ -47,10 +51,22 @@ function CitasAdmin() {
     cargarCitas();
   }, []);
 
+  //useEffect para cargar los eventos de googleCalendar
+
+  useEffect(() => {
+    async function cargarEventos(){
+      const eventosObtenidos = await getEventos(token)
+      setCitasCalendario(eventosObtenidos);
+    }
+
+    cargarEventos()
+  }, [citas])
+
+  //UseEffect para mostrar las citas confirmadas, las de la derecha
   useEffect(() => {
     async function cargarCitasConfirmadas() {
       const citasConfirmadas = await getAllCitasConfirmadas(token);
-      setCitasConfirmadas(citasConfirmadas);
+      setCitasCalendario(citasConfirmadas);
     }
 
     cargarCitasConfirmadas();
@@ -64,7 +80,7 @@ function CitasAdmin() {
   });
 
   const handleConfirmar = async () => {
-    if (!fechaAsignada || !horaInicio || !horaFin || !artista) {
+    if (!fechaAsignada || !horaInicio || !horaFin || !artista || !deposito) {
       alert("Por favor, selecciona una fecha y hora para confirmar la cita.");
       return;
     }
@@ -73,7 +89,7 @@ function CitasAdmin() {
         alert("La hora de fin debe ser mayor que la hora de inicio.");
         return;
     }
-    console.log(fechaAsignada);
+    
 
     try {
       await confirmarCita(
@@ -95,12 +111,23 @@ function CitasAdmin() {
       setHoraFin("");
       setNotasAdmin("");
 
-      const citasObtenidas = await getAllCitas(token);
-      setCitas(citasObtenidas);
+      // const citasObtenidas = await getAllCitas(token);
+      // setCitas(citasObtenidas);
     } catch (error) {
       console.error("Error al confirmar la cita:", error);
     }
   };
+
+  const handleCancelar = async(cita) => {
+    try{
+      const citaEliminada = await eliminarCita(cita.id, token)
+
+
+      console.log(citaEliminada);
+    }catch(error){
+      console.error("Error eliminando la cita",error)
+    }
+  }
 
 
   return (
@@ -136,6 +163,12 @@ function CitasAdmin() {
                     onClick={() => setCitaSeleccionada(cita)}
                     value={"Confirmar cita"}
                     className="btn"
+                  />
+                  <input
+                    type="button"
+                    onClick={() => handleCancelar(cita)}
+                    value={"Cancelar cita"}
+                    className="boton-cancelar"
                   />
                 </li>
               ))}
@@ -187,6 +220,7 @@ function CitasAdmin() {
                       onChange={(e) => setArtista(e.target.value)}
                       className="select"
                     >
+                      {/* Añadir  que se filtre dependiendo del servicio, si es tatoo yani ale ....*/}
                       <option value="default">Elegir</option>
                       <option value="yani">Yani</option>
                       <option value="alex">Alex</option>
@@ -203,6 +237,17 @@ function CitasAdmin() {
                     placeholder="Notas del admin (Opcional)"
                     className="input-form"
                     />
+
+                    <span id="precioDeposito" className="label-form">Precio del deposito:</span>
+                    
+                    <input
+                    id="precioDeposito"
+                    type="number"
+                    value={deposito}
+                    onChange={(e) => setDeposito(e.target.value)}
+                    placeholder="Introduzca precio del depósito"
+                    className="input-form"
+                    />
                     
 
                     <input
@@ -211,6 +256,7 @@ function CitasAdmin() {
                     value="Confirmar"
                     className="btn"
                     />
+
                     <input
                     type="submit"
                     onClick={() => setCitaSeleccionada(null)}
@@ -223,7 +269,15 @@ function CitasAdmin() {
         </section>
 
         <section>
-          <CalendarComponent newEvent={citas}/>
+
+          {/*CENTRO */}
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=ladivatattoo%40gmail.com&ctz=Atlantic%2FCanary"
+            style={{ border: 0 }}
+            width="800"
+            height="600"
+          />
+
         </section>
       
         <section className="confirmadas">

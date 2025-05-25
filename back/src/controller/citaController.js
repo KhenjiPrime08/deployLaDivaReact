@@ -61,3 +61,21 @@ exports.getAllCitas = async (req, res) => {
     res.status(500).json({ error: "Error al obtener citas" });
   }
 }
+
+exports.eliminarCita = async (req, res) => {
+  try {
+    console.log("GOLAGOALLA")
+    const { citaId } = req.params; // ID de la cita a cancelar
+
+    const cita = await Cita.findByPk(citaId);
+    if (!cita) return res.status(404).json({ error: "Cita no encontrada" });
+
+    // Elimina la cita de la bdd
+    await Cita.destroy(cita);
+
+    res.status(200).json({ message: "Cita eliminada correctamente" });
+  } catch (error) {
+    console.error("Error eliminando cita:", error);
+    res.status(500).json({ error: "Error al cancelar cita" });
+  }
+}

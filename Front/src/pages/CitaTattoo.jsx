@@ -1,26 +1,28 @@
 import React, { useState } from 'react'
 import Formulario from '../components/Formulario'
 import { crearCita } from '../services/citaService';
+import ModalTerminos from '../components/TerminosyCondiciones';
 
 
 
 function CitaTattoo() {
 
-  const [nuevoFormData, setNuevoFormData] = useState({ fecha: "", diseno: "", archivo:"", servicio: "tatuaje", observaciones:"" }); 
+  const [nuevoFormData, setNuevoFormData] = useState({ fecha: "", diseno: "", archivo:"", servicio: "tatuaje", observaciones:"", terminos:"" }); 
   const [errors, setErrors] = useState({});
   const [textoInicial, setTextoInicial] = useState("");
+  const [ showModal, setShowModal] = useState(false);
   
   
   const fields = [
-    { nombre: "fecha", label: "Mejor disponibilidad", type: "string", placeholder: "Selecciona una fecha", required: true}, 
+    { nombre: "fecha", label: "Mejor disponibilidad", type: "string", placeholder: "Selecciona una fecha", required: false}, 
     { nombre: "diseno", label: "¿Qué te quieres tatuar?", type: "textarea", placeholder: "Describe tu diseño", required: true },
     { nombre: "observaciones", label: "Notas (Opcional)", type: "textarea", placeholder: "Notas adicionales", required: false },
-    { nombre: "archivo", label: "Pon tu diseño (Opcional)", type: "file", required: false }
+    { nombre: "archivo", label: "Pon tu diseño (Opcional)", type: "file", required: false },
+    { nombre: "terminos", label: "He leido y acepto los terminos y condiciones", type: "checkbox", required: true }
   ];
   
 
   //VALIDACIONES, Esta funcion solo comprueba si esta todo bien y se pudiera crear un formulario
-
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -109,7 +111,14 @@ function CitaTattoo() {
         buttonText="Reservar Cita"
         mensaje={textoInicial}
         errors={errors} // Pasar los errores al formulario
+        setShowModal={setShowModal}
       />
+      {
+        showModal && (
+          <ModalTerminos show={showModal} onClose = {() => setShowModal(false)} />
+        )
+      }
+      
     </section>
     
   )

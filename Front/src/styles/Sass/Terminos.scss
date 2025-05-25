@@ -1,0 +1,46 @@
+.modal-terminos {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &__content {
+    position: relative;
+    background-color: white;
+    padding: 2rem;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 1rem;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+
+    .h2{
+      text-align: center;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__body {
+    font-family: 'roboto', sans-serif;
+    margin-top: 2rem;
+    line-height: 1.6;
+  }
+}

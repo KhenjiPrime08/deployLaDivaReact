@@ -24,48 +24,24 @@ const localizer = dateFnsLocalizer({
 
 function CalendarComponent(newEvent) {
   const [events, setEvents] = useState([]);
+  const [ eventosSinFiltrar, setEventosSinFiltrar] = useState([]);
   const [filtroServicio, setFiltroServicio] = useState("todos");
 
   const eventosFiltrados = filtroServicio === "todos" ? events : events.filter(event => event.servicio === filtroServicio);
 
   useEffect(() => {
+    setEventosSinFiltrar(newEvent.newEvent)
 
-    const obtenerCitasConfirmadas = async () => {
-      const token = localStorage.getItem('token');
-      const todasCitas = await getAllCitasConfirmadas(token); //Cojo todas las citas
-    
-      // Ahora las mapeo metiendo bien los formatos de hora que si no, no se pueden usar en el calendario
-      const eventos = todasCitas.map(cita => {
-        const inicio = new Date(`${cita.fechaAsignada}T${cita.horaInicio}`);
-        const fin = new Date(`${cita.fechaAsignada}T${cita.horaFin}`);
-        const artista = cita.artista; // Obtener el artista de la cita
-    
-        // Verifica si las fechas son válidas
-        if (isNaN(inicio.getTime()) || isNaN(fin.getTime())) {
-          console.error("Fecha inválida para la cita", cita);
-          return null; 
-        }
+    const eventosConvertidos = eventosSinFiltrar.map(evento => ({
+      ...evento,
+      start: new Date(evento.start), //Hay que hacer esto para que react big calendar no se enfade con las fechas
+      end: new Date(evento.end),
+    }));
 
-        return {
-          title: `Cita con ${cita.Citum.Usuario.nombre} - Artista a cargo: ${artista}`,
-          start: inicio,
-          end: fin,
-          servicio: cita.servicio,
-        };
-        
-      });
-    
-      
-      // Filtra los eventos nulos (aquellos con fechas inválidas)
-      const eventosFiltrados = eventos.filter(evento => evento !== null);
-    
-      setEvents(eventosFiltrados);
+    setEvents(eventosConvertidos);
+  
 
-       // Para ver los eventos en la consola
-    };
-    
-    obtenerCitasConfirmadas();
-  }, [newEvent]);
+}, [newEvent]);
 
   
   return (

@@ -61,6 +61,27 @@
 .principal .row .pendientes .ul .li .btn:focus {
   background-color: #9c9a9a;
 }
+.principal .row .pendientes .ul .li .boton-cancelar {
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  background-color: #ff0000;
+  color: white;
+}
+.principal .row .pendientes .ul .li .boton-cancelar:hover {
+  background: #d90101;
+}
+.principal .row .pendientes .ul .li .boton-cancelar:focus {
+  background-color: #a70000;
+}
 .principal .row .pendientes .ul .li img {
   max-width: 100%;
   border-radius: 8px;

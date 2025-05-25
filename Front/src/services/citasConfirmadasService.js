@@ -35,6 +35,8 @@ export async function confirmarCita(idCita, datos, token) {
     }
 }
 
+
+
 export async function getAllCitasConfirmadas(token) {
   try {
     const res = await fetch(`${API_URL}/citasConfirmadas/`, {
