@@ -48,13 +48,12 @@ function CitaPiercing() {
   return (
     <Formulario
       titulo="Reserva tu cita para hacerte un piercing"
-      textoInicial={textoInicial}
       campos={fields}
       formData={formData}
       setFormData={setFormData}
       onSubmit={handleSubmit}
       buttonText="Reservar Cita"
-      mensaje={mensaje}
+      mensaje={textoInicial}
     />
   )
 }

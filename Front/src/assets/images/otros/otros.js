@@ -6,6 +6,7 @@ import yani from './yani.webp'
 import yani_tatuando from './yani_tatuando.webp'
 import alex_tatuando from './alex_tatuando.webp'
 import fondo from './fondo.jpg'
+import lorenaPrincipal from './lorenaPrincipal.jpg'
 
 const otros = {
     alex,
@@ -15,7 +16,8 @@ const otros = {
     yani,
     yani_tatuando,
     alex_tatuando,
-    fondo
+    fondo,
+    lorenaPrincipal
 };
 
 export default otros;

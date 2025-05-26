@@ -37,6 +37,7 @@ $fuente: "Roboto", sans-serif;
     max-width: 50%;
     padding: 20px;
     text-align: justify;
+    
 
     h1 {
       font-family: $fuente;
@@ -49,6 +50,7 @@ $fuente: "Roboto", sans-serif;
     p {
       font-size: 1.2rem;
       line-height: 1.8;
+      font-family: $fuente;
     }
   }
 

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import gemas from "../assets/images/gemas_dentales/gemas";
+import otros from "../assets/images/otros/otros"
 import Presentacion from "../components/Presentacion";
 import Separador from "../components/Separador";
 import GaleriaTatuajes from "../components/GaleriaTatuajes";
@@ -42,7 +43,7 @@ function Iris_Gems() {
     setTextoPresentacion(newTextArray);
   };
 
-  // ✅ Cargar imágenes desde backend
+  //Cargar imágenes desde backend
   useEffect(() => {
     const getImages = async () => {
       try {
@@ -86,7 +87,7 @@ function Iris_Gems() {
   return (
     <section>
       <Presentacion
-        imagen={gemas.gema1}
+        imagen={otros.lorenaPrincipal}
         titulo={titulo}
         texto={
           <article>

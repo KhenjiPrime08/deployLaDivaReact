@@ -75,9 +75,9 @@ function McPiercing() {
               se volcó de lleno en su sueño. Asistió a numerosos seminarios y cursos especializados, perfeccionando su técnica y profundizando 
               en las mejores prácticas del sector.</p> 
 
-            <p>Desde entonces, Mara se ha dedicado exclusivamente al anillado corporal, convirtiéndose en una defensora de la seguridad y
+            {/* <p>Desde entonces, Mara se ha dedicado exclusivamente al anillado corporal, convirtiéndose en una defensora de la seguridad y
               la calidad. Hace especial hincapié en el uso de joyería de titanio de grado implante y en la técnica de aguja americana,
-              garantizando así una experiencia profesional, segura y respetuosa con el cuerpo.</p>
+              garantizando así una experiencia profesional, segura y respetuosa con el cuerpo.</p> */}
 
             <p>
               Si buscas un piercing realizado con pasión, precisión y materiales de la más alta calidad, Mara Corpa es la profesional ideal. 

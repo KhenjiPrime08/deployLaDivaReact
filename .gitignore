@@ -28,3 +28,6 @@ dist-ssr
 
 #Json de google calendar
 google-service-account.json
+
+#Node modules del BACK
+node_modules

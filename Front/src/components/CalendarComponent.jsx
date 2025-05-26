@@ -29,20 +29,44 @@ function CalendarComponent(newEvent) {
 
   const eventosFiltrados = filtroServicio === "todos" ? events : events.filter(event => event.servicio === filtroServicio);
 
-  useEffect(() => {
-    setEventosSinFiltrar(newEvent.newEvent)
+   useEffect(() => {
 
-    const eventosConvertidos = eventosSinFiltrar.map(evento => ({
-      ...evento,
-      start: new Date(evento.start), //Hay que hacer esto para que react big calendar no se enfade con las fechas
-      end: new Date(evento.end),
-    }));
+    const obtenerCitasConfirmadas = async () => {
+      const token = localStorage.getItem('token');
+      const todasCitas = await getAllCitasConfirmadas(token); //Cojo todas las citas
+    
+      // Ahora las mapeo metiendo bien los formatos de hora que si no, no se pueden usar en el calendario
+      const eventos = todasCitas.map(cita => {
+        const inicio = new Date(`${cita.fechaAsignada}T${cita.horaInicio}`);
+        const fin = new Date(`${cita.fechaAsignada}T${cita.horaFin}`);
+        const artista = cita.artista; // Obtener el artista de la cita
+    
+        // Verifica si las fechas son válidas
+        if (isNaN(inicio.getTime()) || isNaN(fin.getTime())) {
+          console.error("Fecha inválida para la cita", cita);
+          return null; 
+        }
 
-    setEvents(eventosConvertidos);
-  
+        return {
+          title: `Cita con ${cita.Citum.Usuario.nombre} - Artista a cargo: ${artista}`,
+          start: inicio,
+          end: fin,
+          servicio: cita.servicio,
+        };
+        
+      });
+    
+      
+      // Filtra los eventos nulos (aquellos con fechas inválidas)
+      const eventosFiltrados = eventos.filter(evento => evento !== null);
+    
+      setEvents(eventosFiltrados);
 
-}, [newEvent]);
-
+       // Para ver los eventos en la consola
+    };
+    
+    obtenerCitasConfirmadas();
+  }, [newEvent]);
   
   return (
     <section className="calendar-component">
@@ -60,10 +84,33 @@ function CalendarComponent(newEvent) {
           events={eventosFiltrados}
           startAccessor="start"
           endAccessor="end"
-          min={new Date(1970, 1, 1, 10, 0)}  // 10:00 AM
-          max={new Date(1970, 1, 1, 23, 0)}  // 9:00 PM
+          min={new Date(1970, 1, 1, 10, 0)}
+          max={new Date(1970, 1, 1, 23, 0)}
           components={{
             toolbar: CalendarToolbar,
+          }}
+          eventPropGetter={(event) => {
+            let backgroundColor = '';
+            switch (event.servicio) {
+              case 'tatuaje':
+                backgroundColor = '#749E39'; // Verde
+                break;
+              case 'piercing':
+                backgroundColor = '#2563eb'; // azul
+                break;
+              default:
+                backgroundColor = '#6b7280'; // gris para otros
+            }
+
+            return {
+              style: {
+                backgroundColor,
+                borderRadius: '6px',
+                color: 'white',
+                border: 'none',
+                padding: '4px',
+              },
+            };
           }}
           style={{ height: 600 }}
           messages={{

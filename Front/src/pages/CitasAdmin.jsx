@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { eliminarCita, getAllCitas } from "../services/citaService";
 import { cancelarCita, confirmarCita, getAllCitasConfirmadas } from "../services/citasConfirmadasService";
+import CalendarComponent from "../components/CalendarComponent";
 
 import "../styles/Css/CitasAdmin.css";
 import { DarkModeContext } from "../context/DarkModeContext";
@@ -245,13 +246,17 @@ function CitasAdmin() {
         <section>
 
           {/*CENTRO */}
-          <iframe
+          {/* <iframe
             src="https://calendar.google.com/calendar/embed?src=ladivatattoo%40gmail.com&ctz=Atlantic%2FCanary"
             style={{ border: 0 }}
             width="700"
             height="600"
             className="calendar"
-          />
+          /> */}
+
+          
+          <CalendarComponent newEvent={citas}/>
+        
 
         </section>
       

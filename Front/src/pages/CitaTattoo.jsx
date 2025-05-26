@@ -14,7 +14,7 @@ function CitaTattoo() {
   
   
   const fields = [
-    { nombre: "fecha", label: "Mejor disponibilidad", type: "string", placeholder: "Selecciona una fecha", required: false}, 
+    { nombre: "fecha", label: "Mejor disponibilidad", type: "string", placeholder: "Selecciona una fecha", required: true}, 
     { nombre: "diseno", label: "¿Qué te quieres tatuar?", type: "textarea", placeholder: "Describe tu diseño", required: true },
     { nombre: "observaciones", label: "Notas (Opcional)", type: "textarea", placeholder: "Notas adicionales", required: false },
     { nombre: "archivo", label: "Pon tu diseño (Opcional)", type: "file", required: false },
