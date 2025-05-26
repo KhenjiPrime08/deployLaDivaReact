@@ -8,6 +8,7 @@ import alex_tatuando from './alex_tatuando.webp'
 import fondo from './fondo.jpg'
 import lorenaPrincipal from './lorenaPrincipal.jpg'
 
+
 const otros = {
     alex,
     lorena,

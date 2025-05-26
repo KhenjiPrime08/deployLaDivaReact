@@ -1,3 +1,5 @@
+$fuente: 'Roboto', sans-serif;
+
 .fondos {
     min-height: 85vh;
     display: flex;
@@ -27,17 +29,20 @@
         font-size: 40px;
         justify-self: center;
         font-weight: bold;
+        font-family: $fuente;
     }
     
     .contact-header p {
         font-size: 1rem;
         text-align: center;
+        font-family: $fuente;
     }
     
     .contact-form__body {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        font-family: $fuente;
     }
     
     .contact-form__input-group {
@@ -58,6 +63,7 @@
         border-radius: 4px;
         transition: border-color 0.3s ease;
         margin-bottom: 10px;
+        font-family: $fuente;
     }
     
     .contact-form__textarea {
@@ -82,6 +88,7 @@
         font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        font-family: $fuente;
     
         &:hover {
             background-color: #d9d7d7;
