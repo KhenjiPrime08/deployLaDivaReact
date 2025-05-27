@@ -1,27 +1,25 @@
-# Usar una imagen base de Node.js
+# Usa imagen oficial de Node.js
 FROM node:20
 
-# Establecer el directorio de trabajo
+# Directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos package.json y package-lock.json del backend
+# Copiar package.json y package-lock.json backend e instalar dependencias
 COPY back/package*.json ./back/
-
-# Instalar las dependencias del backend
 RUN cd back && npm install
 
-# Copiar los archivos package.json y package-lock.json del frontend
+# Copiar package.json y package-lock.json frontend e instalar dependencias
 COPY Front/package*.json ./Front/
-
-# Instalar las dependencias del frontend
 RUN cd Front && npm install
 
-# Copiar el resto de los archivos del proyecto
+# Copiar el resto de archivos
 COPY . .
 
-# Exponer los puertos necesarios
-EXPOSE 4000
-EXPOSE 5173
+# Construir el frontend (genera la carpeta build)
+RUN cd Front && npm run build
 
-# Comando para iniciar ambos servidores
-CMD cd back && npm run dev & cd Front && npm run dev
+# Exponer puerto backend
+EXPOSE 4000
+
+# Comando para arrancar backend (que servirá frontend estático)
+CMD ["node", "back/index.js"]
