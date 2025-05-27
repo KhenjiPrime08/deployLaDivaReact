@@ -17,7 +17,7 @@ exports.pagar = async (req, res) => {
 
         // Actualiza estado en cita confirmada
         await CitaConfirmada.update(
-          { estado: "confirmada" },
+          { estado: "pagada" },
           { where: { citaId } }
         );
 
