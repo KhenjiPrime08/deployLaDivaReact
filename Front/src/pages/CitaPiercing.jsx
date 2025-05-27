@@ -11,7 +11,28 @@ function CitaPiercing() {
 
 
   const fields = [
-    { nombre: "fecha", label: "Mejor disponibilidad", type: "text", placeholder: "Indica una fecha ", required: true, },
+    { nombre: "fecha",
+      label: "Mejor disponibilidad",
+      type: "select",
+        options: [
+          { value: "lunes", label: "Lunes" },
+          { value: "martes", label: "Martes" },
+          { value: "miercoles", label: "Miércoles" },
+          { value: "jueves", label: "Jueves" },
+          { value: "viernes", label: "Viernes" },
+          { value: "sabado", label: "Sábado" }
+        ],
+      placeholder: "Selecciona una fecha", required: true
+    },
+    { nombre: "tramoHorario",
+      label: "Tramo horario",
+      type: "select",
+      options: [
+        { value: "mañana", label: "Mañana" },
+        { value: "tarde", label: "Tarde" }
+      ],
+      placeholder: "Selecciona un tramo horario", required: true
+    }, 
 
     {
       nombre: "piercing",

@@ -7,6 +7,7 @@ export const crearCita = async (nuevoFormData, servicio) => {
 
   //PARA TATTOO
   const fecha = nuevoFormData.fecha;
+  const tramoHorario = nuevoFormData.tramoHorario; 
   let diseno = nuevoFormData.diseno; //let porque va a cambiar de valor dependiendo de la cita
   const observaciones = nuevoFormData.observaciones;
   const archivo = nuevoFormData.archivo;
@@ -38,6 +39,7 @@ export const crearCita = async (nuevoFormData, servicio) => {
       },
       body: JSON.stringify({
         fecha,
+        tramoHorario,
         servicio,
         diseno,
         usuarioId, // ID del usuario que solicita la cita

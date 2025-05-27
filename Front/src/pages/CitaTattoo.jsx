@@ -14,7 +14,28 @@ function CitaTattoo() {
   
   
   const fields = [
-    { nombre: "fecha", label: "Mejor disponibilidad", type: "string", placeholder: "Selecciona una fecha", required: true}, 
+    { nombre: "fecha",
+      label: "Mejor disponibilidad",
+      type: "select",
+        options: [
+          { value: "lunes", label: "Lunes" },
+          { value: "martes", label: "Martes" },
+          { value: "miercoles", label: "Miércoles" },
+          { value: "jueves", label: "Jueves" },
+          { value: "viernes", label: "Viernes" },
+          { value: "sabado", label: "Sábado" }
+        ],
+      placeholder: "Selecciona una fecha", required: true
+    },
+    { nombre: "tramoHorario",
+      label: "Tramo horario",
+      type: "select",
+      options: [
+        { value: "mañana", label: "Mañana" },
+        { value: "tarde", label: "Tarde" }
+      ],
+      placeholder: "Selecciona un tramo horario", required: true
+    }, 
     { nombre: "diseno", label: "¿Qué te quieres tatuar?", type: "textarea", placeholder: "Describe tu diseño", required: true },
     { nombre: "observaciones", label: "Notas (Opcional)", type: "textarea", placeholder: "Notas adicionales", required: false },
     { nombre: "archivo", label: "Pon tu diseño (Opcional)", type: "file", required: false },

@@ -3,13 +3,14 @@ const CitaConfirmada = require("../model/CitaConfirmada");
 
 
 exports.solicitarCita = async (req, res) => {
-  const { fecha, servicio, diseno, usuarioId, observaciones, archivo } = req.body; //Pillamos los datos del body
+  const { fecha, tramoHorario, servicio, diseno, usuarioId, observaciones, archivo } = req.body; //Pillamos los datos del body
 
   try {
     // Creamos la cita en estado pendiente
     const cita = await Cita.create({
       usuarioId,
       fecha, // Aquí guardamos el string con los días disponibles
+      tramoHorario,
       servicio,
       diseno,
       imagenDisenoUrl: archivo, // Guardamos la URL de la imagen del diseño

@@ -24,7 +24,6 @@ const localizer = dateFnsLocalizer({
 
 function CalendarComponent(newEvent) {
   const [events, setEvents] = useState([]);
-  const [ eventosSinFiltrar, setEventosSinFiltrar] = useState([]);
   const [filtroServicio, setFiltroServicio] = useState("todos");
 
   const eventosFiltrados = filtroServicio === "todos" ? events : events.filter(event => event.servicio === filtroServicio);
@@ -76,7 +75,7 @@ function CalendarComponent(newEvent) {
         <option value="todos">Todos</option>
         <option value="tatuaje">Tatuaje</option>
         <option value="piercing">Piercing</option>
-        <option value="gema_dental">Gema Dental</option>
+        
       </select>
 
         <Calendar
