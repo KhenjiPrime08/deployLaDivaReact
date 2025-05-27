@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Formulario from '../components/Formulario'
 import { crearCita } from '../services/citaService';
+import ModalTerminos from '../components/TerminosyCondiciones';
 
 
 function CitaPiercing() {
@@ -8,6 +9,7 @@ function CitaPiercing() {
   const [formData, setFormData] = useState({ piercing: "", fecha: "", notas: "",  terminos:"" });
   const [mensaje, setMensaje] = useState("");
   const [ textoInicial, setTextoInicial] = useState("");
+   const [ showModal, setShowModal] = useState(false);
 
 
   const fields = [
@@ -67,6 +69,8 @@ function CitaPiercing() {
 
 
   return (
+    <section>
+
     <Formulario
       titulo="Reserva tu cita para hacerte un piercing"
       campos={fields}
@@ -75,7 +79,15 @@ function CitaPiercing() {
       onSubmit={handleSubmit}
       buttonText="Reservar Cita"
       mensaje={textoInicial}
+      setShowModal={setShowModal}
     />
+      {
+        showModal && (
+          <ModalTerminos show={showModal} onClose = {() => setShowModal(false)} />
+        )
+      }
+    </section>
+
   )
 }
 
