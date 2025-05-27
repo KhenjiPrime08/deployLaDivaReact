@@ -21,4 +21,5 @@ COPY --from=build-frontend /app/front/dist ./back/public
 ENV PORT=4000
 EXPOSE 4000
 
-CMD ["node", "back/server.js"]
+CMD ["node", "back/index.js"]
+
