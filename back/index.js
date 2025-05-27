@@ -37,6 +37,8 @@ app.use("/api/upload", uploadRoutes); //Endpoints para las imagenes
 app.use("/api/stripe", stripeRoutes); //Endpoints para el pago con stripe
 app.use("/api/calendar", calendarRoute); //Endpoints para el pago con stripe
 
+
+
 // Sincronizar base de datos y arrancar el servidor
 db.sync({ force: false }) // Si cambias a { force: true }, se borrarán las tablas y se recrearán
   .then(() => {

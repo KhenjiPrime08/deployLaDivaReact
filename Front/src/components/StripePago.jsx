@@ -18,13 +18,13 @@ function StripePago({ citaConfirmada, modalPago, cerrarModal}) {
   useEffect(() => {
     switch (citaConfirmada.servicio) {
       case "tatuaje":
-        setCantidad(20);
+        setCantidad(1);
         break;
       case "piercing":
-        setCantidad(10);
+        setCantidad(1);
         break;
       case "gema_dental":
-        setCantidad(10);
+        setCantidad(1);
         break;
       default:
         setErrores({ stripe: "Servicio no válido." });
