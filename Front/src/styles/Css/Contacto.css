@@ -1,0 +1,147 @@
+.fondos {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fondos .contact-form {
+  padding: 2rem;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 10px;
+}
+.fondos .contact-form.dark {
+  background-color: #333;
+}
+.fondos .contact-header {
+  margin-bottom: 1.5rem;
+}
+.fondos .contact-header h1 {
+  font-size: 40px;
+  justify-self: center;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+.fondos .contact-header p {
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+.fondos .contact-form__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+.fondos .contact-form__input-group {
+  display: flex;
+  flex-direction: column;
+}
+.fondos .contact-form__label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.fondos .contact-form__input,
+.fondos .contact-form__textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+}
+.fondos .contact-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.fondos .contact-form__submit-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.fondos .contact-form__submit {
+  background-color: #e4e3e3;
+  width: 70%;
+  color: black;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Roboto", sans-serif;
+}
+.fondos .contact-form__submit:hover {
+  background-color: #d9d7d7;
+}
+.fondos .contact-form__submit:focus {
+  background-color: #a9a8a8;
+}
+.fondos .contact-form__message {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.fondos .contact-form__message.dark {
+  color: #ccc;
+}
+.fondos .contact-form__message--success {
+  color: green;
+}
+.fondos .contact-form__message--error {
+  color: red;
+}
+@media (max-width: 768px) {
+  .fondos .contact-form {
+    padding: 1.5rem;
+  }
+  .fondos .contact-header h1 {
+    font-size: 1.5rem;
+  }
+  .fondos .contact-form__body {
+    gap: 1rem;
+  }
+  .fondos .contact-form__input,
+  .fondos .contact-form__textarea {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+  .fondos .contact-form__submit {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+  .fondos .contact-form {
+    padding: 1rem;
+    max-width: 85%;
+  }
+  .fondos .contact-header h1 {
+    font-size: 1.25rem;
+  }
+  .fondos .contact-header p {
+    font-size: 0.875rem;
+  }
+  .fondos .contact-form__body {
+    gap: 0.75rem;
+  }
+  .fondos .contact-form__label {
+    font-size: 0.9rem;
+  }
+  .fondos .contact-form__input,
+  .fondos .contact-form__textarea {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .fondos .contact-form__submit {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/*# sourceMappingURL=Contacto.css.map */

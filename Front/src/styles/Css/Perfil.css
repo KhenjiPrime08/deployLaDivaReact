@@ -1,0 +1,384 @@
+@charset "UTF-8";
+.profile-container {
+  min-height: 75vh;
+  max-width: 1000px;
+  margin: 20px auto;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  /* Modal Overlay: Fondo oscuro */
+  /* Modal principal en el centro */
+  /* Modal de pago a la derecha */
+  /* Modal de rechazo a la izquierda */
+  /* Botones */
+}
+.profile-container .modal-cita {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto; /* ✅ importante para que haga scroll */
+  z-index: 4;
+  padding: 2rem 1rem; /* espacio interno para que no quede pegado arriba/abajo */
+}
+.profile-container .modal-contenido {
+  background-color: #333;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 300px;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.profile-container .modal-contenido.principal {
+  z-index: 3;
+  min-height: 200px;
+}
+.profile-container .modal-contenido.pago {
+  margin-left: 100px;
+  max-width: 35%;
+  z-index: 2;
+}
+.profile-container .modal-contenido.rechazo {
+  margin-left: 100px;
+  width: 20%;
+  z-index: 2;
+}
+.profile-container .modal-contenido.rechazo .h2 {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+}
+.profile-container .modal-contenido.rechazo .botones-rechazo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 20px;
+}
+.profile-container .acciones .btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+.profile-container .boton {
+  max-width: 150px;
+  text-align: center;
+  padding: 5px 15px;
+  background: #ececec;
+  color: black;
+  text-decoration: none;
+  margin-left: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.profile-container .boton:hover {
+  background: #b8b7b7;
+}
+.profile-container .boton:focus {
+  background-color: #757474;
+}
+.profile-container textarea {
+  width: 90%;
+  height: 80px;
+  margin-top: 10px;
+  padding: 8px;
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-self: center;
+}
+.profile-container .acciones .btn.aceptar {
+  background-color: green;
+  color: white;
+}
+.profile-container .acciones .btn.rechazar {
+  background-color: red;
+  color: white;
+}
+.profile-container .acciones .btn.cerrar {
+  background-color: grey;
+  color: white;
+}
+.profile-container .loading {
+  text-align: center;
+  font-size: 18px;
+}
+.profile-container .errores {
+  background-color: rgb(190, 187, 187);
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.profile-container .errores .h1Error {
+  font-size: 40px;
+  color: red;
+}
+.profile-container .errores .error {
+  font-size: 30px;
+  color: red;
+  text-align: center;
+}
+.profile-container .errores .btn {
+  max-width: 200px;
+  text-align: center;
+  background: #f5f5f5;
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+.profile-container .errores .btn:hover {
+  background: #b8b7b7;
+}
+.profile-container .errores .btn:focus {
+  background-color: #757474;
+}
+.profile-container .errores.dark {
+  background-color: #333;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+}
+.profile-container .errores.dark .h1Error {
+  color: rgb(204, 43, 43);
+}
+.profile-container .errores.dark .error {
+  color: rgb(204, 43, 43);
+}
+.profile-container .errores.dark .btn {
+  background-color: #777;
+  border: none;
+  color: black;
+}
+.profile-container .errores.dark .btn:hover {
+  background-color: #999;
+}
+.profile-container .errores.dark .btn:focus {
+  background-color: #646464;
+}
+.profile-container .profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #333;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.profile-container .profile-card .btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+.profile-container .profile-card .btns .edit-btn {
+  max-width: 200px;
+  text-align: center;
+  background: #f5f5f5;
+  color: black;
+  text-decoration: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  gap: 20px;
+}
+.profile-container .profile-card .btns .edit-btn:hover {
+  background: #b6b5b5;
+}
+.profile-container .profile-card .btns .edit-btn:focus {
+  background-color: #7a7979;
+}
+.profile-container .profile-card .btns .delete-btn {
+  max-width: 200px;
+  text-align: center;
+  background: #f52727;
+  color: black;
+  text-decoration: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  gap: 20px;
+}
+.profile-container .profile-card .btns .delete-btn:hover {
+  background: #ad1c1c;
+}
+.profile-container .profile-card .btns .delete-btn:focus {
+  background-color: #991919;
+}
+.profile-container .appointments {
+  background: #222;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.profile-container .appointments ul {
+  list-style: none;
+  padding: 0;
+}
+.profile-container .appointments ul li {
+  background: #444;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+}
+.profile-container .appointments .select {
+  align-self: center;
+  font-family: "Roboto", sans-serif;
+  margin-top: 10px;
+  padding: 8px;
+  width: 96%;
+  border: 1px solid #E6E6E6;
+  background-color: #ececec;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  color: black;
+}
+.profile-container .appointments .filtros {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.profile-container .appointments .label {
+  margin: 50px;
+}
+
+/* RESPONSIVE DESIGN */
+/* Tablets (máximo 768px) */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    max-width: 100%;
+  }
+  .profile-container .profile-card,
+  .profile-container .appointments {
+    width: 90%;
+    padding: 15px;
+  }
+  .profile-container .profile-card .btns {
+    flex-direction: row;
+    gap: 15px;
+  }
+  .profile-container .appointments .select {
+    width: 100%;
+  }
+  .profile-container .modal-cita {
+    flex-direction: column;
+    align-items: stretch;
+    height: 95vh;
+  }
+  .profile-container .modal-contenido.principal {
+    min-height: 350px;
+  }
+  .profile-container .modal-contenido.pago {
+    min-height: 200px;
+    margin-left: 60px;
+    min-width: 80%;
+  }
+  .profile-container .modal-contenido.rechazo {
+    min-height: 200px;
+    min-width: 80%;
+    margin-left: 60px;
+  }
+  .profile-container .modal-contenido {
+    width: 70%;
+    margin: 10px auto;
+    max-height: 10vh;
+    overflow-y: auto;
+  }
+  .profile-container .modal-contenido.rechazo textarea {
+    height: 70px;
+  }
+  .profile-container .botones-rechazo {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+/* Móviles (máximo 480px) */
+@media (max-width: 480px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    max-width: 90%;
+  }
+  .profile-container .profile-card,
+  .profile-container .appointments {
+    width: 100%;
+    padding: 12px;
+  }
+  .profile-container .profile-card .btns {
+    flex-direction: row;
+    gap: 10px;
+  }
+  .profile-container .appointments .select {
+    width: 100%;
+    font-size: 14px;
+  }
+  .profile-container .appointments ul li {
+    font-size: 14px;
+    padding: 6px;
+  }
+  .profile-container .boton {
+    font-size: 14px;
+    padding: 3px 8px;
+  }
+  .profile-container .modal-cita {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .profile-container .modal-cita .modal-contenido {
+    width: 90% !important;
+    margin: 10px auto;
+  }
+  .profile-container .modal-cita .modal-contenido.rechazo {
+    min-height: 200px;
+  }
+  .profile-container .modal-cita .modal-contenido.rechazo textarea {
+    height: 60px;
+  }
+  .profile-container .modal-cita .botones-rechazo {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=Perfil.css.map */

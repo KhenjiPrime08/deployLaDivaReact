@@ -1,0 +1,408 @@
+$tablet: 768px;
+$mobile: 480px;
+$fuente: "Roboto", sans-serif;
+
+.form-container {
+  font-family: $fuente;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 30px;
+
+  .titulo {
+    font-family: "Angel Wish", sans-serif;
+    font-size: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: normal;
+
+    @media (max-width: $tablet) {
+      font-size: 35px;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 30px;
+    }
+  }
+
+  .texto-inicial{
+    font-family: $fuente;
+    
+  }
+
+  .fondo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+      padding: 15px;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 10px;
+      max-width: 350px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .form-label {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 5px;
+        text-align: center;
+
+        @media (max-width: $tablet) {
+          font-size: 16px;
+        }
+      }
+
+      .input-container {
+        position: relative;
+        width: 100%;
+
+        .form-input {
+          font-family: $fuente;
+          width: 100%;
+          max-width: 250px;
+          height: 40px;
+          padding: 8px;
+          padding-right: 35px;
+          border: 1px solid #e6e6e6;
+          border-radius: 5px;
+          background-color: white;
+          color: black;
+          transition: background-color 0.3s ease;
+
+          &::placeholder {
+            color: black;
+          }
+        }
+
+        .select-input {
+          font-family: $fuente;
+          padding: 8px;
+          height: 58px;
+          width: 295px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+          transition: background-color 0.3s ease;
+          border-radius: 5px;
+          color: black;
+          appearance: none;
+        }
+
+        .toggle-password {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          padding: 5px;
+
+          svg {
+            width: 20px;
+            height: 20px;
+            color: black;
+          }
+        }
+      }
+
+      .error-message {
+        color: #8d0e0e;
+        font-size: 16px;
+        margin-top: 5px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .stripe-container {
+      grid-column: span 2;
+      justify-self: center;
+      padding: 12px;
+
+    }
+
+    .form-button {
+      grid-column: span 2;
+      justify-self: center;
+      width: 50%;
+      padding: 12px;
+      background-color: #e4e3e3;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #cac7c7;
+      }
+
+      &:focus {
+        background-color: #9c9a9a;
+      }
+
+      @media (max-width: $tablet) {
+        grid-column: span 2;
+        width: 90%;
+        font-size: 14px;
+      }
+    }
+
+    .mensaje {
+      grid-column: span 2;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+      @media (max-width: $tablet) {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      max-width: 100%;
+      gap: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      align-self: center;
+      justify-self: center;
+
+      .form-group {
+        width: 100%;
+        margin-bottom: 10px;
+
+        .input-container {
+          position: relative;
+          width: 100%; 
+    
+          .toggle-password {
+            position: absolute;
+            right: 60px;  // Ajusta la distancia al lado derecho
+            top: 50%;
+            transform: translateY(-50%); // Centra verticalmente
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+          }
+        }
+  
+        .form-input {
+          justify-self: center;
+          width: 90%;
+        }
+  
+        .error-message {
+          font-size: 16px;
+          grid-column: span 1;
+        }
+
+        .form-label {
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+    
+        .form-input {
+          padding: 5px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #E6E6E6;
+          background-color: white;
+        }
+    
+        .form-button {
+          padding: 10px;
+          font-size: 12px;
+          grid-column: span 1fr;
+          justify-self: center;
+        }
+      }
+  
+      
+    }
+  
+    .mensaje {
+      font-family: $fuente;
+      grid-column: span 2;
+      justify-self: center;
+  
+      a {
+        text-decoration: none;
+        color: black;
+      }
+  
+      @media screen and (max-width: $tablet) {
+        font-size: 15px;
+        margin-bottom: 25px;
+      }
+    }
+  
+    @media screen and (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+      gap: 15px;
+      padding: 10px;
+      margin: 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      justify-content: center;
+  
+      .form-group {
+        .input-container {
+          position: relative;
+          width: 100%; 
+    
+          .toggle-password {
+            position: absolute;
+            right: 20px;  // Ajusta la distancia al lado derecho
+            top: 50%;
+            transform: translateY(-50%); // Centra verticalmente
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+          }
+        }
+
+        .error-message {
+          font-size: 15px;
+        }
+      }
+  
+      .input-container {
+        .form-input {
+          width: 90%;
+          height: 30px;
+        }
+      }
+  
+    }
+  
+    @media screen and (max-width: 1024px) and (min-width: $tablet) {
+        
+      .form-group {
+  
+        .error-message {
+          font-size: 15px;
+          grid-column: span 1;
+        }
+  
+        .form-label,
+        .form-input {
+          width: 90%;
+        }
+      }
+    }
+
+    
+  }
+  // Estilos para errores
+  .input-error {
+    border: 2px solid #ff4d4d !important;
+  }
+
+
+
+  // Estilos para el modo oscuro
+  &.dark-mode {
+    .fondo {
+      background: #333;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+
+      .form-group {
+        .form-input {
+          background-color: #555;
+          border: 1px solid #777;
+          color: white;
+
+          &::placeholder {
+            color: white;
+            opacity: 1;
+          }
+        }
+
+        .toggle-password svg {
+          color: white;
+          transition: color 0.3s ease;
+
+
+        }
+
+        .select-input {
+          background-color: #555;
+          border: 1px solid #777;
+          color: white;
+        }
+
+        .select-input option {
+          background-color: #777;
+          color: white;
+        }
+
+        .form-button {
+          background-color: #777;
+          color: #fff;
+
+          &:hover {
+            background-color: #999;
+          }
+
+          &:focus {
+            background-color: #888;
+          }
+        }
+      }
+    }
+
+    .mensaje {
+      color: #fff;
+
+      a {
+        color: #bbb;
+      }
+    }
+
+    // Modo oscuro - errores
+    .input-error {
+      border: 2px solid #ff4d4d;
+    }
+  }
+}

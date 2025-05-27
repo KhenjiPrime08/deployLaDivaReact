@@ -1,0 +1,465 @@
+$fuente: "Roboto", sans-serif;
+
+.profile-container {
+    min-height: 75vh;
+    max-width: 1000px;
+    margin: 20px auto;
+    font-family: $fuente;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+
+    /* Modal Overlay: Fondo oscuro */
+    .modal-cita {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      overflow-y: auto; /* ✅ importante para que haga scroll */
+      z-index: 4;
+      padding: 2rem 1rem; /* espacio interno para que no quede pegado arriba/abajo */
+    }
+
+    .modal-contenido {
+      background-color: #333;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 300px;
+      width: 90%;
+      margin: auto;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+
+    /* Modal principal en el centro */
+    .modal-contenido.principal {
+        z-index: 3;
+        min-height: 200px;
+    }
+
+    /* Modal de pago a la derecha */
+    .modal-contenido.pago {
+        margin-left: 100px;
+        max-width: 35%;
+        z-index: 2;
+    }
+
+    /* Modal de rechazo a la izquierda */
+    .modal-contenido.rechazo {
+        
+        margin-left: 100px;
+        width: 20%;
+        z-index: 2;
+
+        .h2{
+            font-size: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .botones-rechazo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    }
+
+    /* Botones */
+    .acciones .btn {
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .boton {
+        max-width: 150px;
+        text-align: center;
+        padding: 5px 15px;
+        background: #ececec;
+        color: black;
+        text-decoration: none;
+        margin-left: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+
+        &:hover {
+            background: #b8b7b7;
+        }
+
+        &:focus {
+            background-color: #757474;
+        }
+    }
+
+    textarea {
+        width: 90%;
+        height: 80px;
+        margin-top: 10px;
+        padding: 8px;
+        resize: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-self: center;
+    }
+
+
+    .acciones .btn.aceptar {
+        background-color: green;
+        color: white;
+    }
+
+    .acciones .btn.rechazar {
+        background-color: red;
+        color: white;
+    }
+
+    .acciones .btn.cerrar {
+        background-color: grey;
+        color: white;
+    }
+
+
+    .loading {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .errores {
+        background-color: rgb(190, 187, 187);
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-self: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+
+        .h1Error {
+            font-size: 40px;
+            color: red;
+        }
+
+        .error {
+            font-size: 30px;
+            color: red;
+            text-align: center;
+        }
+
+        .btn {
+            max-width: 200px;
+            text-align: center;
+            background: #f5f5f5;
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            font-weight: bold;
+
+            &:hover {
+                background: #b8b7b7;
+            }
+
+            &:focus {
+                background-color: #757474;
+            }
+        }
+
+        &.dark {
+            background-color: #333;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+
+            .h1Error {
+                color: rgb(204, 43, 43);
+            }
+
+            .error {
+                color: rgb(204, 43, 43);
+            }
+
+            .btn {
+                background-color: #777;
+                border: none;
+                color: black;
+
+                &:hover {
+                    background-color: #999;
+                }
+
+                &:focus {
+                    background-color: #646464;
+                }
+            }
+        }
+    }
+
+
+
+    .profile-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+        background: #333;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+        .btns {
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+
+            .edit-btn {
+                max-width: 200px;
+                text-align: center;
+                background: #f5f5f5;
+                color: black;
+                text-decoration: none;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background 0.3s ease;
+                font-weight: bold;
+                gap: 20px;
+
+                &:hover {
+                    background: #b6b5b5;
+                }
+
+                &:focus {
+                    background-color: #7a7979;
+                }
+            }
+
+            .delete-btn {
+                max-width: 200px;
+                text-align: center;
+                background: #f52727;
+                color: black;
+                text-decoration: none;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background 0.3s ease;
+                font-weight: bold;
+                gap: 20px;
+
+                &:hover {
+                    background: #ad1c1c;
+                }
+
+                &:focus {
+                    background-color: #991919;
+                }
+            }
+        }
+
+
+
+    }
+
+    .appointments {
+        background: #222;
+        height: 100%;
+        width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+
+            li {
+                background: #444;
+                margin: 5px 0;
+                padding: 8px;
+                border-radius: 5px;
+            }
+        }
+
+        .select {
+            align-self: center;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 10px;
+            padding: 8px;
+            width: 96%;
+            border: 1px solid #E6E6E6;
+            background-color: #ececec;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            color: black;
+        }
+
+        .filtros{
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+        }
+
+        .label{
+          margin: 50px;
+        }
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets (máximo 768px) */
+@media (max-width: 768px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      max-width: 100%;
+  
+      .profile-card,
+      .appointments {
+        width: 90%;
+        padding: 15px;
+      }
+  
+      .profile-card .btns {
+        flex-direction: row;
+        gap: 15px;
+      }
+  
+      .appointments .select {
+        width: 100%;
+      }
+  
+      
+      .modal-cita {
+        flex-direction: column;
+        align-items: stretch;
+        height: 95vh;
+      }
+
+        
+      .modal-contenido.principal{
+        min-height: 350px;
+      }
+
+      .modal-contenido.pago{
+          min-height: 200px;
+          margin-left: 60px;
+          min-width: 80%;
+      }
+
+      .modal-contenido.rechazo{
+          min-height: 200px;
+          min-width: 80%;
+          margin-left: 60px;
+      }
+  
+      .modal-contenido {
+          width: 70%;
+          margin: 10px auto;
+          max-height: 10vh;
+          overflow-y: auto;
+      }
+          
+  
+      .modal-contenido.rechazo textarea {
+        height: 70px;
+      }
+  
+      .botones-rechazo {
+        flex-direction: column;
+        gap: 10px;
+      }
+      }
+    }
+  
+
+/* Móviles (máximo 480px) */
+@media (max-width: 480px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      max-width: 90%;
+  
+      .profile-card,
+      .appointments {
+        width: 100%;
+        padding: 12px;
+      }
+  
+      .profile-card .btns {
+        flex-direction: row;
+        gap: 10px;
+      }
+  
+      .appointments {
+        .select {
+          width: 100%;
+          font-size: 14px;
+        }
+  
+        ul li {
+          font-size: 14px;
+          padding: 6px;
+        }
+      }
+  
+      .boton {
+        font-size: 14px;
+        padding: 3px 8px;
+      }
+  
+      .modal-cita {
+        flex-direction: column;
+        align-items: stretch;
+  
+        .modal-contenido {
+          width: 90% !important;
+          margin: 10px auto;
+        }
+        .modal-contenido.rechazo{
+          min-height: 200px;
+        }
+  
+        .modal-contenido.rechazo textarea {
+          height: 60px;
+        }
+  
+        .botones-rechazo {
+          flex-direction: column;
+        }
+      }
+    }
+  }

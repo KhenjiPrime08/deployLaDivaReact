@@ -1,0 +1,30 @@
+.citas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .citas-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 100px;
+    }
+
+    // 📱 Responsive para Tablets (≤ 768px)
+    @media (max-width: 768px) {
+        .citas-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    // 📱 Responsive para Móviles (≤ 480px)
+    @media (max-width: 480px) {
+        .citas-grid {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

@@ -1,0 +1,119 @@
+.back {
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        background-color: rgb(190, 187, 187);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 40vh;
+        font-size: 25px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        text-align: center;
+
+        .h1Card {
+            font-size: 35px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            flex-wrap: wrap; 
+
+            .delete-btn,
+            .btn {
+                max-width: 180px;
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                font-weight: bold;
+                text-align: center;
+                transition: background 0.3s ease;
+                text-decoration: none;
+            }
+
+            .delete-btn {
+                background: #f52727;
+                color: black;
+
+                &:hover {
+                    background: #ad1c1c;
+                }
+
+                &:focus {
+                    background-color: #991919;
+                }
+            }
+
+            .btn {
+                background: #f5f5f5;
+                color: black;
+
+                &:hover {
+                    background: #b6b5b5;
+                }
+
+                &:focus {
+                    background-color: #7a7979;
+                }
+            }
+        }
+
+        &.dark-mode {
+            background-color: #525151;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    // 📱 Responsive para Tablets (≤ 768px)
+    @media (max-width: 768px) {
+        .card {
+            width: 80%;
+            height: auto;
+            font-size: 22px;
+
+            .h1Card {
+                font-size: 30px;
+            }
+
+            .btns {
+                gap: 10px;
+            }
+        }
+    }
+
+    // 📱 Responsive para Móviles (≤ 480px)
+    @media (max-width: 480px) {
+        .card {
+            width: 90%;
+            font-size: 18px;
+            height: auto;
+            padding: 15px;
+
+            .h1Card {
+                font-size: 24px;
+            }
+
+            .btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .delete-btn,
+            .btn {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

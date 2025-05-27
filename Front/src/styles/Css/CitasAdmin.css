@@ -1,0 +1,473 @@
+.principal {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+.principal .row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+.principal .row .pendientes {
+  border-radius: 25px;
+  width: 100%;
+  min-width: 500px;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+.principal .row .pendientes .h1 {
+  font-size: 40px;
+}
+.principal .row .pendientes .h2 {
+  font-size: 30px;
+}
+.principal .row .pendientes .ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 90%;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+.principal .row .pendientes .ul .li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95%;
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.principal .row .pendientes .ul .li .p {
+  font-size: 15x;
+  align-self: center;
+}
+.principal .row .pendientes .ul .li .btn {
+  background-color: #e4e3e3;
+}
+.principal .row .pendientes .ul .li .btn:hover {
+  background: #cac7c7;
+}
+.principal .row .pendientes .ul .li .btn:focus {
+  background-color: #9c9a9a;
+}
+.principal .row .pendientes .ul .li .boton-cancelar {
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  background-color: #ff0000;
+  color: white;
+}
+.principal .row .pendientes .ul .li .boton-cancelar:hover {
+  background: #d90101;
+}
+.principal .row .pendientes .ul .li .boton-cancelar:focus {
+  background-color: #a70000;
+}
+.principal .row .pendientes .ul .li img {
+  max-width: 100%;
+  border-radius: 8px;
+  justify-self: center;
+  align-self: center;
+}
+.principal .row .pendientes .ul .li input[type=button] {
+  margin-top: auto;
+}
+.principal .row .pendientes .cita-seleccionada {
+  min-width: 500px;
+  max-width: 500px;
+}
+.principal .row .pendientes .cita-seleccionada .h2 {
+  font-size: 30px;
+  justify-self: center;
+}
+.principal .row .pendientes .cita-seleccionada .form {
+  width: 90%;
+  justify-self: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.principal .row .pendientes .cita-seleccionada .form .select {
+  align-self: center;
+  font-family: "Roboto", sans-serif;
+  margin-left: 10px;
+  padding: 8px;
+  width: 96%;
+  border: 1px solid #E6E6E6;
+  background-color: #ececec;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  color: black;
+  appearance: none;
+}
+.principal .row .pendientes .cita-seleccionada .form .label {
+  font-size: 20px;
+  margin-left: 15px;
+  margin-bottom: 5px; /* mejor un margin menor */
+  padding: 5px; /* opcional pero mejora visibilidad */
+}
+.principal .row .pendientes .cita-seleccionada .form .delete-btn {
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 20px;
+  max-width: 180px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  background: #f52727;
+  color: black;
+}
+.principal .row .pendientes .cita-seleccionada .form .delete-btn:hover {
+  background: #ad1c1c;
+}
+.principal .row .pendientes .cita-seleccionada .form .delete-btn:focus {
+  background-color: #991919;
+}
+.principal .row .pendientes .cita-seleccionada .form .btn {
+  align-items: center;
+  justify-self: center;
+  margin-bottom: 20px;
+  max-width: 180px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  background-color: #e4e3e3;
+  color: black;
+}
+.principal .row .pendientes .cita-seleccionada .form .btn:hover {
+  background: #cac7c7;
+}
+.principal .row .pendientes .cita-seleccionada .form .btn:focus {
+  background-color: #9c9a9a;
+}
+.principal .row .pendientes .cita-seleccionada .form .input-form {
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #ececec;
+  height: 20px;
+}
+.principal .row .pendientes .cita-seleccionada .form .input-form:hover {
+  background-color: #cac7c7;
+}
+.principal .row .pendientes .cita-seleccionada .form .input-form:focus {
+  background-color: #bdb9b9;
+}
+.principal .row .pendientes .cita-seleccionada .form .label-form {
+  display: block;
+  font-size: 20px;
+  margin-left: 15px;
+  margin-bottom: 5px; /* mejor un margin menor */
+  padding: 5px; /* opcional pero mejora visibilidad */
+}
+.principal .row .confirmadas {
+  border-radius: 25px;
+  width: 100%;
+  min-width: 500px;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+.principal .row .confirmadas .label {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  align-self: center;
+}
+.principal .row .confirmadas .p-cita {
+  font-size: 20px;
+  margin-bottom: 10px;
+  align-self: center;
+}
+.principal .row .confirmadas .citas-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.principal .row .confirmadas .cita-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+.principal .row .confirmadas .cita-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.principal .row .confirmadas .cita-card.expandida {
+  width: 40%;
+  background-color: #f4f4f4;
+}
+.principal .row .confirmadas .imagen-diseno {
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 6px;
+}
+.principal .row .confirmadas .info-cita-expandida {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+.principal .row .confirmadas .info-cita-expandida p {
+  margin: 4px 0;
+}
+.principal .row .confirmadas .select {
+  align-self: center;
+  font-family: "Roboto", sans-serif;
+  padding: 8px;
+  height: 58px;
+  width: 295px;
+  border: 1px solid #E6E6E6;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  color: black;
+  appearance: none;
+}
+.principal .row .confirmadas .h1 {
+  font-size: 40px;
+  justify-self: center;
+  align-self: center;
+}
+.principal .row .confirmadas .p {
+  font-size: 20px;
+  align-self: center;
+}
+.principal.dark-mode .pendientes {
+  background-color: #333;
+}
+.principal.dark-mode .pendientes .ul .li {
+  background-color: #444;
+  color: white;
+}
+.principal.dark-mode .pendientes .ul .li .btn {
+  background-color: #777;
+  color: #fff;
+}
+.principal.dark-mode .pendientes .ul .li .btn:hover {
+  background-color: #999;
+}
+.principal.dark-mode .pendientes .ul .li .btn:focus {
+  background-color: #888;
+}
+.principal.dark-mode .pendientes .cita-seleccionada .form {
+  background-color: #525151;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+.principal.dark-mode .pendientes .cita-seleccionada .form .btn {
+  background-color: #777;
+  color: #fff;
+}
+.principal.dark-mode .pendientes .cita-seleccionada .form .btn:hover {
+  background-color: #999;
+}
+.principal.dark-mode .pendientes .cita-seleccionada .form .btn:focus {
+  background-color: #888;
+}
+.principal.dark-mode .confirmadas {
+  background-color: #333;
+}
+.principal.dark-mode .confirmadas .cita-card {
+  background-color: #444;
+  color: white;
+  border: 1px solid #555;
+}
+.principal.dark-mode .confirmadas .cita-card:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.principal.dark-mode .confirmadas .cita-card.expandida {
+  background-color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  .principal {
+    width: 90%;
+  }
+  .principal .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .principal .row .pendientes,
+  .principal .row .confirmadas {
+    width: 100%;
+    min-width: 700px;
+  }
+  .principal .row .pendientes .h1,
+  .principal .row .confirmadas .h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+  .principal .row .pendientes .li,
+  .principal .row .confirmadas .li {
+    font-size: 18px;
+  }
+  .principal .row .pendientes .p,
+  .principal .row .confirmadas .p {
+    font-size: 18px;
+  }
+  .principal .row .pendientes .form,
+  .principal .row .confirmadas .form {
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-width: 350px;
+  }
+  .principal .row .pendientes .form .input-form,
+  .principal .row .pendientes .form .btn,
+  .principal .row .pendientes .form .delete-btn,
+  .principal .row .confirmadas .form .input-form,
+  .principal .row .confirmadas .form .btn,
+  .principal .row .confirmadas .form .delete-btn {
+    font-size: 1rem;
+    width: 85%;
+    background-color: rgb(255, 255, 0);
+  }
+}
+@media screen and (max-width: 480px) {
+  .principal {
+    width: 80%;
+    padding: 10px;
+  }
+  .principal .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .principal .row .pendientes {
+    margin-right: 15px;
+    width: 400px;
+    min-width: 300px;
+  }
+  .principal .row .pendientes .cita-seleccionada {
+    width: 100%;
+    padding: 10px;
+  }
+  .principal .row .pendientes .cita-seleccionada .form {
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .principal .row .pendientes .cita-seleccionada .form .input-form,
+  .principal .row .pendientes .cita-seleccionada .form .btn,
+  .principal .row .pendientes .cita-seleccionada .form .delete-btn {
+    width: 70%;
+    font-size: 0.9rem;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .principal .row .pendientes .cita-seleccionada .form .select {
+    width: 77%;
+  }
+  .principal .row .calendar {
+    width: 400px;
+    height: 450px;
+  }
+  .principal .row .confirmadas {
+    width: 400px;
+    min-width: 300px;
+    margin-left: 15px;
+    padding: 10px;
+  }
+  .principal .row .confirmadas h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .principal .row .confirmadas ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+  .principal .row .confirmadas ul li {
+    width: 70%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+  }
+  .principal .row .confirmadas ul li img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin: 10px 0;
+  }
+  .principal .row .confirmadas ul li input[type=button] {
+    margin-top: auto;
+    width: 100%;
+  }
+  .principal .row .confirmadas .cita-card.expandida {
+    width: 60%;
+  }
+  .principal .row .confirmadas .cita-seleccionada h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .principal .row .confirmadas .cita-seleccionada .form {
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .principal .row .confirmadas .cita-seleccionada .form .input-form,
+  .principal .row .confirmadas .cita-seleccionada .form .btn,
+  .principal .row .confirmadas .cita-seleccionada .form .delete-btn {
+    width: 70%;
+    font-size: 0.9rem;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .principal .row .confirmadas .cita-seleccionada p {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=CitasAdmin.css.map */
