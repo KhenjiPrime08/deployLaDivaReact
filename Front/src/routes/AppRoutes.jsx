@@ -18,6 +18,7 @@ import EditarPerfil from '../pages/EditarPerfil.jsx'
 import DeleteAcc from '../pages/DeleteAcc.jsx'
 import Contacto from '../pages/Contacto.jsx'
 import CitasAdmin from '../pages/CitasAdmin.jsx'
+import Error404 from '../pages/Error404.jsx'
 
 
 
@@ -45,7 +46,7 @@ function AppRoutes(logged) {
             
 
 
-            <Route path='*' element={<Iris_Gems />} /> {/* 404 cambiar elemento*/}
+            <Route path='*' element={<Error404 />} /> {/* 404 cambiar elemento*/}
 
             
             <Route path='/admin' element={ <Admin /> } />
