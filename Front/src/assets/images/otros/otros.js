@@ -6,7 +6,7 @@ import yani from './yani.webp'
 import yani_tatuando from './yani_tatuando.webp'
 import alex_tatuando from './alex_tatuando.webp'
 import fondo from './fondo.jpg'
-import lorenaPrincipal from './lorenaPrincipal.jpg'
+import lorenaPrincipal from './LorenaPrincipal.jpg'
 
 
 const otros = {
