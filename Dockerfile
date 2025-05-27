@@ -1,28 +1,24 @@
-# Etapa 1: Construir el frontend
-FROM node:20 as build-frontend
+# Etapa 1: Build del frontend con Node Alpine
+FROM node:20-alpine AS build-frontend
 WORKDIR /app/front
-COPY front/package*.json ./
+COPY Front/package*.json ./
 RUN npm install
-COPY front/ ./
+COPY Front/ ./
 RUN npm run build
 
-# Etapa 2: Backend + servir frontend
-FROM node:20
+# Etapa 2: Backend + servir frontend estático
+FROM node:20-alpine
 WORKDIR /app
 
-# Copiar backend
+# Instalar dependencias backend
 COPY back/package*.json ./back/
 RUN cd back && npm install
 
-# Copiar backend y build del frontend
+# Copiar backend y frontend compilado
 COPY back ./back
 COPY --from=build-frontend /app/front/dist ./back/public
 
-# Variables de entorno
 ENV PORT=4000
-
-# Exponer el puerto del backend
 EXPOSE 4000
 
-# Comando de inicio
 CMD ["node", "back/server.js"]
