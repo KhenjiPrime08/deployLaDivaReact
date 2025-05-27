@@ -43,6 +43,6 @@ app.use("/api/calendar", calendarRoute); //Endpoints para el pago con stripe
 db.sync({ force: false }) // Si cambias a { force: true }, se borrarán las tablas y se recrearán
   .then(() => {
     console.log("✅ Base de datos conectada");
-    app.listen(PORT, () => console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`🚀 Servidor corriendo en el puerto ${PORT}`));
   })
   .catch(error => console.error("❌ Error al conectar la base de datos:", error));
