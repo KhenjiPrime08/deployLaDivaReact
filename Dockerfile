@@ -26,4 +26,3 @@ EXPOSE 4000
 
 # Comando de inicio
 CMD ["node", "back/server.js"]
-
