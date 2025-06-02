@@ -20,7 +20,17 @@ exports.sendVerificationEmail = async (email, code) => {
       to: email,
       subject: "Verifica tu cuenta",
       text: `Tu código de verificación es: ${code}`,
-      html: `<p>Tu código de verificación es: <strong>${code}</strong></p>`
+      html: `<p>
+              Hola, <br /> 
+              Gracias por registrarte en nuestro sistema. Para completar el proceso de acceso, por favor utiliza el siguiente código de verificación:<br />
+              Codigo: <strong>${code}</strong> <br />
+              Introduce este código en la pantalla de verificación para confirmar tu identidad y acceder a tu cuenta.<br />
+              Si tú no solicitaste este código, puedes ignorar este mensaje. El código expirará en unos minutos por motivos de seguridad.<br />
+              Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. <br />
+              Atentamente,<br>
+              <strong>La Diva Tattoo</strong>
+            </p>`
+              
     });
   } catch (error) {
     console.error("Error enviando correo:", error);
@@ -47,7 +57,8 @@ exports.contactClient = async (email, nombre, fecha, horaInicio, horaFin) => {
   const asunto = 'Tu cita ha sido confirmada';
   const mensaje = `
     <h2>¡Hola ${nombre}!</h2>
-    <p>Tu cita ha sido confirmada para el día <strong>${fecha}</strong> desde <strong>${horaInicio}</strong> hasta <strong>${horaFin}</strong>.</p>
+    <p>Tu cita ha sido confirmada para el día <strong>${fecha}</strong> <br />
+    desde las<strong>${horaInicio}</strong> hasta las <strong>${horaFin}</strong>.</p>
     <p>Por favor, entra a tu perfil para <strong>aceptarla</strong> o <strong>rechazarla</strong> según tu disponibilidad.</p>
     <br />
     <p>Gracias por confiar en nosotros.</p>
