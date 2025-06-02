@@ -56,7 +56,7 @@ exports.contactClient = async (email, nombre, fecha, horaInicio, horaFin) => {
 
   const asunto = 'Tu cita ha sido confirmada';
   const mensaje = `
-    <h2>¡Hola ${nombre}!</h2>
+    <h2>¡Hola, ${nombre}!</h2>
     <p>Tu cita ha sido confirmada para el día <strong>${fecha}</strong> <br />
     desde las<strong>${horaInicio}</strong> hasta las <strong>${horaFin}</strong>.</p>
     <p>Por favor, entra a tu perfil para <strong>aceptarla</strong> o <strong>rechazarla</strong> según tu disponibilidad.</p>
