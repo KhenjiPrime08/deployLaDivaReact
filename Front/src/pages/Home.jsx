@@ -75,7 +75,6 @@ function Home({logged}) {
           <p>Un piercing es más que un accesorio, es una declaración de estilo y actitud. Esta es tu oportunidad de brillar con algo único y auténtico. ¡Hazlo tuyo!</p>
         </article>
         
-        
       </section>
 
       <section className={`reseñas ${darkMode ? 'dark-mode' : ''}`}>

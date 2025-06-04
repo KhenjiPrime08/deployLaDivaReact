@@ -46,3 +46,5 @@ db.sync({ force: false }) // Si cambias a { force: true }, se borrarán las tabl
     app.listen(PORT, () => console.log(`🚀 Servidor corriendo en el puerto ${PORT}`));
   })
   .catch(error => console.error("❌ Error al conectar la base de datos:", error));
+
+  
